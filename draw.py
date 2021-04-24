@@ -2,6 +2,7 @@ import numpy
 import math
 import tkinter
 import itertools
+from PIL import Image
 
 NUM_OF_PINS = 180
 DIAMETR = 60
@@ -49,19 +50,14 @@ def draw_all_connections(myCanvas, connections):
 
 	myCanvas.update()
 	myCanvas.postscript(file="file_name.ps", colormode='color')
-	from PIL import Image
 	img = Image.open("file_name.ps")
 	img.save("file.png", "png")
 
-# def C(n,k): #computes nCk, the number of combinations n choose k
-# 	result = 1
-# 	for i in range(n):
-# 		result*=(i+1)
-# 	for i in range(k):
-# 		result/=(i+1)
-# 	for i in range(n-k):
-# 		result/=(i+1)
-# 	return result
+	# black or white!
+	# print("colors")
+	# for i in range(100):
+	# 	colors = img.getpixel((i,40))
+	# 	print(colors)
 
 def C(n, k):
 	result = n
@@ -94,10 +90,10 @@ def cgen(i,n,k):
 	return c
 
 
-# root = tkinter.Tk()
-# myCanvas = tkinter.Canvas(root, bg="white", height=RESOLUTION + 1, width=RESOLUTION + 1)
-# draw_all_connections(myCanvas, connections)
-# root.mainloop()
+root = tkinter.Tk()
+myCanvas = tkinter.Canvas(root, bg="white", height=RESOLUTION + 1, width=RESOLUTION + 1)
+draw_all_connections(myCanvas, connections)
+root.mainloop()
 
 print(C(NUM_OF_PINS, 2))
 index = 13000
