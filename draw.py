@@ -53,7 +53,59 @@ def draw_all_connections(myCanvas, connections):
 	img = Image.open("file_name.ps")
 	img.save("file.png", "png")
 
-root = tkinter.Tk()
-myCanvas = tkinter.Canvas(root, bg="white", height=RESOLUTION + 1, width=RESOLUTION + 1)
-draw_all_connections(myCanvas, connections)
-root.mainloop()
+# def C(n,k): #computes nCk, the number of combinations n choose k
+# 	result = 1
+# 	for i in range(n):
+# 		result*=(i+1)
+# 	for i in range(k):
+# 		result/=(i+1)
+# 	for i in range(n-k):
+# 		result/=(i+1)
+# 	return result
+
+def C(n, k):
+	result = n
+	stop = n - k + 1
+	while n > stop:
+		n -= 1
+		result *= n
+	while k > 1:
+		result /= k
+		k -= 1
+	return int(result)
+	# result = n * (n - 1) / 2
+
+def cgen(i,n,k):
+	"""
+	returns the i-th combination of k numbers chosen from 1,2,...,n
+	"""
+	c = []
+	r = i
+	j = 0
+	for s in range(1,k+1):
+		cs = j+1
+		while r-C(n-cs,k-s)>0:
+			r -= C(n-cs,k-s)
+			cs += 1
+		if (s == k):
+			cs += r
+		c.append(cs)
+		j = cs
+	return c
+
+
+# root = tkinter.Tk()
+# myCanvas = tkinter.Canvas(root, bg="white", height=RESOLUTION + 1, width=RESOLUTION + 1)
+# draw_all_connections(myCanvas, connections)
+# root.mainloop()
+
+print(C(NUM_OF_PINS, 2))
+index = 13000
+print(cgen(index, NUM_OF_PINS, 2))
+print(pin_coords[101-1])
+print(pin_coords[102-1])
+print("-----------------")
+res = connections_compination[index]
+print(res)
+print(pin_coords.index(res[0]))
+print(pin_coords.index(res[1]))
