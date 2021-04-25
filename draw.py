@@ -37,7 +37,7 @@ def draw_connection(myCanvas, connection_index):
 	y0 = conn[0][1]
 	x1 = conn[1][0]
 	y1 = conn[1][1]
-	myCanvas.create_line(x0, y0, x1, y1)
+	myCanvas.create_line(x0, y0, x1, y1,)
 
 def draw_all_connections(myCanvas, connections):
 	for i in range(len(connections)):
