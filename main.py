@@ -1,5 +1,6 @@
 import numpy as np
 from PIL import Image, ImageDraw
+import math
 
 image_path_in = 'pics/portrait.jpg'
 image_path_out = 'pics/out_portrait.jpg'
@@ -32,7 +33,7 @@ err = np.subtract(img, res, dtype='int16')
 def set_pin_coords(Z, m, a, pins):
 	angle = 0
 	for pin in range(m):
-		pins[pin] = np.array([np.floor(Z/2 + Z/2 * np.cos(np.radians(angle))), np.floor(Z/2 + Z/2 * np.sin(np.radians(angle)))])
+		pins[pin] = np.array([np.floor(Z/2 + (Z - 2)/2 * np.cos(np.radians(angle))), np.floor(Z/2 + (Z - 2)/2 * np.sin(np.radians(angle)))])
 		angle += a
 
 def image_parse(img, image_path_in, image_path_out, Z):
@@ -55,7 +56,7 @@ def image_parse(img, image_path_in, image_path_out, Z):
 	# circle crop
 	circlecrop = Image.new('L', [Z, Z], 255)
 	circle = ImageDraw.Draw(circlecrop)
-	circle.pieslice([0, 0, Z, Z], 0, 360, fill=0)
+	circle.pieslice([1, 1, Z - 1, Z - 1], 0, 360, fill=0)
 	npcrop = np.array(circlecrop)
 	img = np.asarray(image).copy()
 	img[npcrop == 255] = 255
@@ -126,3 +127,114 @@ print("err: ", err.nbytes, " bytes")
 
 sum = pins.nbytes + conns.nbytes + img.nbytes + err.nbytes
 print("\nsum: ", sum, " bytes")
+
+
+
+def draw(pin_1, pin_2, type, res):
+	xk = pin_1[0]
+	xn = pin_2[0]
+	yk = pin_1[1]
+	yn = pin_2[1]
+	intensity = 255 #levels of intensity
+	dx = xk - xn
+	dy = yk - yn
+
+	# color pin_coords black
+	res[yk][xk] = 0
+	res[yn][xn] = 0
+
+	if (dx == 0):
+		sy = np.sign(yk - yn)
+		y = yn
+		while (y != yk):
+			res[y][xn] = 0
+			y += sy
+
+	elif (dy == 0):
+		sx = np.sign(xk - xn)
+		x = xn
+		while (x != xk):
+			res[yn][x] = 0
+			x += sx
+
+	elif (abs(dy) <= abs(dx)): # m < 1
+		if (dx < 0):
+			xk, xn = xn, xk
+			yk, yn = yn, yk
+
+			dx = -dx
+			dy = -dy
+
+		m = dy / dx
+
+		yi = yn + m
+		for  x in range (xn +1 , xk, 1):
+			curInt = intensity - (yi % 1) * intensity
+			res[math.floor(yi)][x] = curInt
+			if (curInt != intensity):
+				curInt = intensity - curInt
+				res[math.ceil(yi)][x] = curInt
+			yi = yi + m
+
+	else:
+		if (dy < 0):
+			xn, xk = xk, xn
+			yn, yk = yk, yn
+
+			dy = -dy
+			dx = -dx
+
+		m = dx / dy
+
+		xi = xn + m
+		for y in range (yn + 1, yk, 1):
+			curInt =  intensity - (xi % 1) * intensity
+			res[y][math.floor(xi)] = curInt
+			if (curInt != intensity):
+				curInt = intensity - curInt
+				res[y][math.ceil(xi)] = curInt
+			xi = xi + m
+
+
+def draw2(pin_1, pin_2, type, res):
+	xk = pin_1[0]
+	xn = pin_2[0]
+	yk = pin_1[1]
+	yn = pin_2[1]
+
+	intensity = 255 #levels of intensity, поменять на 256 наверное
+	dx = xk - xn
+	dy = yk - yn
+	sx = np.sign(dx)
+	sy = np.sign(dy)
+	dx = abs(dx)
+	dy = abs(dy)
+	swapFlag = 0
+	if (dy > dx):
+		dx, dy = dy, dx
+		swapFlag = 1
+	m = dy / dx * intensity
+	w = intensity - m
+	er = intensity / 2
+	x = xn
+	y = yn
+	for i in range (dx):
+		newColor = intensity - er
+		res[y][x] = newColor
+		if (er < w):
+			if (not swapFlag):
+				x += sx
+			else:
+				y += sy
+			er += m
+		else:
+			x += sx
+			y += sy
+			er -= w
+
+
+draw(pins[-40], pins[20], 0, res)
+Image.fromarray(res).save("pics/line.png")
+
+draw2(pins[-40], pins[20], 0, res)
+Image.fromarray(res).save("pics/line2.png")
