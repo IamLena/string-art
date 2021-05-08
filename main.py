@@ -130,7 +130,7 @@ print("\nsum: ", sum, " bytes")
 
 
 
-def draw(pin_1, pin_2, type, res):
+def draw(pin_1, pin_2, f_type, res):
 	xk = pin_1[0]
 	xn = pin_2[0]
 	yk = pin_1[1]
@@ -217,13 +217,20 @@ def draw(pin_1, pin_2, type, res):
 					res[y][math.floor(xi)+1] -= curInt
 			xi = xi + m
 
-for j in range(0, m, 50):
-	for i in range(0, m, 20):
-		draw(pins[j], pins[i], 0, res)
+# for j in range(0, m, 50):
+# for i in range(0, m):
+# 	draw(pins[-30], pins[i], 0, res)
+
+conns = np.random.choice(a=[False, True], size=(N), p=[0.99, 0.01])
+for i in range(len(conns)):
+	if conns[i]:
+		coords = find_conn_by_index(i)
+		pin_1 = int(coords[0])
+		pin_2 = int(coords[1])
+		f_type = int(coords[2])
+		draw(pins[pin_1], pins[pin_2], f_type, res)
+print(conns)
 
 Image.fromarray(res).save("pics/line4.png")
 
-print(pins[-40])
-print(pins[20])
-
-
+print(N, 0.01 * N)
