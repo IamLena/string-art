@@ -84,7 +84,7 @@ def find_conn_by_index(index):
 		pin_2 = pin_1 + L_min + (part_index % max_pins_in_this_line)
 	return([pin_1, pin_2, f_type])
 
-def find_index_by_pins(pin_1, pin_2, type, log = 0):
+def find_index_by_pins(pin_1, pin_2, type):
 	one_type_count = N / 4
 	max_pins_in_line = m - 2 * L_min + 1
 
@@ -95,12 +95,12 @@ def find_index_by_pins(pin_1, pin_2, type, log = 0):
 		elif (type == 2):
 			type = 0
 	if (pin_1 < L_min):
-		if (pin_2 >= pin_1 + L_min and pin_2 <= NUM_OF_PINS + pin_1 - L_min + 1):
+		if (pin_2 >= pin_1 + L_min and pin_2 <= N + pin_1 - L_min + 1):
 			one_type_index = pin_1 * max_pins_in_line + pin_2 - L_min - pin_1
 			return one_type_index + one_type_count * type
 		else:
 			return -1
-	if (pin_2 >= pin_1 + L_min and pin_2 < NUM_OF_PINS):
+	if (pin_2 >= pin_1 + L_min and pin_2 < N):
 		index = max_pins_in_line * L_min
 		max_pins_in_this_line = max_pins_in_line - 1
 		found_pin = L_min
@@ -136,6 +136,7 @@ def draw(pin_1, pin_2, type, res):
 	yk = pin_1[1]
 	yn = pin_2[1]
 	intensity = 255 #levels of intensity
+	# intensity = 255
 	dx = xk - xn
 	dy = yk - yn
 
@@ -143,37 +144,52 @@ def draw(pin_1, pin_2, type, res):
 	res[yk][xk] = 0
 	res[yn][xn] = 0
 
+	curInt = intensity
+
+	# vertical line
 	if (dx == 0):
 		sy = np.sign(yk - yn)
 		y = yn
 		while (y != yk):
-			res[y][xn] = 0
+			if (res[y][xn] <= curInt):
+				res[y][xn] = 0
+			else:
+				res[y][xn] -= curInt
 			y += sy
 
+	# horizontal line
 	elif (dy == 0):
 		sx = np.sign(xk - xn)
 		x = xn
 		while (x != xk):
-			res[yn][x] = 0
+			if (res[yn][x] <= curInt):
+				res[yn][x] = 0
+			else:
+				res[yn][x] -= curInt
 			x += sx
 
-	elif (abs(dy) <= abs(dx)): # m < 1
+	# m < 1
+	elif (abs(dy) <= abs(dx)):
 		if (dx < 0):
 			xk, xn = xn, xk
 			yk, yn = yn, yk
-
 			dx = -dx
 			dy = -dy
-
 		m = dy / dx
 
 		yi = yn + m
-		for  x in range (xn +1 , xk, 1):
+		for x in range (xn + 1, xk, 1):
 			curInt = intensity - (yi % 1) * intensity
-			res[math.floor(yi)][x] = curInt
+			if res[math.floor(yi)][x] <= curInt:
+				res[math.floor(yi)][x] = 0
+			else:
+				res[math.floor(yi)][x] -= curInt
 			if (curInt != intensity):
 				curInt = intensity - curInt
-				res[math.ceil(yi)][x] = curInt
+				if res[math.floor(yi)+1][x] <= curInt:
+					res[math.floor(yi)+1][x] = 0
+				else:
+					res[math.floor(yi)+1][x] -= curInt
 			yi = yi + m
 
 	else:
@@ -189,52 +205,25 @@ def draw(pin_1, pin_2, type, res):
 		xi = xn + m
 		for y in range (yn + 1, yk, 1):
 			curInt =  intensity - (xi % 1) * intensity
-			res[y][math.floor(xi)] = curInt
+			if res[y][math.floor(xi)] <= curInt:
+				res[y][math.floor(xi)] = 0
+			else:
+				res[y][math.floor(xi)] -= curInt
 			if (curInt != intensity):
 				curInt = intensity - curInt
-				res[y][math.ceil(xi)] = curInt
+				if (res[y][math.floor(xi)+1] <= curInt):
+					res[y][math.floor(xi)+1] = 0
+				else:
+					res[y][math.floor(xi)+1] -= curInt
 			xi = xi + m
 
+for j in range(0, m, 50):
+	for i in range(0, m, 20):
+		draw(pins[j], pins[i], 0, res)
 
-def draw2(pin_1, pin_2, type, res):
-	xk = pin_1[0]
-	xn = pin_2[0]
-	yk = pin_1[1]
-	yn = pin_2[1]
+Image.fromarray(res).save("pics/line4.png")
 
-	intensity = 255 #levels of intensity, поменять на 256 наверное
-	dx = xk - xn
-	dy = yk - yn
-	sx = np.sign(dx)
-	sy = np.sign(dy)
-	dx = abs(dx)
-	dy = abs(dy)
-	swapFlag = 0
-	if (dy > dx):
-		dx, dy = dy, dx
-		swapFlag = 1
-	m = dy / dx * intensity
-	w = intensity - m
-	er = intensity / 2
-	x = xn
-	y = yn
-	for i in range (dx):
-		newColor = intensity - er
-		res[y][x] = newColor
-		if (er < w):
-			if (not swapFlag):
-				x += sx
-			else:
-				y += sy
-			er += m
-		else:
-			x += sx
-			y += sy
-			er -= w
+print(pins[-40])
+print(pins[20])
 
 
-draw(pins[-40], pins[20], 0, res)
-Image.fromarray(res).save("pics/line.png")
-
-draw2(pins[-40], pins[20], 0, res)
-Image.fromarray(res).save("pics/line2.png")
