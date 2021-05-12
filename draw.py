@@ -27,7 +27,7 @@ for i in range(NUM_OF_PINS):
 # connections = numpy.zeros(NUM_OF_CONNECTIONS, dtype=numpy.bool8)
 NUM_OF_CONNECTIONS = int(NUM_OF_CONNECTIONS / 4)
 # connections = numpy.random.randint(0, 2, NUM_OF_CONNECTIONS)
-connections = numpy.random.choice([0, 1], size=NUM_OF_CONNECTIONS, p=[.97, .03])
+connections = numpy.random.choice([0, 1], size=NUM_OF_CONNECTIONS, p=[.99, .01])
 print(connections.sum())
 connections_compination = list(itertools.combinations(pin_coords, 2))
 
@@ -37,7 +37,7 @@ def draw_connection(myCanvas, connection_index):
 	y0 = conn[0][1]
 	x1 = conn[1][0]
 	y1 = conn[1][1]
-	myCanvas.create_line(x0, y0, x1, y1,)
+	myCanvas.create_line(x0, y0, x1, y1, fill="#000", width=1)
 
 def draw_all_connections(myCanvas, connections):
 	for i in range(len(connections)):
@@ -89,10 +89,20 @@ def cgen(i,n,k):
 		j = cs
 	return c
 
+def color_pixel(x, y, myCanvas, color)
+	myCanvas.create_line(x, y, x + 1, y, fill=color)
+	myCanvas.pack()
+	myCanvas.update()
 
 root = tkinter.Tk()
 myCanvas = tkinter.Canvas(root, bg="white", height=RESOLUTION + 1, width=RESOLUTION + 1)
-draw_all_connections(myCanvas, connections)
+# draw_all_connections(myCanvas, connections)
+myCanvas.create_line(pin_coords[100][0] - 2, pin_coords[100][1], pin_coords[30][0], pin_coords[30][1], fill="#000", width=1)
+myCanvas.create_line(pin_coords[100][0] + 2, pin_coords[100][1], pin_coords[30][0], pin_coords[30][1], fill="#000", width=1)
+myCanvas.create_oval(1, 1, RESOLUTION, RESOLUTION, dash=(1,5))
+myCanvas.pack()
+myCanvas.update()
+
 root.mainloop()
 
 print(C(NUM_OF_PINS, 2))
@@ -105,3 +115,100 @@ res = connections_compination[index]
 print(res)
 print(pin_coords.index(res[0]))
 print(pin_coords.index(res[1]))
+
+
+def sign(x):
+	if (sign > 0):
+		return 1
+	if (signa < 0):
+		return -1
+	return 0
+
+def By(xn, yn, xk, yk):
+	# m, xi, yi
+	intensity = 100 #levels of intensity
+	dx = (xk - xn)
+	dy = (yk - yn)
+	color = "#000000"
+
+	color_pixel(xn, yn, myCanvas, color)
+	color_pixel(xk, yk, myCanvas, color)
+
+	if (dx == 0) {
+		sy = sign(yk - yn)
+		y = yn
+		while (y != yk) {
+			color_pixel(xn, yn, myCanvas, color)
+			y += sy
+		}
+	}
+	else if (dy == 0) {
+		sx = sign(xk - xn)
+		x = xn
+		while (x != xk) {
+			color_pixel(xn, yn, myCanvas, color)
+			x += sx
+		}
+	}
+	else if (abs(dy) <= abs(dx)) { #m < 1
+		if (dx < 0) {
+			t = xk
+			xk = xn
+			xn = t
+
+			t = yk
+			yk = yn
+			yn = t
+			dx = -dx
+			dy = -dy
+		}
+
+		m = dy / dx
+
+		yi = yn + m
+		for x in range(xn + 1, x < xk)
+		for (let x = xn + 1; x < xk; x += 1) {
+			let curInt = intensity - (yi % 1) * 100
+			let newColor = changeColor(color, curInt)
+			ctx.fillStyle = newColor
+			ctx.fillRect(x, Math.floor(yi), 1, 1)
+			if (curInt != 100) {
+				curInt = intensity - curInt
+				newColor = changeColor(color, curInt)
+				ctx.fillStyle = newColor
+				ctx.fillRect(x, Math.ceil(yi), 1, 1)
+			}
+			yi = yi + m
+		}
+	}
+	else {
+		if (dy < 0) {
+			let t = xn
+			xn = xk
+			xk = t
+
+			t = yn
+			yn = yk
+			yk = t
+			dy = -dy
+			dx = -dx
+		}
+		m = dx / dy
+		console.log(`m = ${m}, dx = ${dx}, dy = ${dy}, xn = ${xn}`)
+
+		xi = xn + m
+		for (let y = yn + 1; y < yk; y += 1) {
+			let curInt =  intensity - (xi % 1) * 100
+			let newColor = changeColor(color, curInt)
+			ctx.fillStyle = newColor
+			ctx.fillRect(Math.floor(xi), y, 1, 1)
+			if (curInt != 100) {
+				curInt = intensity - curInt
+				newColor = changeColor(color, curInt)
+				ctx.fillStyle = newColor
+				ctx.fillRect(Math.ceil(xi), y, 1, 1)
+			}
+			xi = xi + m
+		}
+	}
+}

@@ -1,22 +1,24 @@
 import numpy as np
 from PIL import Image, ImageDraw, ImageTk
 import math
-from tkinter import Tk
+from tkinter import Tk, Canvas
 from tkinter.ttk import Frame, Label
+import concurrent.futures
+import time
 
 # for printing whole nparrays
 import sys
 np.set_printoptions(threshold=sys.maxsize)
 
-image_path_in = 'pics/portrait.jpg'
-image_path_out = 'pics/portrait_out.jpg'
+image_path_in = 'pics/putin.png'
+image_path_out = 'pics/putin_gr.png'
 
-Rc = 30			# canvas radius in cm
+Rc = 20			# canvas radius in cm
 t = 0.1			# thread weight in cm
-m = 200			# number of pins
+m = 100			# number of pins
 d_m = 0.2		# pin diameter
-n = 40		# number of executed connections
-L_min = 1		# min pin to be connected, conn min length = 1 if all connections needed
+n = 4		# number of executed connections
+L_min = 30		# min pin to be connected, conn min length = 1 if all connections needed
 
 Rcp = int(Rc / t)					# canvas radius in pixels
 Z = 2 * Rcp							# number of pixels in diameter (resolution)
@@ -218,7 +220,7 @@ print("conns: shape: ", conns.shape, " : ", conns.nbytes, " bytes")
 img = image_parse(image_path_in, image_path_out, Z)
 print("img: shape: ", img.shape, " : ", img.nbytes, " bytes")
 # print(img)
-Image.fromarray(img).show(title="img")
+# Image.fromarray(img).show(title="img")
 
 res = np.full((Z, Z), 255, dtype=np.uint8)
 print("res: shape: ", res.shape, " : ", res.nbytes, " bytes")
@@ -233,24 +235,32 @@ print(minerror)
 sum = pins.nbytes + conns.nbytes + img.nbytes + res.nbytes + err.nbytes
 print("\nsum: ", sum, " bytes")
 
-print ("connection will be made: ", n)
+print ("maximum connection will be made: ", n)
 
-def draw_image(img, res, n, N, minerror):
+
+def try_connection2(conn_index, pins, res, img, root, canvas):
+	copy_canvas = np.copy(res)
+	f_con = find_conn_by_index(conn_index)
+	pin_1 = pins[int(f_con[0])]
+	pin_2 = pins[int(f_con[1])]
+	draw(pin_1, pin_2, 0, copy_canvas)
+
+	show_connection(root, canvas, copy_canvas)
+
+	err = np.subtract(img, copy_canvas, dtype='int16')
+	new_error = np.sum(np.abs(err))
+	return new_error, pin_1, pin_2
+
+def draw_image2(img, res, n, N, minerror):
+	root = Tk()
+	w = len(img)
+	canvas = Canvas(root,width=w,height=w)
+	canvas.pack()
 	for j in range(N):
 		conn_index = -1
-		# print("----iter: ", j, "-----")
-		oldminerror = minerror
 		for i in range(N):
-			copy_canvas = np.copy(res)
-			f_con = find_conn_by_index(i)
-			pin_1 = pins[int(f_con[0])]
-			pin_2 = pins[int(f_con[1])]
-			draw(pin_1, pin_2, 0, copy_canvas)
-			err = np.subtract(img, copy_canvas, dtype='int16')
-			new_error = np.sum(np.abs(err))
+			new_error, pin_1, pin_2 = try_connection(i, pins, res, img, root, canvas)
 			if (new_error < minerror):
-				# print("		new err: ", new_error, end="")
-				# print("			MIN")
 				minerror = new_error
 				res_pin_1 = pin_1
 				res_pin_2 = pin_2
@@ -259,11 +269,66 @@ def draw_image(img, res, n, N, minerror):
 			break
 		conns[conn_index] = True
 		draw(res_pin_1, res_pin_2, 0, res)
-		# Image.fromarray(res).show()
-		if (j > n):
-			break
+		show_connection(root, canvas, res)
+
 	print(j, "connections")
 	Image.fromarray(res).save("pics/res.png")
 
 
-draw_image(img, res, n, N, minerror)
+def show_connection(root, canvas, res):
+	w = len(res) / 2
+	image = ImageTk.PhotoImage(Image.fromarray(res))
+	imagesprite = canvas.create_image(w, w, image=image)
+	canvas.pack()
+	root.update()
+
+def try_connection(listofargs):
+	conn_index = listofargs[0]
+	pins = listofargs[1]
+	res = listofargs[2]
+	img = listofargs[3]
+	copy_canvas = np.copy(res)
+	f_con = find_conn_by_index(conn_index)
+	pin_1 = pins[int(f_con[0])]
+	pin_2 = pins[int(f_con[1])]
+	draw(pin_1, pin_2, 0, copy_canvas)
+	err = np.subtract(img, copy_canvas, dtype='int16')
+	new_error = np.sum(np.abs(err))
+	return new_error
+
+def draw_connection(conn_index, res):
+	f_con = find_conn_by_index(conn_index)
+	pin_1 = pins[int(f_con[0])]
+	pin_2 = pins[int(f_con[1])]
+	draw(pin_1, pin_2, 0, res)
+
+def draw_image(img, res, N):
+	root = Tk()
+	w = len(img)
+	canvas = Canvas(root,width=w,height=w)
+	canvas.pack()
+
+	for j in range(n):
+		conn_index = -1
+
+		with concurrent.futures.ProcessPoolExecutor() as executor:
+			errors = executor.map(try_connection, [[i, pins, res, img] for i in range(N)])
+			errors = list(errors)
+			conn_index = errors.index(min(errors))
+			print(f'conn #{conn_index}\t: error = {errors[conn_index]}')
+
+		if conns[conn_index]:
+			break
+
+		conns[conn_index] = True
+		draw_connection(conn_index, res)
+		show_connection(root, canvas, res)
+
+	print(j, "connections are made")
+	Image.fromarray(res).save("pics/res_putin.png")
+
+
+t1 = time.perf_counter()
+draw_image(img, res, N)
+t2 = time.perf_counter()
+print(f'Finished in {t2-t1} seconds')

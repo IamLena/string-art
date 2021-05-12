@@ -4,7 +4,7 @@ ONE_TYPE_COUNT = NUM_OF_PINS * (NUM_OF_PINS - 1 - 2 * (MIN_CONN_LEN - 1)) / 2
 MAX_PINS_IN_LINE = NUM_OF_PINS - 2 * MIN_CONN_LEN + 1
 NUM_OF_CONNS = 2 * NUM_OF_PINS * (NUM_OF_PINS - 1 - 2 * (MIN_CONN_LEN - 1))
 
-print(MAX_PINS_IN_LINE)
+# print(MAX_PINS_IN_LINE)
 connections = []
 index = 0
 for type in range(4):
@@ -12,16 +12,16 @@ for type in range(4):
 		ends = pin_1 + MIN_CONN_LEN + MAX_PINS_IN_LINE
 		if (ends >= NUM_OF_PINS):
 			ends = NUM_OF_PINS
-		print("ends", ends)
+		# print("ends", ends)
 		for pin_2 in range (pin_1 + MIN_CONN_LEN, ends):
-			print(index, ":", pin_1, pin_2, type)
+			# print(index, ":", pin_1, pin_2, type)
 			connections.append([pin_1, pin_2, type])
 			index += 1
 
 
 assert(NUM_OF_CONNS == len(connections))
-print("ONE_TYPE_COUNT", ONE_TYPE_COUNT, "MAX_PINS_IN_LINE", MAX_PINS_IN_LINE)
-print("MAX_PINS_IN_LINE * MIN_CONN_LEN", MAX_PINS_IN_LINE * MIN_CONN_LEN)
+# print("ONE_TYPE_COUNT", ONE_TYPE_COUNT, "MAX_PINS_IN_LINE", MAX_PINS_IN_LINE)
+# print("MAX_PINS_IN_LINE * MIN_CONN_LEN", MAX_PINS_IN_LINE * MIN_CONN_LEN)
 
 
 def find_conn_by_index(index, log = 0):
@@ -55,20 +55,17 @@ def test_1():
 			print("target: ", connections[index])
 			print("my: ", my_res)
 
-def test_2():
-	for index in range (NUM_OF_CONNS):
-		conn = connections[index]
-		res = find_index_by_pins(conn[0], conn[1], conn[2])
-		if (index != res):
-			print(conn)
-			print("target: ", index)
-			print("my: ", res)
+
 
 def find_index_by_pins(pin_1, pin_2, type, log = 0):
 	if (pin_1 > pin_2):
 		if (log):
 			print("swaps")
 		pin_1, pin_2 = pin_2, pin_1
+		if (type == 0):
+			type = 2
+		elif (type == 2):
+			type = 0
 		# types switch, changing direction!
 	if (pin_1 < MIN_CONN_LEN):
 		if (log):
@@ -94,9 +91,21 @@ def find_index_by_pins(pin_1, pin_2, type, log = 0):
 	else:
 		return -1
 
+def test_2():
+	print('test')
+	for index in range (NUM_OF_CONNS):
+		conn = connections[index]
+		# res = find_index_by_pins(conn[0], conn[1], conn[2])
+		if (conn[2] == 0):
+			type = 2
+		elif (conn[2] == 2):
+			type = 0
+		else:
+			type = conn[2]
+		res = find_index_by_pins(conn[1], conn[0], type)
+		if (index != res):
+			print(conn)
+			print("target: ", index)
+			print("my: ", res)
 
-
-# conn = [4, 8, 0]
-# print(find_index_by_pins(conn[0], conn[1], conn[2], 1))
-# print("target", connections.index(conn))
 test_2()
