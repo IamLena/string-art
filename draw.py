@@ -216,56 +216,66 @@ def draw_connection(conn_index, img, res,  N, m, L_min, pins):
 	draw(pin_1, pin_2, ftype, res)
 
 def draw_image(img, res, conns, pins, N, n, m, L_min):
-	root = Tk()
-	w = len(img)
-	canvas = Canvas(root,width=w,height=w)
-	canvas.pack()
+	try:
+		root = Tk()
+		w = len(img)
+		canvas = Canvas(root,width=w,height=w)
+		canvas.pack()
+		count = 0
 
-	for j in range(n):
-		conn_index = -1
-		minerr = -1
-		errors = []
+		for j in range(n):
+			conn_index = -1
+			minerr = -1
+			errors = []
 
-		with concurrent.futures.ProcessPoolExecutor() as executor:
-			filter = []
-			for i in range(N):
-				if (conns[i] == 0):
-					filter.append([i, pins, res, img, N, m, L_min])
-			errors = executor.map(try_connection, filter)
-			errors = list(errors)
-			errors.sort()
-			print("errorlen = ", len(errors))
+			with concurrent.futures.ProcessPoolExecutor() as executor:
+				filter = []
+				for i in range(N):
+					if (conns[i] == 0):
+						filter.append([i, pins, res, img, N, m, L_min])
+				errors = executor.map(try_connection, filter)
+				errors = list(errors)
+				errors.sort()
+				print("errorlen = ", len(errors))
 
-			minerr = errors[0][0]
-			conn_index = errors[0][1]
-			# for er in errors:
-			# 	if er[0] < minerr:
-			# 		minerr = er[0]
-			# 		conn_index = er[1]
+				if (len(errors) != 0):
+					minerr = errors[0][0]
+					conn_index = errors[0][1]
+					# for er in errors:
+					# 	if er[0] < minerr:
+					# 		minerr = er[0]
+					# 		conn_index = er[1]
 
-			# print('min', minerr, conn_index)
-			# exit(0)
-			# nperr = np.array(errors, shape=())
-			# conn_index = errors.index(min(errors))
-			print(f'conn #{conn_index}\t: error = {minerr}')
+					# print('min', minerr, conn_index)
+					# exit(0)
+					# nperr = np.array(errors, shape=())
+					# conn_index = errors.index(min(errors))
+					print(f'conn #{conn_index}\t: error = {minerr}')
 
-		if len(errors) == 0:
-			break
+			if len(errors) == 0:
+				break
 
-		conns[conn_index] = 1
-		print("drawing ", j, " conn # ", conn_index, " err = ", minerr)
-		draw_connection(conn_index, img, res, N, m, L_min, pins)
-		show_any_img(root, canvas, res)
-		for i in range (len(errors)):
-			if (len(errors) - i < 100 or errors[i][0] > 100):
-				conns[errors[i][1]] = 2
-				print("throwing ", errors[i])
+			conns[conn_index] = 1
+			print("drawing ", j, " conn # ", conn_index, " err = ", minerr)
+			draw_connection(conn_index, img, res, N, m, L_min, pins)
+			show_any_img(root, canvas, res)
+			for i in range (len(errors)):
+				if (len(errors) - i < 100 or errors[i][0] > 100):
+					conns[errors[i][1]] = 2
+					print("throwing ", errors[i])
 
-		# conns[conn_index] = 1
-		# print("drawing ", conn_index)
-		# draw_connection(conn_index, img, res, N, m, L_min, pins)
-		# show_any_img(root, canvas, res)
+			# conns[conn_index] = 1
+			# print("drawing ", conn_index)
+			# draw_connection(conn_index, img, res, N, m, L_min, pins)
+			# show_any_img(root, canvas, res)
 
-	print(j, "connections are made")
-	print("conns\n", conns)
-	Image.fromarray(res).save("pics/res_portrait.png")
+		print(j, "connections are made")
+		print("conns\n", conns)
+		Image.fromarray(res).save("pics/res_portrait.png")
+		count += 1
+
+	except(e):
+		print(e)
+		Image.fromarray(res).save("pics/res_portrait.png")
+		print(count, "connections are made")
+		print("conns\n", conns)
