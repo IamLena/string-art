@@ -120,8 +120,8 @@ def try_connection(listofargs):
 	pin_1, pin_2, ftype = find_conn_by_index_coords(conn_index, N, m, L_min, pins)
 
 	new_error = get_error(pin_1, pin_2, ftype, res, img)
-	if (0 <= conn_index % 3000 <= 10):
-		print(new_error, conn_index)
+	# if (0 <= conn_index % 3000 <= 10):
+	print(new_error, conn_index)
 	return new_error, conn_index
 
 def draw(pin_1, pin_2, f_type, res):
@@ -228,29 +228,37 @@ def draw_image(img, res, conns, pins, N, n, m, L_min):
 			minerr = -1
 			errors = []
 
-			with concurrent.futures.ProcessPoolExecutor() as executor:
-				filter = []
-				for i in range(N):
-					if (conns[i] == 0):
-						filter.append([i, pins, res, img, N, m, L_min])
-				errors = executor.map(try_connection, filter)
-				errors = list(errors)
-				errors.sort()
-				print("errorlen = ", len(errors))
+			filter = []
+			for i in range(N):
+				if (conns[i] == 0):
+					filter.append([i, pins, res, img, N, m, L_min])
 
-				if (len(errors) != 0):
-					minerr = errors[0][0]
-					conn_index = errors[0][1]
-					# for er in errors:
-					# 	if er[0] < minerr:
-					# 		minerr = er[0]
-					# 		conn_index = er[1]
+			for connection in filter:
+				errors.append(try_connection(connection))
 
-					# print('min', minerr, conn_index)
-					# exit(0)
-					# nperr = np.array(errors, shape=())
-					# conn_index = errors.index(min(errors))
-					print(f'conn #{conn_index}\t: error = {minerr}')
+			# with concurrent.futures.ProcessPoolExecutor() as executor:
+			# 	filter = []
+			# 	for i in range(N):
+			# 		if (conns[i] == 0):
+			# 			filter.append([i, pins, res, img, N, m, L_min])
+			# 	errors = executor.map(try_connection, filter)
+			errors = list(errors)
+			errors.sort()
+			print("errorlen = ", len(errors))
+
+			if (len(errors) != 0):
+				minerr = errors[0][0]
+				conn_index = errors[0][1]
+				# for er in errors:
+				# 	if er[0] < minerr:
+				# 		minerr = er[0]
+				# 		conn_index = er[1]
+
+				# print('min', minerr, conn_index)
+				# exit(0)
+				# nperr = np.array(errors, shape=())
+				# conn_index = errors.index(min(errors))
+				print(f'conn #{conn_index}\t: error = {minerr}')
 
 			if len(errors) == 0:
 				break
