@@ -18,14 +18,14 @@ t = 0.1			# thread weight in cm
 m = 100			# number of pins
 d_m = 0.2		# pin diameter
 n = 4		# number of executed connections
-L_min = 30		# min pin to be connected, conn min length = 1 if all connections needed
+L_min = 20		# min pin to be connected, conn min length = 1 if all connections needed
 
 Rcp = int(Rc / t)					# canvas radius in pixels
 Z = 2 * Rcp							# number of pixels in diameter (resolution)
 a = 360 / m							# angle step for pins in degrees
 N = 2 * m * (m - 2 * L_min + 1)		# number of all possible connections
 
-n = int(N * 0.005)
+n = int(N * 0.05)
 
 assert(Rc > 0)
 assert(t > 0)
@@ -131,8 +131,8 @@ def draw(pin_1, pin_2, f_type, res, img):
 	dy = yk - yn
 
 	# color pin_coords black
-	error += img[yk][xk]
-	error += img[yn][xn]
+	error += int(img[yk][xk])
+	error += int(img[yn][xn])
 	len_p += 2
 
 	# res[yk][xk] = 0
@@ -147,11 +147,11 @@ def draw(pin_1, pin_2, f_type, res, img):
 		while (y != yk):
 			if (res[y][xn] <= curInt):
 				res[y][xn] = 0
-				error += img[y][xn]
+				error += int(img[y][xn])
 				len_p += 1
 			else:
 				res[y][xn] -= curInt
-				error += (img[y][xn] - res[y][xn] + curInt)
+				error += int(img[y][xn]) - int(res[y][xn]) + curInt
 				len_p += 1
 			y += sy
 
@@ -162,11 +162,11 @@ def draw(pin_1, pin_2, f_type, res, img):
 		while (x != xk):
 			if (res[yn][x] <= curInt):
 				res[yn][x] = 0
-				error += img[yn][x]
+				error += int(img[yn][x])
 				len_p += 1
 			else:
 				res[yn][x] -= curInt
-				error +=  (img[yn][x] - res[yn][x] + curInt)
+				error +=  int(img[yn][x]) - int(res[yn][x]) + curInt
 				len_p += 1
 			x += sx
 
@@ -184,21 +184,21 @@ def draw(pin_1, pin_2, f_type, res, img):
 			curInt = intensity - (yi % 1) * intensity
 			if res[math.floor(yi)][x] <= curInt:
 				res[math.floor(yi)][x] = 0
-				error += img[math.floor(yi)][x]
+				error += int(img[math.floor(yi)][x])
 				len_p += 1
 			else:
 				res[math.floor(yi)][x] -= curInt
-				error += img[math.floor(yi)][x] - res[math.floor(yi)][x] + curInt
+				error += int(img[math.floor(yi)][x]) - int(res[math.floor(yi)][x]) + curInt
 				len_p += 1
 			if (curInt != intensity):
 				curInt = intensity - curInt
 				if res[math.floor(yi)+1][x] <= curInt:
 					res[math.floor(yi)+1][x] = 0
-					error += img[math.floor(yi)+1][x]
+					error += int(img[math.floor(yi)+1][x])
 					len_p += 1
 				else:
 					res[math.floor(yi)+1][x] -= curInt
-					error += img[math.floor(yi)+1][x] - res[math.floor(yi)+1][x] + curInt
+					error += int(img[math.floor(yi)+1][x]) - int(res[math.floor(yi)+1][x]) + curInt
 					len_p += 1
 			yi = yi + m
 
@@ -217,23 +217,24 @@ def draw(pin_1, pin_2, f_type, res, img):
 			curInt =  intensity - (xi % 1) * intensity
 			if res[y][math.floor(xi)] <= curInt:
 				res[y][math.floor(xi)] = 0
-				error += img[y][math.floor(xi)]
+				error += int(img[y][math.floor(xi)])
 				len_p += 1
 			else:
 				res[y][math.floor(xi)] -= curInt
+				error += int(img[y][math.floor(xi)]) - int(res[y][math.floor(xi)]) + curInt
+				len_p += 1
 			if (curInt != intensity):
 				curInt = intensity - curInt
 				if (res[y][math.floor(xi)+1] <= curInt):
 					res[y][math.floor(xi)+1] = 0
-					error += img[y][math.floor(xi)+1]
+					error += int(img[y][math.floor(xi)+1])
 					len_p += 1
 				else:
 					res[y][math.floor(xi)+1] -= curInt
-					error += img[y][math.floor(xi)+1] - res[y][math.floor(xi)+1] + curInt
+					error += int(img[y][math.floor(xi)+1]) - int(res[y][math.floor(xi)+1]) + curInt
 					len_p += 1
 			xi = xi + m
 
-	print(f'whole error = {error}')
 	error /= len_p
 	return error
 
@@ -271,43 +272,6 @@ print("\nsum: ", sum, " bytes")
 print ("maximum connection will be made: ", n)
 
 
-def try_connection2(conn_index, pins, res, img, root, canvas):
-	copy_canvas = np.copy(res)
-	f_con = find_conn_by_index(conn_index)
-	pin_1 = pins[int(f_con[0])]
-	pin_2 = pins[int(f_con[1])]
-	draw(pin_1, pin_2, 0, copy_canvas)
-
-	show_connection(root, canvas, copy_canvas)
-
-	err = np.subtract(img, copy_canvas, dtype='int16')
-	new_error = np.sum(np.abs(err))
-	return new_error, pin_1, pin_2
-
-def draw_image2(img, res, n, N, minerror):
-	root = Tk()
-	w = len(img)
-	canvas = Canvas(root,width=w,height=w)
-	canvas.pack()
-	for j in range(N):
-		conn_index = -1
-		for i in range(N):
-			new_error, pin_1, pin_2 = try_connection(i, pins, res, img, root, canvas)
-			if (new_error < minerror):
-				minerror = new_error
-				res_pin_1 = pin_1
-				res_pin_2 = pin_2
-				conn_index = i
-		if conns[conn_index]:
-			break
-		conns[conn_index] = True
-		draw(res_pin_1, res_pin_2, 0, res)
-		show_connection(root, canvas, res)
-
-	print(j, "connections")
-	Image.fromarray(res).save("pics/res.png")
-
-
 def show_connection(root, canvas, res):
 	w = len(res) / 2
 	image = ImageTk.PhotoImage(Image.fromarray(res))
@@ -324,16 +288,15 @@ def try_connection(listofargs):
 	f_con = find_conn_by_index(conn_index)
 	pin_1 = pins[int(f_con[0])]
 	pin_2 = pins[int(f_con[1])]
-	draw(pin_1, pin_2, 0, copy_canvas)
-	err = np.subtract(img, copy_canvas, dtype='int16')
-	new_error = np.sum(np.abs(err))
-	return new_error
+	new_error = draw(pin_1, pin_2, 0, res, img)
+	return new_error, conn_index
 
-def draw_connection(conn_index, res):
+def draw_connection(conn_index, img, res):
 	f_con = find_conn_by_index(conn_index)
 	pin_1 = pins[int(f_con[0])]
 	pin_2 = pins[int(f_con[1])]
-	draw(pin_1, pin_2, 0, res)
+	error = draw(pin_1, pin_2, 0, res, img)
+	print(f'error {error}')
 
 def draw_image(img, res, N):
 	root = Tk()
@@ -345,16 +308,31 @@ def draw_image(img, res, N):
 		conn_index = -1
 
 		with concurrent.futures.ProcessPoolExecutor() as executor:
-			errors = executor.map(try_connection, [[i, pins, res, img] for i in range(N)])
+			filter = []
+			for i in range(N):
+				if not conns[i]:
+					filter.append([i, pins, res, img])
+			errors = executor.map(try_connection, filter)
 			errors = list(errors)
-			conn_index = errors.index(min(errors))
+
+			minerr = errors[0][0]
+			conn_index = errors[0][1]
+			for er in errors:
+				if er[0] < minerr:
+					minerr = er[0]
+					conn_index = er[1]
+			# print('min', minerr, conn_index)
+			# exit(0)
+			# nperr = np.array(errors, shape=())
+			# conn_index = errors.index(min(errors))
 			print(f'conn #{conn_index}\t: error = {errors[conn_index]}')
 
 		if conns[conn_index]:
 			break
 
 		conns[conn_index] = True
-		draw_connection(conn_index, res)
+		print("drawing ", conn_index)
+		draw_connection(conn_index, img, res)
 		show_connection(root, canvas, res)
 
 	print(j, "connections are made")
@@ -365,3 +343,41 @@ t1 = time.perf_counter()
 draw_image(img, res, N)
 t2 = time.perf_counter()
 print(f'Finished in {t2-t1} seconds')
+
+# root = Tk()
+# w = len(img)
+# canvas = Canvas(root,width=w,height=w)
+# canvas.pack()
+
+# image = ImageTk.PhotoImage(Image.fromarray(img))
+# imagesprite = canvas.create_image(w / 2, w / 2, image=image)
+# canvas.pack()
+# root.update()
+
+# print(img)
+
+
+# draw_connection(496, img, res)
+
+# image = ImageTk.PhotoImage(Image.fromarray(res))
+# imagesprite = canvas.create_image(w / 2, w / 2, image=image)
+# canvas.pack()
+# root.update()
+
+# draw_connection(3547, img, res)
+
+# image = ImageTk.PhotoImage(Image.fromarray(res))
+# imagesprite = canvas.create_image(w / 2, w / 2, image=image)
+# canvas.pack()
+# root.update()
+
+# time.sleep(1)
+
+# draw_connection(0, img, res)
+
+# image = ImageTk.PhotoImage(Image.fromarray(res))
+# imagesprite = canvas.create_image(w / 2, w / 2, image=image)
+# canvas.pack()
+# root.update()
+
+# root.mainloop()
