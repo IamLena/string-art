@@ -43,7 +43,7 @@ def make_circuit(pin_conns, deg, connections):
 	return connections
 
 
-def form_path(deg, pin, path, pin_conns, connections):
+def form_path_rec(deg, pin, path, pin_conns, connections):
 	# while node still has outgoing edges
 	while deg[pin] > 0:
 		deg[pin] -= 1
@@ -51,38 +51,65 @@ def form_path(deg, pin, path, pin_conns, connections):
 			if (pin_conns[index][0] == pin and connections[index] == 1):
 				# selecte next unvisited outgoing edge
 				connections[index] = 0
-				form_path(deg, pin_conns[index][1], path, pin_conns, connections)
+				form_path_rec(deg, pin_conns[index][1], path, pin_conns, connections)
 			elif (pin_conns[index][1] == pin and connections[index] == 1):
 				# selecte next unvisited outgoing edge
 				connections[index] = 0
-				form_path(deg, pin_conns[index][0], path, pin_conns, connections)
+				form_path_rec(deg, pin_conns[index][0], path, pin_conns, connections)
 	path.insert(0, pin)
 
-m = 10
+def form_path(deg, pin_conns, connections):
+	path = []
+	stack = [0]
+	while (len(stack) > 0):
+		# print("stack: ", stack)
+		pin = stack.pop()
+		# print("pin: ", pin, "deg ", deg[pin])
+		while (deg[pin] > 0):
+			deg[pin] -= 1
+			for index in range(len(pin_conns)):
+				if (pin_conns[index][0] == pin and connections[index] == 1):
+					# selecte next unvisited outgoing edge
+					connections[index] = 0
+					stack.insert(0, pin_conns[index][1])
+					# print("i: ", index, "pin_conn", pin_conns[index])
+				elif (pin_conns[index][1] == pin and connections[index] == 1):
+					# selecte next unvisited outgoing edge
+					connections[index] = 0
+					stack.insert(0, pin_conns[index][0])
+					# print("i: ", index, "pin_conn", pin_conns[index])
+		else:
+			path.insert(0, pin)
+	return path
+
+
+m = 100
 pin_conns = form_pin_conns(m)
 
 connections = set_connections(m)
 deg = count_degree(m, pin_conns, connections)
 
-###
-print(deg)
-odd_pins_indexes = np.where(deg % 2 == 1)[0]
-print(odd_pins_indexes)
-###
+# ###
+# print(deg)
+# odd_pins_indexes = np.where(deg % 2 == 1)[0]
+# print(odd_pins_indexes)
+# ###
 
 connections = make_circuit(pin_conns, deg, connections)
 conn_count =  np.sum(connections)
-###
-print(connections)
-print(m, " pins ", len(connections), " possible connections ", np.sum(connections), " connnections made")
-deg = count_degree(m, pin_conns, connections)
-print(deg)
-odd_pins_indexes = np.where(deg % 2 == 1)[0]
-print(odd_pins_indexes)
-###
+# ###
+# print(connections)
+# print(m, " pins ", len(connections), " possible connections ", np.sum(connections), " connnections made")
+# deg = count_degree(m, pin_conns, connections)
+# print(deg)
+# odd_pins_indexes = np.where(deg % 2 == 1)[0]
+# print(odd_pins_indexes)
+# ###
 
-path = []
-form_path(deg, 0, path, pin_conns, connections)
+# path = []
+# form_path_rec(deg, 0, path, pin_conns, connections)
+
+path = form_path(deg, pin_conns, connections)
 print(path)
 print(conn_count + 1, " = ", len(path))
 
