@@ -85,3 +85,7 @@ path = []
 form_path(deg, 0, path, pin_conns, connections)
 print(path)
 print(conn_count + 1, " = ", len(path))
+
+with open('schema.txt', 'w') as writer:
+	for pin in path:
+		writer.write(str(pin) + " ")
