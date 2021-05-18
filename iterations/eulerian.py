@@ -83,28 +83,28 @@ def form_path(deg, pin_conns, connections):
 	return path
 
 
-m = 100
+m = 10
 pin_conns = form_pin_conns(m)
 
 connections = set_connections(m)
 deg = count_degree(m, pin_conns, connections)
 
-# ###
-# print(deg)
-# odd_pins_indexes = np.where(deg % 2 == 1)[0]
-# print(odd_pins_indexes)
-# ###
+###
+print(deg)
+odd_pins_indexes = np.where(deg % 2 == 1)[0]
+print(odd_pins_indexes)
+###
 
 connections = make_circuit(pin_conns, deg, connections)
 conn_count =  np.sum(connections)
-# ###
-# print(connections)
-# print(m, " pins ", len(connections), " possible connections ", np.sum(connections), " connnections made")
-# deg = count_degree(m, pin_conns, connections)
-# print(deg)
-# odd_pins_indexes = np.where(deg % 2 == 1)[0]
-# print(odd_pins_indexes)
-# ###
+###
+print(connections)
+print(m, " pins ", len(connections), " possible connections ", np.sum(connections), " connnections made")
+deg = count_degree(m, pin_conns, connections)
+print(deg)
+odd_pins_indexes = np.where(deg % 2 == 1)[0]
+print(odd_pins_indexes)
+###
 
 # path = []
 # form_path_rec(deg, 0, path, pin_conns, connections)

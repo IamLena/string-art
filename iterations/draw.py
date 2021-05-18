@@ -120,8 +120,6 @@ def try_connection(listofargs):
 	pin_1, pin_2, ftype = find_conn_by_index_coords(conn_index, N, m, L_min, pins)
 
 	new_error = get_error(pin_1, pin_2, ftype, res, img)
-	# if (0 <= conn_index % 3000 <= 10):
-	print(new_error, conn_index)
 	return new_error, conn_index
 
 def draw(pin_1, pin_2, f_type, res):
@@ -130,7 +128,7 @@ def draw(pin_1, pin_2, f_type, res):
 	yk = pin_1[1]
 	yn = pin_2[1]
 	intensity = 255 #levels of intensity
-	# intensity = 255
+
 	dx = xk - xn
 	dy = yk - yn
 
@@ -233,32 +231,19 @@ def draw_image(img, res, conns, pins, N, n, m, L_min):
 				if (conns[i] == 0):
 					filter.append([i, pins, res, img, N, m, L_min])
 
-			for connection in filter:
-				errors.append(try_connection(connection))
-
-			# with concurrent.futures.ProcessPoolExecutor() as executor:
-			# 	filter = []
-			# 	for i in range(N):
-			# 		if (conns[i] == 0):
-			# 			filter.append([i, pins, res, img, N, m, L_min])
-			# 	errors = executor.map(try_connection, filter)
-			errors = list(errors)
-			errors.sort()
-			print("errorlen = ", len(errors))
+			with concurrent.futures.ProcessPoolExecutor() as executor:
+				filter = []
+				for i in range(N):
+					if (conns[i] == 0):
+						filter.append([i, pins, res, img, N, m, L_min])
+				errors = executor.map(try_connection, filter)
+				errors = list(errors)
+				errors.sort()
+				print("errorlen = ", len(errors))
 
 			if (len(errors) != 0):
 				minerr = errors[0][0]
 				conn_index = errors[0][1]
-				# for er in errors:
-				# 	if er[0] < minerr:
-				# 		minerr = er[0]
-				# 		conn_index = er[1]
-
-				# print('min', minerr, conn_index)
-				# exit(0)
-				# nperr = np.array(errors, shape=())
-				# conn_index = errors.index(min(errors))
-				print(f'conn #{conn_index}\t: error = {minerr}')
 
 			if len(errors) == 0:
 				break
@@ -267,18 +252,12 @@ def draw_image(img, res, conns, pins, N, n, m, L_min):
 			print("drawing ", j, " conn # ", conn_index, " err = ", minerr)
 			draw_connection(conn_index, img, res, N, m, L_min, pins)
 			show_any_img(root, canvas, res)
-			for i in range (len(errors)):
-				if (len(errors) - i < 100 or errors[i][0] > 100):
-					conns[errors[i][1]] = 2
-					print("throwing ", errors[i])
 
-			# conns[conn_index] = 1
-			# print("drawing ", conn_index)
-			# draw_connection(conn_index, img, res, N, m, L_min, pins)
-			# show_any_img(root, canvas, res)
+			for i in range (len(errors)):
+				if (errors[i][0] > 100):
+					conns[errors[i][1]] = 2
 
 		print(j, "connections are made")
-		print("conns\n", conns)
 		Image.fromarray(res).save("pics/res_portrait.png")
 		count += 1
 
@@ -287,3 +266,5 @@ def draw_image(img, res, conns, pins, N, n, m, L_min):
 		Image.fromarray(res).save("pics/res_portrait.png")
 		print(count, "connections are made")
 		print("conns\n", conns)
+
+	return conns

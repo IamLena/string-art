@@ -9,7 +9,7 @@ np.set_printoptions(threshold=sys.maxsize)
 image_path_in = 'pics/portrait.jpg'
 image_path_out = 'pics/portrait_gr.jpg'
 
-Rc = 25			# canvas radius in cm
+Rc = 30			# canvas radius in cm
 t = 0.1			# thread weight in cm
 m = 200			# number of pins
 d_m = 0.2		# pin diameter
@@ -43,7 +43,13 @@ def image_parse(image_path_in, image_path_out, Z):
 		side = image.size[0]
 	else:
 		side = image.size[1]
-	image.crop((image.size[0] / 2, image.size[1] / 2, side, side))
+	# im1 = im.crop((left, top, right, bottom))
+	left = image.size[0] / 2 - side / 2
+	top = image.size[1] / 2 - side / 2
+	right = image.size[0] / 2 + side / 2
+	bottom = image.size[1] / 2 + side / 2
+	image = image.crop((left, top, right, bottom))
+	# image.crop((image.size[0] / 2, image.size[1] / 2, side, side))
 	# greyscale
 	image = image.convert('L')
 	nparr = np.array(image)

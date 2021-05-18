@@ -1,6 +1,11 @@
 import numpy as np
 from PIL import Image, ImageDraw, ImageTk
 import math
+import concurrent.futures
+import time
+from tkinter import Tk, Canvas
+from tkinter.ttk import Frame, Label
+import numpy as np
 
 # for printing whole nparrays
 import sys
@@ -9,7 +14,7 @@ np.set_printoptions(threshold=sys.maxsize)
 image_path_in = 'pics/portrait.jpg'
 image_path_out = 'pics/portrait_gr.jpg'
 
-Rc = 25			# canvas radius in cm
+Rc = 15			# canvas radius in cm
 t = 0.1			# thread weight in cm
 m = 200			# number of pins
 
@@ -47,7 +52,6 @@ def image_parse(image_path_in, image_path_out, Z):
 	img[npcrop == 255] = 255
 	#save
 	Image.fromarray(img).save(image_path_out)
-	Image.fromarray(img).show(title="img")
 	return np.reshape(img, (Z**2,))
 
 def connect(xk, yk, xn, yn, Z):
@@ -138,10 +142,14 @@ def set_conns(Z, m, a):
 	return conns
 
 # try:
-conns = np.load("connections.npy")
+# print("loading data")
+# conns = np.load("connections.npy")
+# print("data is loaded")
+
+# may be different sizes of file and this parameters
 # except:
-# 	conns = set_conns(Z, m, a)
-# 	np.save("connections", conns)
+conns = set_conns(Z, m, a)
+# np.save("connections", conns)
 
 print("conns: shape: ", conns.shape, " : ", conns.nbytes, " bytes")
 
@@ -156,9 +164,83 @@ conn_status = np.zeros((len(conns), ), dtype=np.uint8)
 sum = conns.nbytes + img.nbytes + res.nbytes + conn_status.nbytes
 print("\nsum: ", sum, "B = ", sum / 1024 / 1024, "MB = ", sum / 1024 / 1024 / 1024, "GB")
 
-def draw_connection(connection, res):
-	res = np.clip(res - connection, 0, 255)
-	Image.fromarray(res.reshape((Z, Z))).show(title="img")
+def draw_connection(connection, res, root, canvas):
+	for pixel in range(len(connection)):
+		if (connection[pixel] != 0):
+			if (res[pixel] < connection[pixel]):
+				res[pixel] = 0
+			else:
+				res[pixel] -= connection[pixel]
+	Z = int(math.sqrt(len(connection)))
+	show_any_img(root, canvas, res.reshape(Z, Z))
 
-draw_connection(conns[100], res)
+def get_error_of_connection(args):
+	img = args[0]
+	res = args[1]
+	connection = args[2]
+	index = args[3]
 
+	error = 0
+	count = 0
+	for pixel in range(len(connection)):
+		if (connection[pixel] != 0):
+			error += abs(int(img[pixel]) - int(res[pixel]) + int(connection[pixel]))
+			count += 1
+	error /= count
+	return error, index
+
+def get_errors(img, res, conns, try_indexes):
+	# errors = []
+	# for i in range(len(conns)):
+	# 	errors.apend(get_error_of_connection(img, res, conns[i]))
+	# return errors
+
+	errors_ids = []
+	with concurrent.futures.ProcessPoolExecutor() as executor:
+		arr = [(img, res, conns[i], i) for i in range(len(try_indexes))]
+		errors_ids = executor.map(get_error_of_connection, arr)
+	errors_ids = list(errors_ids)
+	errors_ids.sort()
+	return errors_ids
+
+def generate(img, res, conns, Z, m, root, canvas):
+	N = int(m * (m - 1) / 2)
+	for loop in range(N):
+		try_indexes = np.where(conn_status == 0)[0]
+		print(try_indexes)
+		errors_ids = get_errors(img, res, conns, try_indexes)
+		print(errors_ids)
+		erlen = len(errors_ids)
+		print(erlen)
+		if (erlen == 0):
+			break
+		print("drawing ", errors_ids[0])
+		draw_connection(conns[errors_ids[0][1]], res, root, canvas)
+		conns[errors_ids[0][1]] = 1 #added
+
+		ends = int(erlen / 10)
+		for throw_index in range(ends):
+			print(throw_index)
+			print("throw ", errors_ids[-throw_index])
+			conn_status[errors_ids[-throw_index][1]] = 2
+		for err in errors_ids:
+			if err[0] > 127:
+				conns[err[1]] = 2
+	Image.fromarray(res.reshape(Z, Z)).save("pics/matrix_result.png")
+
+def show_any_img(root, canvas, nparr):
+	w = len(nparr) / 2
+	image = ImageTk.PhotoImage(Image.fromarray(nparr))
+	imagesprite = canvas.create_image(w, w, image=image)
+	canvas.pack()
+	root.update()
+
+
+root = Tk()
+canvas = Canvas(root,width=Z,height=Z)
+canvas.pack()
+
+t1 = time.perf_counter()
+generate(img, res, conns, Z, m, root, canvas)
+t2 = time.perf_counter()
+print(f'Finished in {t2-t1} seconds')
