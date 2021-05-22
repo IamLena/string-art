@@ -1,2 +1,0 @@
-# string-art
-diplom
