@@ -3,15 +3,15 @@ import numpy as np
 import math
 import time
 
-filename_in = 'lada.jpg'
-filename_gr = 'lada_gr.png'
-filename_res = 'lada_res.png'
-filename_sch = 'lada_sch.txt'
+filename_in = 'portrait.jpg'
+filename_gr = 'portrait_gr.png'
+filename_res = 'portrait_res.png'
+filename_sch = 'portrait_sch.txt'
 
 Rc = 30			# canvas radius in cm
 t = 0.1			# thread weight in cm
 m = 300			# number of pins
-skip = 10		# min pin to be connected
+skip = 1		# min pin to be connected
 Z = 2 * int(Rc / t)				# number of pixels in diameter (resolution)
 N = int(m * (m - 2 * skip + 1) / 2)		# number of all possible connections
 schema = ""				# updates in generate loop
@@ -22,7 +22,7 @@ schema = ""				# updates in generate loop
 assert(Rc > 0)
 assert(t > 0)
 assert (m > 0)
-assert(0 <= skip <= m/2)
+assert(1 <= skip <= m/2)
 
 def parse_image(image_path_in):
 	# load
@@ -190,7 +190,8 @@ def get_error(img, res, xk, yk, xn, yn):
 
 	x = xn
 	y = yn
-	for i in range (1, dx, 1):
+	# for i in range (1, dx, 1):
+	for i in range (dx):
 		error += img[y][x]
 		count += 1
 		if (er >= 0):
@@ -219,14 +220,6 @@ def find_first_conn(img, res, pins):
 	for conn_index in range(N):
 		if (conn_index % 300 == 0):
 			print(conn_index, "connection passed")
-		ends = m + pin_1_index - skip + 1
-		if (ends >= m):
-			ends = m
-		if (pin_2_index == ends):
-			pin_1_index += 1
-			xk = pins[pin_1_index][0]
-			yk = pins[pin_1_index][1]
-			pin_2_index = pin_1_index + skip
 
 		xn = pins[pin_2_index][0]
 		yn = pins[pin_2_index][1]
@@ -235,7 +228,17 @@ def find_first_conn(img, res, pins):
 		if (tmp_err < min_err):
 			best_pin_1 = pin_1_index
 			min_err = tmp_err
-		pin_2_index += 1
+
+		ends = pin_1_index + m - skip
+		if (ends >= m):
+			ends = m - 1
+		if (pin_2_index == ends):
+			pin_1_index += 1
+			xk = pins[pin_1_index][0]
+			yk = pins[pin_1_index][1]
+			pin_2_index = pin_1_index + skip
+		else:
+			pin_2_index += 1
 	return best_pin_1
 
 def find_and_draw_best_conn(img, res, pins, cur_pin, conns):
