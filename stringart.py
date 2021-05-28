@@ -9,15 +9,15 @@ start_time = time()
 
 ''' You can change this parameters '''
 
-Rc = 30			# canvas radius in cm
-t = 0.05			# thread weight in cm
-m = 300			# number of pins
-skip = 1		# min pin to be connected
+Rc = 20			# canvas radius in cm
+t = 0.1			# thread weight in cm
+m = 200			# number of pins
+skip = 20		# min pin to be connected
 
 if_log = 1		# 1 - logs, 0 - don't
 if_show = 0		# 1 - show process, 0 - don't. set to 0 if display problems
 
-img_path = "image.png"						# define input image path
+img_path = "spiral.png"						# define input image path
 
 '''-----------------------------------------'''
 

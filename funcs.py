@@ -49,11 +49,11 @@ def parse_image(image_path_in, Z):
 	image = image.crop((left, top, right, bottom))
 	# greyscale
 	image = image.convert('L')
-	nparr = np.array(image)
-	min = np.amin(nparr)
-	max = np.amax(nparr)
-	nparr = np.rint((nparr - min) / (max - min) * 255).astype(np.uint8)
-	image = Image.fromarray(nparr)
+	# nparr = np.array(image)
+	# min = np.amin(nparr)
+	# max = np.amax(nparr)
+	# nparr = np.rint((nparr - min) / (max - min) * 255).astype(np.uint8)
+	# image = Image.fromarray(nparr)
 	# restore matching resolution
 	image = image.resize((Z, Z), Image.ANTIALIAS)
 	# circle crop

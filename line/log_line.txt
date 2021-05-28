@@ -1,0 +1,58 @@
+image path: line.png
+canvas radius (cm): 20
+numer of pins: 200
+thread thickness (cm): 0.1
+pins to skip in minimum connection: 20
+logging: 1
+showing process: 0
+resolution: 400
+number of all possible connections: 16100
+
+image loaded
+start error is 69.1790625
+0 connections passed
+500 connections passed
+1000 connections passed
+1500 connections passed
+2000 connections passed
+2500 connections passed
+3000 connections passed
+3500 connections passed
+4000 connections passed
+4500 connections passed
+5000 connections passed
+5500 connections passed
+6000 connections passed
+6500 connections passed
+7000 connections passed
+7500 connections passed
+8000 connections passed
+8500 connections passed
+9000 connections passed
+9500 connections passed
+10000 connections passed
+10500 connections passed
+11000 connections passed
+11500 connections passed
+12000 connections passed
+12500 connections passed
+13000 connections passed
+13500 connections passed
+14000 connections passed
+14500 connections passed
+15000 connections passed
+15500 connections passed
+16000 connections passed
+best connection is 142 --- 41
+next connection is 41 --- 42
+start loop
+error check every 50
+connections limit is 16100
+50 connections made; error is 41.6219
+100 connections made; error is 25.065700000000003
+150 connections made; error is 15.401912500000002
+200 connections made; error is 11.15299375
+250 connections made; error is 10.3030375
+300 connections made; minimum error is 10.3030375
+87.83627513823707 m of thread needed
+time: 26.65172791481018

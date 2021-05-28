@@ -1,0 +1,16 @@
+192 51 51 192 134 191 50 192 104 153 84 28 83 26 82 150 8 134 190 132 189 61 134 7 76 188 60 4 145 79 144 97 28 173 100 31 159 109 158 14 140 13 82 25 81 24 169 85 170 118 169 97 
+
+image path: spiral.png
+canvas radius (cm): 20
+numer of pins: 200
+thread thickness (cm): 0.1
+pins to skip in minimum connection: 20
+logging: 1
+showing process: 0
+resolution: 400
+number of all possible connections: 16100
+50 connections made out of 16100
+0.0 m of thread needed
+error is 16.8067375
+time: 8.854283809661865
+

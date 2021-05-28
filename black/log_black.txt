@@ -1,0 +1,91 @@
+image path: black.png
+canvas radius (cm): 20
+numer of pins: 200
+thread thickness (cm): 0.1
+pins to skip in minimum connection: 20
+logging: 1
+showing process: 0
+resolution: 400
+number of all possible connections: 16100
+
+image loaded
+start error is 199.12471875
+0 connections passed
+500 connections passed
+1000 connections passed
+1500 connections passed
+2000 connections passed
+2500 connections passed
+3000 connections passed
+3500 connections passed
+4000 connections passed
+4500 connections passed
+5000 connections passed
+5500 connections passed
+6000 connections passed
+6500 connections passed
+7000 connections passed
+7500 connections passed
+8000 connections passed
+8500 connections passed
+9000 connections passed
+9500 connections passed
+10000 connections passed
+10500 connections passed
+11000 connections passed
+11500 connections passed
+12000 connections passed
+12500 connections passed
+13000 connections passed
+13500 connections passed
+14000 connections passed
+14500 connections passed
+15000 connections passed
+15500 connections passed
+16000 connections passed
+best connection is 20 --- 0
+next connection is 0 --- 40
+start loop
+error check every 50
+connections limit is 16100
+50 connections made; error is 179.58583750000003
+100 connections made; error is 159.53381875
+150 connections made; error is 141.78568125
+200 connections made; error is 124.660775
+250 connections made; error is 109.99630625
+300 connections made; error is 96.89810625
+350 connections made; error is 83.92032499999999
+400 connections made; error is 72.91545
+450 connections made; error is 63.213162499999996
+500 connections made; error is 54.587925
+550 connections made; error is 47.003968750000006
+600 connections made; error is 40.24456875
+650 connections made; error is 34.48924375
+700 connections made; error is 29.27413125
+750 connections made; error is 24.95035625
+800 connections made; error is 20.9808
+850 connections made; error is 17.81414375
+900 connections made; error is 14.923443749999999
+950 connections made; error is 12.813118750000001
+1000 connections made; error is 10.88738125
+1050 connections made; error is 9.2381875
+1100 connections made; error is 7.820168750000001
+1150 connections made; error is 6.5954999999999995
+1200 connections made; error is 5.59485
+1250 connections made; error is 4.75554375
+1300 connections made; error is 4.0331375000000005
+1350 connections made; error is 3.4297375
+1400 connections made; error is 3.033525
+1450 connections made; error is 2.6437125
+1500 connections made; error is 2.36374375
+1550 connections made; error is 2.10914375
+1600 connections made; error is 1.9184437500000002
+1650 connections made; error is 1.7664125000000002
+1700 connections made; error is 1.6430562499999999
+1750 connections made; error is 1.5413937500000001
+1800 connections made; error is 1.45235625
+1850 connections made; error is 1.3878812500000002
+1900 connections made; error is 1.3743875
+1950 connections made; minimum error is 1.3743875
+568.3023333581962 m of thread needed
+time: 142.36578392982483
