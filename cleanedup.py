@@ -20,6 +20,7 @@ def init_log(log_file, level_code):
 	# logging.critical("this is critical msg")
 
 def set_defaults(params):
+	logging.debug('setting default parameters')
 	if params['R'] == -1:
 		raise Exception('Canvas radius must be defined')
 	if params['t'] == -1:
@@ -34,6 +35,7 @@ def set_defaults(params):
 		params['if_show'] = 1
 
 def check_validation(params):
+	logging.debug('checking validation of parameters')
 	if (params['skip'] > params['m'] / 2):
 		raise Exception('To much pins to skip, redefine "number of pins to skip in minimum chord" parameter')
 	angle_step = 2 * np.pi / params['m']
@@ -43,6 +45,7 @@ def check_validation(params):
 		logging.warning("with this resolution, pins are too close to each other")
 
 def load_data():
+	logging.debug('loading input data')
 	params = {'R':-1, 't':-1, 'm':-1, 'skip':-1, 'if_log':-1, 'if_show':-1, 'max_conns':-1}
 	try:
 		with open("config.txt") as f:
