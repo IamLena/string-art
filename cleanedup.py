@@ -13,14 +13,14 @@ def init_log(log_file, level_code):
 		logging.StreamHandler()])
 
 	# init_log("log.txt")
-	# logging.debug("this is debug msg")
+	# logging.info("this is debug msg")
 	# logging.info("this is info msg")
 	# logging.warning("this is warning msg")
 	# logging.error("this is error msg")
 	# logging.critical("this is critical msg")
 
 def set_defaults(params):
-	logging.debug('setting default parameters')
+	logging.info('setting default parameters')
 	if params['R'] == -1:
 		raise Exception('Canvas radius must be defined')
 	if params['t'] == -1:
@@ -37,7 +37,7 @@ def set_defaults(params):
 		params['if_show'] = 1
 
 def check_validation(params):
-	logging.debug('checking validation of parameters')
+	logging.info('checking validation of parameters')
 	if (params['skip'] > params['m'] / 2):
 		raise Exception('To much pins to skip, redefine "number of pins to skip in minimum chord" parameter')
 	angle_step = 2 * np.pi / params['m']
@@ -47,7 +47,7 @@ def check_validation(params):
 		logging.warning("with this resolution, pins are too close to each other")
 
 def load_data():
-	logging.debug('loading input data')
+	logging.info('loading input data')
 	params = {'R':-1, 't':-1, 'm':-1, 'skip':-1, 'if_log':-1, 'if_show':-1, 'max_conns':-1, "image":-1, "name":-1}
 	try:
 		with open("config.txt") as f:
@@ -98,6 +98,8 @@ def load_data():
 						params['if_log'] = int(pair[1])
 					else:
 						raise Exception('logging should be 0 or 1')
+					if params['if_log'] == 0:
+						logging.getLogger().setLevel(logging.CRITICAL)
 				elif (pair[0].strip().lower() == 'show process'):
 					if (params['if_show'] != -1):
 						logging.warning('show process is defined several times, the last will be procesed')
@@ -113,6 +115,7 @@ def load_data():
 					params['max_conns'] = int(pair[1])
 			set_defaults(params)
 			check_validation(params)
+			logging.info('loading complete')
 			return params
 	except FileNotFoundError:
 		if params['image'] == 1:
@@ -127,7 +130,9 @@ def load_data():
 		logging.critical(str(error))
 		exit(1)
 
+def main():
+	init_log("log.txt", logging.INFO)
+	conf_dic = load_data()
+	print(conf_dic)
 
-init_log("log.txt", logging.DEBUG)
-conf_dic = load_data()
-print(conf_dic)
+main()
