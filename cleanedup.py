@@ -4,6 +4,7 @@ import numpy as np
 import logging
 import math
 from time import time
+import os
 
 def init_log(log_file, level_code):
 	logging.basicConfig(
@@ -99,6 +100,7 @@ def load_data():
 					else:
 						raise Exception('logging should be 0 or 1')
 					if params['if_log'] == 0:
+						logging.info('switching off logging')
 						logging.getLogger().setLevel(logging.CRITICAL)
 				elif (pair[0].strip().lower() == 'show process'):
 					if (params['if_show'] != -1):
@@ -130,9 +132,48 @@ def load_data():
 		logging.critical(str(error))
 		exit(1)
 
+def parse_image(conf_dic):
+	# load
+	image = conf_dic['image']
+	Z = conf_dic['Z']
+	# square crop
+	if image.size[0] < image.size[1]:
+		side = image.size[0]
+	else:
+		side = image.size[1]
+	left = (image.size[0] - side) / 2
+	top = (image.size[1] - side) / 2
+	right = (image.size[0] + side) / 2
+	bottom = (image.size[1] + side) / 2
+	image = image.crop((left, top, right, bottom))
+	# greyscale
+	image = image.convert('L')
+	# restore matching resolution
+	image = image.resize((Z, Z), Image.ANTIALIAS)
+	# circle crop
+	# new white canvas
+	circlecrop = Image.new('L', [Z, Z], 255)
+	circle = ImageDraw.Draw(circlecrop)
+	# set fields of 1 pixel, draw black circle
+	circle.pieslice([1, 1, Z - 1, Z - 1], 0, 360, fill=0)
+	npcrop = np.array(circlecrop)
+	img = np.asarray(image).copy()
+	# set pixels of image where circle_image is white to 255
+	img[npcrop == 255] = 255
+	Image.fromarray(img).save(conf_dic['name'] + "/greyscale.png")
+	conf_dic['image'] = img
+
 def main():
-	init_log("log.txt", logging.INFO)
+	init_log("log.txt", logging.DEBUG)
 	conf_dic = load_data()
-	print(conf_dic)
+	try:
+		os.mkdir(conf_dic['name'])
+	except OSError:
+		logging.warning('cannot create ' + conf_dic['name'] + ' folder to save results, saving to root')
+		conf_dic['name'] = './'
+	conf_dic['Z'] = int(2 * conf_dic['R'] / conf_dic['t'])
+	conf_dic['N'] = int(conf_dic['m'] * (conf_dic['m'] - 2 * conf_dic['skip'] + 1) / 2)
+	logging.debug(repr(conf_dic))
+	parse_image(conf_dic)
 
 main()
