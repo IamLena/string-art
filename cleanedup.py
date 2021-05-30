@@ -337,10 +337,10 @@ def save_image(filename, img):
 
 def save_data_scheme_close(conf_dic, scheme):
 	scheme.write("\n--------------------------------\n")
-	scheme.write("\nresolution: " + str(conf_dic['Z']) + "pixels in diameter")
-	scheme.write("\nthread length: " + str(conf_dic['length'] * conf_dic['t'] / 100) + "m")
+	scheme.write("\nresolution: " + str(conf_dic['Z']) + " pixels in diameter")
+	scheme.write("\nthread length: " + str(math.ceil(conf_dic['length'] * conf_dic['t'] / 100)) + " m")
 	scheme.write("\nconnections: " + str(conf_dic['conns']) + " / " + str(conf_dic['N']))
-	scheme.write("\nwhole error: " + str(conf_dic['whole_error']))
+	scheme.write("\nwhole error: " + str(conf_dic['whole_error']) + "; " + str(round(100 - (conf_dic['whole_error'] / 255 * 100), 2)) + "% acccuracy")
 	scheme.close()
 
 def generate(conf_dic):
