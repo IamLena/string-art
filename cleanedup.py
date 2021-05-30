@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageTk
 from tkinter import Tk, Canvas
-import numpy as numpy
+import numpy as np
 import logging
 import math
 from time import time
@@ -18,6 +18,29 @@ def init_log(log_file, level_code):
 	# logging.warning("this is warning msg")
 	# logging.error("this is error msg")
 	# logging.critical("this is critical msg")
+
+def set_defaults(params):
+	if params['R'] == -1:
+		raise Exception('Canvas radius must be defined')
+	if params['t'] == -1:
+		raise Exception('Thread weight must be defined')
+	if params['m'] == -1:
+		raise Exception('Number of pins must be defined')
+	if params['skip'] == -1:
+		params['skip'] = 1
+	if params['if_log'] == -1:
+		params['if_log'] = 1
+	if params['if_show'] == -1:
+		params['if_show'] = 1
+
+def check_validation(params):
+	if (params['skip'] > params['m'] / 2):
+		raise Exception('To much pins to skip, redefine "number of pins to skip in minimum chord" parameter')
+	angle_step = 2 * np.pi / params['m']
+	dist_b_pins = math.sqrt(params['R']**2 + params['R']**2 - 2 * params['R'] * params['R']  * math.cos(angle_step))
+	logging.info("angle between pins equal to " + str(360 / params['m']) + " degrees; distination between pins equals to " + str(dist_b_pins) + " cm")
+	if (dist_b_pins / params['t'] < 3):
+		logging.warning("with this resolution, pins are too close to each other")
 
 def load_data():
 	params = {'R':-1, 't':-1, 'm':-1, 'skip':-1, 'if_log':-1, 'if_show':-1, 'max_conns':-1}
@@ -62,6 +85,8 @@ def load_data():
 					if (int(pair[1]) <= 0):
 						raise Exception('Maximum connections to make should be positive integer')
 					params['max_conns'] = int(pair[1])
+			set_defaults(params)
+			check_validation(params)
 			return params
 	except FileNotFoundError:
 		logging.critical("config.txt file wasn't found")
