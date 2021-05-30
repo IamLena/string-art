@@ -27,6 +27,8 @@ def set_defaults(params):
 		raise Exception('Thread weight must be defined')
 	if params['m'] == -1:
 		raise Exception('Number of pins must be defined')
+	if params['name'] == -1:
+		raise Exception('Image path must be defined')
 	if params['skip'] == -1:
 		params['skip'] = 1
 	if params['if_log'] == -1:
@@ -46,7 +48,7 @@ def check_validation(params):
 
 def load_data():
 	logging.debug('loading input data')
-	params = {'R':-1, 't':-1, 'm':-1, 'skip':-1, 'if_log':-1, 'if_show':-1, 'max_conns':-1}
+	params = {'R':-1, 't':-1, 'm':-1, 'skip':-1, 'if_log':-1, 'if_show':-1, 'max_conns':-1, "image":-1, "name":-1}
 	try:
 		with open("config.txt") as f:
 			while True:
@@ -59,32 +61,53 @@ def load_data():
 				if (len(pair) != 2):
 					raise Exception('Invalid line in config.txt - ' + line)
 				if (pair[0].strip().lower() == 'canvas radius'):
+					if (params['R'] != -1):
+						logging.warning('canvas radius is defined several times, the last will be procesed')
 					if (float(pair[1]) <= 0):
 						raise Exception('Canvas radius should be positive number')
 					params['R'] = float(pair[1])
 				elif (pair[0].strip().lower() == 'thread weight'):
+					if (params['t'] != -1):
+						logging.warning('thread weight is defined several times, the last will be procesed')
 					if (float(pair[1]) <= 0):
 						raise Exception('Thread weight should be positive number')
 					params['t'] = float(pair[1])
 				elif (pair[0].strip().lower() == 'number of pins'):
+					if (params['m'] != -1):
+						logging.warning('number of pins is defined several times, the last will be procesed')
 					if (int(pair[1]) <= 0):
 						raise Exception('Number of pins should be positive integer')
 					params['m'] = int(pair[1])
+				elif (pair[0].strip().lower() == 'image'):
+					params['image'] = 1
+					name = pair[1].strip()
+					params['image'] = Image.open(name)
+					params['name'] = pair[1].strip().split('.')[0][name.rfind('/') + 1:]
+
+
 				elif (pair[0].strip().lower() == 'number of pins to skip in minimum chord'):
+					if (params['skip'] != -1):
+						logging.warning('number of pins to skip in minimum chord is defined several times, the last will be procesed')
 					if (int(pair[1]) <= 0):
 						raise Exception('Number of pins to skip in minimum chord should be positive integer')
 					params['skip'] = int(pair[1])
 				elif (pair[0].strip().lower() == 'logging'):
+					if (params['if_log'] != -1):
+						logging.warning('logging is defined several times, the last will be procesed')
 					if int(pair[1]) == 0 or int(pair[1]) == 1:
 						params['if_log'] = int(pair[1])
 					else:
 						raise Exception('logging should be 0 or 1')
 				elif (pair[0].strip().lower() == 'show process'):
+					if (params['if_show'] != -1):
+						logging.warning('show process is defined several times, the last will be procesed')
 					if int(pair[1]) == 0 or int(pair[1]) == 1:
 						params['if_show'] = int(pair[1])
 					else:
 						raise Exception('show process should be 0 or 1')
 				elif (pair[0].strip().lower() == 'maximum connections to make'):
+					if (params['max_conns'] != -1):
+						logging.warning('maximum connections to make is defined several times, the last will be procesed')
 					if (int(pair[1]) <= 0):
 						raise Exception('Maximum connections to make should be positive integer')
 					params['max_conns'] = int(pair[1])
@@ -92,7 +115,10 @@ def load_data():
 			check_validation(params)
 			return params
 	except FileNotFoundError:
-		logging.critical("config.txt file wasn't found")
+		if params['image'] == 1:
+			logging.critical("image file wasn't found")
+		else:
+			logging.critical("config.txt file wasn't found")
 		exit(1)
 	except ValueError:
 		logging.critical("types or values of paramenters are invalid")
@@ -100,6 +126,7 @@ def load_data():
 	except Exception as error:
 		logging.critical(str(error))
 		exit(1)
+
 
 init_log("log.txt", logging.DEBUG)
 conf_dic = load_data()
