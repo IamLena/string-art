@@ -163,17 +163,278 @@ def parse_image(conf_dic):
 	Image.fromarray(img).save(conf_dic['name'] + "/greyscale.png")
 	conf_dic['image'] = img
 
+def get_whole_error(img, res):
+	Z = len(img)
+	return np.sum(np.abs(np.subtract(img.astype("int16"), res.astype("int16")))) / Z / Z
+
+def get_coords(pins, index):
+	x = pins[index][0]
+	y = pins[index][1]
+	return (x, y)
+
+def brezenhem(img, xn, yn, xk, yk, draw):
+	error = 0
+	count = 0
+	dx = xk - xn
+	dy = yk - yn
+	sx = np.sign(dx)
+	sy = np.sign(dy)
+	dx = abs(dx)
+	dy = abs(dy)
+	swapFlag = 0
+	if (dy > dx):
+		dx, dy = dy, dx
+		swapFlag = 1
+	er = 2 * dy - dx
+
+	x = xn
+	y = yn
+	for i in range (1, dx):
+		if (draw):
+			img[y][x] = 255
+		else:
+			error += img[y][x]
+			count += 1
+		if (er >= 0):
+			if not swapFlag:
+				y += sy
+			else:
+				x += sx
+			er -= 2 * dx
+		if swapFlag:
+			y += sy
+		else:
+			x += sx
+		er += 2 * dy
+	if (count):
+		return error / count
+	return count
+
+def set_cur_int(res_pixel, curInt):
+	if (res_pixel <= curInt):
+		return 0
+	return res_pixel - curInt
+
+def Wu(res, xn, yn, xk, yk):
+	# levels of intensity
+	intensity = 255
+	dx = xk - xn
+	dy = yk - yn
+	# color pin_coords black
+	res[yk][xk] = 0
+	res[yn][xn] = 0
+	curInt = intensity
+	# vertical line
+	if (dx == 0):
+		sy = np.sign(yk - yn)
+		y = yn
+		while (y != yk):
+			res[y][xn] = set_cur_int(res[y][xn], curInt)
+			y += sy
+	# horizontal line
+	elif (dy == 0):
+		sx = np.sign(xk - xn)
+		x = xn
+		while (x != xk):
+			res[yn][x] = set_cur_int(res[yn][x], curInt)
+			x += sx
+	# m < 1
+	elif (abs(dy) <= abs(dx)):
+		if (dx < 0):
+			xk, xn = xn, xk
+			yk, yn = yn, yk
+			dx = -dx
+			dy = -dy
+		m = dy / dx
+		yi = yn + m
+		for x in range (xn + 1, xk, 1):
+			curInt = intensity - (yi % 1) * intensity
+			res[math.floor(yi)][x] = set_cur_int(res[math.floor(yi)][x], curInt)
+			if (curInt != intensity):
+				curInt = intensity - curInt
+				res[math.floor(yi)+1][x] = set_cur_int(res[math.floor(yi)+1][x], curInt)
+			yi = yi + m
+	# m > 1
+	else:
+		if (dy < 0):
+			xn, xk = xk, xn
+			yn, yk = yk, yn
+			dy = -dy
+			dx = -dx
+		m = dx / dy
+		xi = xn + m
+		for y in range (yn + 1, yk, 1):
+			curInt =  intensity - (xi % 1) * intensity
+			res[y][math.floor(xi)] = set_cur_int(res[y][math.floor(xi)], curInt)
+			if (curInt != intensity):
+				curInt = intensity - curInt
+				res[y][math.floor(xi)+1] = set_cur_int(res[y][math.floor(xi)+1], curInt)
+			xi = xi + m
+
+def find_best_conn_from_all(img, pins, skip):
+	best_pin_1 = -1
+	best_pin_2 = -1
+	min_err = 255
+
+	pin_1_index = 0
+	xk, yk = get_coords(pins, pin_1_index)
+	pin_2_index = pin_1_index + skip
+	xn, yn = get_coords(pins, pin_2_index)
+
+	m = len(pins)
+	N = int(m * (m - 2 * skip + 1) / 2)
+	for conn_index in range(N):
+		xn, yn = get_coords(pins, pin_2_index)
+		tmp_err = brezenhem(img, xn, yn, xk, yk, 0)
+
+		if (tmp_err < min_err):
+			best_pin_1 = pin_1_index
+			best_pin_2 = pin_2_index
+			min_err = tmp_err
+			logging.debug(str(conn_index) + " : " + str(best_pin_1) + " --- " + str(best_pin_2) + " conn err " + str(min_err))
+
+		ends = pin_1_index + m - skip
+		if (ends >= m):
+			ends = m - 1
+		if (pin_2_index == ends):
+			pin_1_index += 1
+			xk, yk = get_coords(pins, pin_1_index)
+			pin_2_index = pin_1_index + skip
+		else:
+			pin_2_index += 1
+	return best_pin_1, best_pin_2
+
+def get_conn_length(x0, y0, x1, y1):
+	return math.sqrt((x0 - x1) ** 2 + (y0 - y1) ** 2)
+
+def find_best_conn_from_pin(img, pins, cur_pin, skip):
+	m = len(pins)
+	best_pin = -1
+	min_err = 255
+	xk, yk = get_coords(pins, cur_pin)
+
+	for pin in range(cur_pin + skip, cur_pin + m - skip):
+		pin = pin % m
+		xn, yn = get_coords(pins, pin)
+		tmp_err = brezenhem(img, xn, yn, xk, yk, 0)
+		if (tmp_err < min_err):
+			best_pin = pin
+			min_err = tmp_err
+	if best_pin == -1:
+		best_pin = best_pin_1 + 1
+		if (best_pin == len(pins)):
+			best_pin = 0
+	return best_pin, min_err
+
+def show_image(img):
+	Image.fromarray(img).show()
+
+def save_image(filename, img):
+	Image.fromarray(img).save(filename)
+
+def start_generate(conf_dic):
+	m = conf_dic['m']
+	skip = conf_dic['skip']
+	Z = conf_dic['Z']
+
+	conf_dic['length'] = 0
+	conf_dic['conns'] = 0
+
+	image = conf_dic['image']
+	result = np.full((Z, Z), 255,  dtype=np.uint8)
+	whole_error = get_whole_error(conf_dic['image'], result)
+	if (whole_error == 0):
+		logging.debug('white image, exiting')
+		return
+	logging.info("starting whole_error " + str(whole_error))
+
+	angles = np.linspace(0, 2*np.pi, m)
+	center = Z / 2
+	xs = center + (Z - 2)/2 * np.cos(angles)
+	ys = center + (Z - 2)/2 * np.sin(angles)
+	pins = list(map(lambda x,y: (int(x),int(y)), xs,ys))
+
+	length = 0
+	scheme = ''
+	conn_count = 0
+	max_con_flag = 0
+	max_conns = conf_dic['N']
+
+	if (conf_dic['max_conns'] != -1):
+		logging.debug('priority to max conns, not error')
+		max_con_flag = 1
+		max_conns = conf_dic['max_conns']
+
+	error_check_step = 1
+	logging.debug('error_check_step ' + str(error_check_step))
+
+	pin1, pin2 = find_best_conn_from_all(image, pins, skip)
+	logging.info('first conn ' + str(pin1) + " " + str(pin2))
+	x0, y0 = get_coords(pins, pin1)
+	x1, y1 = get_coords(pins, pin2)
+
+	backup_res = result.copy()
+	Wu(result, x0, y0, x1, y1)
+	new_error = get_whole_error(conf_dic['image'], result)
+	if (new_error > whole_error):
+		result = backup_res
+		logging.debug('first connection getting worst error, exiting')
+		return
+
+	whole_error = new_error
+	conn_count += 1
+	length += get_conn_length(x0, y0, x1, y1)
+	brezenhem(image, x0, y0, x1, y1, 1)
+	logging.info('first connection drawn')
+	save_image('oneline.png', result)
+
+	pin3_v1, err_v1 = find_best_conn_from_pin(image, pins, pin1, skip)
+	pin3_v2, err_v2 = find_best_conn_from_pin(image, pins, pin2, skip)
+
+	if (err_v1 < err_v2):
+		# pin2 - pin1 - pin3
+		x1, y1 = x0, y0
+		x2, y2 = get_coords(pins, pin3_v1)
+		pin1, pin2 = pin2, pin1
+		pin3 = pin3_v1
+	else:
+		# pin1 - pin2 - pin3
+		x2, y2 = get_coords(pins, pin3_v2)
+		pin3 = pin3_v2
+
+	backup_res = result.copy()
+	Wu(result, x1, y1, x2, y2)
+	new_error = get_whole_error(conf_dic['image'], result)
+	if (new_error > whole_error):
+		result = backup_res
+		conf_dic['length'] = length
+		conf_dic['conns'] = conn_count
+		logging.debug('adding connection making worse error, exiting')
+		return
+
+	length += get_conn_length(x1, y1, x2, y2)
+	conn_count += 1
+	brezenhem(image, x1, y1, x2, y2, 1)
+	logging.debug('found first connections: ' + str(pin1) + " " + str(pin2) + " " + str(pin3) + " err: " + str(whole_error))
+
+	scheme += str(pin1) + " " + str(pin2) + " " + str(pin3) + " "
+	# show_image(image)
+
+
 def main():
 	init_log("log.txt", logging.DEBUG)
 	conf_dic = load_data()
 	try:
 		os.mkdir(conf_dic['name'])
-	except OSError:
-		logging.warning('cannot create ' + conf_dic['name'] + ' folder to save results, saving to root')
-		conf_dic['name'] = './'
+	except OSError as error:
+		if error.errno == 17:
+			logging.warning('files in ' + conf_dic['name'] + ' folder will be overwrite')
+		else:
+			logging.warning('cannot create ' + conf_dic['name'] + ' folder to save results, saving to root')
+			conf_dic['name'] = './'
 	conf_dic['Z'] = int(2 * conf_dic['R'] / conf_dic['t'])
 	conf_dic['N'] = int(conf_dic['m'] * (conf_dic['m'] - 2 * conf_dic['skip'] + 1) / 2)
 	logging.debug(repr(conf_dic))
 	parse_image(conf_dic)
-
+	start_generate(conf_dic)
 main()
