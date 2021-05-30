@@ -321,7 +321,8 @@ def find_best_conn_from_pin(img, pins, cur_pin, skip):
 			best_pin = pin
 			min_err = tmp_err
 	if best_pin == -1:
-		best_pin = best_pin_1 + 1
+		logging.debug("going to the neighbour")
+		best_pin = cur_pin + 1
 		if (best_pin == len(pins)):
 			best_pin = 0
 	return best_pin, min_err
@@ -332,7 +333,23 @@ def show_image(img):
 def save_image(filename, img):
 	Image.fromarray(img).save(filename)
 
-def start_generate(conf_dic):
+def draw_connections(res, schema, pins):
+	# cutting out conns info
+	pins_to_connect = ""
+	lines = schema.split("\n")
+	for line in lines:
+		if "connections made" not in line:
+			pins_to_connect += line
+	pins_to_connect = pins_to_connect.split(" ")
+	print(pins_to_connect)
+	xn, yn = get_coords(pins, int(pins_to_connect[0]))
+	for pin_index in pins_to_connect[1:]:
+		if pin_index != "":
+			xk, yk = get_coords(pins, int(pin_index))
+			Wu(res, xn, yn, xk, yk)
+			xn, yn = xk, yk
+
+def generate(conf_dic):
 	m = conf_dic['m']
 	skip = conf_dic['skip']
 	Z = conf_dic['Z']
@@ -365,28 +382,30 @@ def start_generate(conf_dic):
 		max_con_flag = 1
 		max_conns = conf_dic['max_conns']
 
-	error_check_step = 1
-	logging.debug('error_check_step ' + str(error_check_step))
+	init_error_check = 1
+	error_check = 1
+	logging.debug('error_check ' + str(error_check))
 
 	pin1, pin2 = find_best_conn_from_all(image, pins, skip)
 	logging.info('first conn ' + str(pin1) + " " + str(pin2))
 	x0, y0 = get_coords(pins, pin1)
 	x1, y1 = get_coords(pins, pin2)
 
-	backup_res = result.copy()
-	Wu(result, x0, y0, x1, y1)
-	new_error = get_whole_error(conf_dic['image'], result)
-	if (new_error > whole_error):
-		result = backup_res
-		logging.debug('first connection getting worst error, exiting')
-		return
+	if not max_con_flag:
+		backup_res = result.copy()
+		Wu(result, x0, y0, x1, y1)
+		new_error = get_whole_error(conf_dic['image'], result)
+		if (new_error > whole_error):
+			result = backup_res
+			logging.debug('first connection getting worst error, exiting')
+			return
+		whole_error = new_error
 
-	whole_error = new_error
 	conn_count += 1
 	length += get_conn_length(x0, y0, x1, y1)
 	brezenhem(image, x0, y0, x1, y1, 1)
 	logging.info('first connection drawn')
-	save_image('oneline.png', result)
+	# save_image('oneline.png', result)
 
 	pin3_v1, err_v1 = find_best_conn_from_pin(image, pins, pin1, skip)
 	pin3_v2, err_v2 = find_best_conn_from_pin(image, pins, pin2, skip)
@@ -402,23 +421,58 @@ def start_generate(conf_dic):
 		x2, y2 = get_coords(pins, pin3_v2)
 		pin3 = pin3_v2
 
-	backup_res = result.copy()
-	Wu(result, x1, y1, x2, y2)
-	new_error = get_whole_error(conf_dic['image'], result)
-	if (new_error > whole_error):
-		result = backup_res
-		conf_dic['length'] = length
-		conf_dic['conns'] = conn_count
-		logging.debug('adding connection making worse error, exiting')
-		return
+	if not max_con_flag:
+		backup_res = result.copy()
+		Wu(result, x1, y1, x2, y2)
+		new_error = get_whole_error(conf_dic['image'], result)
+		if (new_error > whole_error):
+			result = backup_res
+			conf_dic['length'] = length
+			conf_dic['conns'] = conn_count
+			logging.debug('adding connection making worse error, exiting')
+			return result
+		whole_error = new_error
 
 	length += get_conn_length(x1, y1, x2, y2)
 	conn_count += 1
 	brezenhem(image, x1, y1, x2, y2, 1)
 	logging.debug('found first connections: ' + str(pin1) + " " + str(pin2) + " " + str(pin3) + " err: " + str(whole_error))
+	# scheme += str(pin1) + " " + str(pin2) + " " + str(pin3) + " "
+	# save to file, here it draws it twice
 
-	scheme += str(pin1) + " " + str(pin2) + " " + str(pin3) + " "
-	# show_image(image)
+	cur_pin = pin3
+	xn, yn = x2, y2
+	while conn_count < max_conns:
+		next_pin, err = find_best_conn_from_pin(image, pins, cur_pin, skip)
+		logging.debug(str(conn_count + 1) + ": " + str(cur_pin) + " " + str(next_pin) + " conn err " + str(err))
+
+		if error_check == 0 and not max_con_flag:
+			backup_res = result.copy()
+			draw_connections(result, scheme, pins)
+			# flusg schema to file
+			new_error = get_whole_error(conf_dic['image'], result)
+			logging.debug("new error " + str(new_error))
+			if (new_error > whole_error):
+				result = backup_res
+				conf_dic['length'] = length
+				conf_dic['conns'] = conn_count
+				logging.debug(str(conn_count) + '/' + str(max_conns) + ' whole error ' + str(whole_error))
+				logging.debug('adding connection making worse error, exiting')
+				return result
+			whole_error = new_error
+			error_check = init_error_check
+
+		scheme += str(next_pin) + " "
+		xk, yk = get_coords(pins, next_pin)
+		brezenhem(image, xn, yn, xk, yk, 1)
+		length += get_conn_length(xn, yn, xk, yk)
+		cur_pin = next_pin
+		xn, yn = xk, yk
+		conn_count += 1
+		error_check -= 1
+
+	return result
+
 
 
 def main():
@@ -436,5 +490,6 @@ def main():
 	conf_dic['N'] = int(conf_dic['m'] * (conf_dic['m'] - 2 * conf_dic['skip'] + 1) / 2)
 	logging.debug(repr(conf_dic))
 	parse_image(conf_dic)
-	start_generate(conf_dic)
+	result = generate(conf_dic)
+	show_image(result)
 main()
