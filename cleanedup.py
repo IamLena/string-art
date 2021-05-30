@@ -337,8 +337,8 @@ def save_image(filename, img):
 
 def save_data_scheme_close(conf_dic, scheme):
 	scheme.write("\n--------------------------------\n")
-	scheme.write("\nresolution: " + str(conf_dic['Z']))
-	scheme.write("\nthread length: " + str(conf_dic['length']))
+	scheme.write("\nresolution: " + str(conf_dic['Z']) + "pixels in diameter")
+	scheme.write("\nthread length: " + str(conf_dic['length'] * conf_dic['t'] / 100) + "m")
 	scheme.write("\nconnections: " + str(conf_dic['conns']) + " / " + str(conf_dic['N']))
 	scheme.write("\nwhole error: " + str(conf_dic['whole_error']))
 	scheme.close()
@@ -443,7 +443,7 @@ def generate(conf_dic):
 		conn_count += 1
 		logging.info('connection ' + str(prev_pin) + " --- " + str(cur_pin) + " " + str(conn_count) + "/" + str(max_conns) + " whole error = " + str(whole_error))
 		if (conn_count % 100 == 0):
-			scheme.write("\n-------------"+str(conn_count)+"connections--------------\n")
+			scheme.write("\n-------------"+str(conn_count)+" connections--------------\n")
 
 		next_pin, err = find_best_conn_from_pin(conf_dic['image'], pins, cur_pin, skip)
 		logging.debug("next pin " + str(next_pin))
@@ -486,4 +486,5 @@ def main():
 	save_image(conf_dic['name'] + "/result.png", result)
 	save_image(conf_dic['name'] + "/error.png", conf_dic['image'])
 	show_image(result)
+	shutil.move("log.txt", conf_dic['name'] + "/log.txt")
 main()
