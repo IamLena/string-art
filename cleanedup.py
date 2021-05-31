@@ -289,11 +289,13 @@ def find_best_conn_from_all(img, pins, skip):
 		xn, yn = get_coords(pins, pin_2_index)
 		tmp_err = brezenhem(img, xn, yn, xk, yk, 0)
 
+		if (conn_index % 1000 == 0):
+			logging.info(str(conn_index) + " : " + str(pin_1_index) + " --- " + str(pin_2_index) + " min err " + str(min_err))
+
 		if (tmp_err < min_err):
 			best_pin_1 = pin_1_index
 			best_pin_2 = pin_2_index
 			min_err = tmp_err
-			logging.debug(str(conn_index) + " : " + str(best_pin_1) + " --- " + str(best_pin_2) + " conn err " + str(min_err))
 
 		ends = pin_1_index + m - skip
 		if (ends >= m):
@@ -343,6 +345,14 @@ def save_data_scheme_close(conf_dic, scheme):
 	scheme.write("\nwhole error: " + str(conf_dic['whole_error']) + "; " + str(round(100 - (conf_dic['whole_error'] / 255 * 100), 2)) + "% acccuracy")
 	scheme.close()
 
+def show_tk_img(root, canvas, nparr, canvas_size):
+	resized_img = Image.fromarray(nparr)
+	resized_img = resized_img.resize((canvas_size, canvas_size), Image.ANTIALIAS)
+	image = ImageTk.PhotoImage(resized_img)
+	imagesprite = canvas.create_image(0, 0, image=image, anchor='nw')
+	canvas.pack()
+	root.update()
+
 def generate(conf_dic):
 	m = conf_dic['m']
 	skip = conf_dic['skip']
@@ -373,6 +383,7 @@ def generate(conf_dic):
 	max_con_flag = 0
 	max_conns = conf_dic['N']
 	skip_error_check = 30
+	skip_connections_check = 700
 
 	if (conf_dic['max_conns'] != -1):
 		logging.debug('priority to max conns, not error')
@@ -441,9 +452,13 @@ def generate(conf_dic):
 		brezenhem(conf_dic['image'], xn, yn, xk, yk, 1)
 		length += get_conn_length(xn, yn, xk, yk)
 		conn_count += 1
-		logging.info('connection ' + str(prev_pin) + " --- " + str(cur_pin) + " " + str(conn_count) + "/" + str(max_conns) + " whole error = " + str(whole_error))
 		if (conn_count % 100 == 0):
 			scheme.write("\n-------------"+str(conn_count)+" connections--------------\n")
+
+		if (conn_count % 50 == 0):
+			logging.info('connection #' + str(conn_count) + " : " + str(prev_pin) + " --- " + str(cur_pin) + " " + str(conn_count) + "/" + str(max_conns) + " whole error = " + str(whole_error))
+			if (conf_dic['if_show'] == 1):
+				show_tk_img(conf_dic['root'], conf_dic['canvas'], result, conf_dic['canvas_size'])
 
 		next_pin, err = find_best_conn_from_pin(conf_dic['image'], pins, cur_pin, skip)
 		logging.debug("next pin " + str(next_pin))
@@ -453,7 +468,9 @@ def generate(conf_dic):
 		if not max_con_flag:
 			backup_res = result.copy()
 		Wu(result, xn, yn, xk, yk)
-		if (conn_count % skip_error_check == 1):
+		if (conn_count < skip_connections_check):
+			new_error = whole_error - 0.0001
+		elif (conn_count % skip_error_check == 1):
 			new_error = get_whole_error(image, result)
 		else:
 			new_error = whole_error - 0.0001
@@ -470,6 +487,7 @@ def generate(conf_dic):
 	return result
 
 def main():
+	canvas_size = 250
 	t1 = time()
 	init_log("log.txt", logging.INFO)
 	conf_dic = load_data()
@@ -477,22 +495,30 @@ def main():
 		os.mkdir(conf_dic['name'])
 	except OSError as error:
 		if error.errno == 17:
-			logging.warning('files in ' + conf_dic['name'] + ' folder will be overwrite')
+			logging.warning('files in ' + conf_dic['name'] + ' folder will be overwritten')
 		else:
 			logging.warning('cannot create ' + conf_dic['name'] + ' folder to save results, saving to root')
 			conf_dic['name'] = '.'
 	shutil.copy("config.txt", conf_dic['name'] + "/config.txt")
 	conf_dic['Z'] = int(2 * conf_dic['R'] / conf_dic['t'])
 	conf_dic['N'] = int(conf_dic['m'] * (conf_dic['m'] - 2 * conf_dic['skip'] + 1) / 2)
+	conf_dic['canvas_size'] = canvas_size
 	logging.debug(repr(conf_dic))
 	parse_image(conf_dic)
+	if (conf_dic['if_show'] == 1):
+		root = Tk()
+		canvas = Canvas(root,width=canvas_size,height=canvas_size)
+		canvas.pack()
+		conf_dic['root'] = root
+		conf_dic['canvas'] = canvas
 	result = generate(conf_dic)
 	save_image(conf_dic['name'] + "/result.png", result)
 	save_image(conf_dic['name'] + "/error.png", conf_dic['image'])
-	show_image(result)
+	Image.fromarray(result).resize((canvas_size, canvas_size), Image.ANTIALIAS).show()
 	t2 = time()
-	logging.info("time " + str(t2 - t1))
+	logging.info("time " + str((t2 - t1) / 60) + " mins")
 	with open(conf_dic['name'] + "/scheme.txt", 'a') as scheme:
-		scheme.write("\ntime " + str(t2 - t1) / 60 + " mins")
+		scheme.write("\ntime " + str((t2 - t1) / 60) + " mins")
 	shutil.move("log.txt", conf_dic['name'] + "/log.txt")
+
 main()
