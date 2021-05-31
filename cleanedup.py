@@ -372,6 +372,7 @@ def generate(conf_dic):
 	conn_count = 0
 	max_con_flag = 0
 	max_conns = conf_dic['N']
+	skip_error_check = 30
 
 	if (conf_dic['max_conns'] != -1):
 		logging.debug('priority to max conns, not error')
@@ -392,7 +393,6 @@ def generate(conf_dic):
 	if (not max_con_flag):
 		backup_res = result.copy()
 	Wu(result, x0, y0, x1, y1)
-	show_image(result)
 	if (not max_con_flag):
 		new_error = get_whole_error(image, result)
 		if (new_error > whole_error):
@@ -453,7 +453,10 @@ def generate(conf_dic):
 		if not max_con_flag:
 			backup_res = result.copy()
 		Wu(result, xn, yn, xk, yk)
-		new_error = get_whole_error(image, result)
+		if (conn_count % skip_error_check == 1):
+			new_error = get_whole_error(image, result)
+		else:
+			new_error = whole_error - 0.0001
 		prev_pin = cur_pin
 		cur_pin = next_pin
 
@@ -467,7 +470,8 @@ def generate(conf_dic):
 	return result
 
 def main():
-	init_log("log.txt", logging.DEBUG)
+	t1 = time()
+	init_log("log.txt", logging.INFO)
 	conf_dic = load_data()
 	try:
 		os.mkdir(conf_dic['name'])
@@ -486,5 +490,9 @@ def main():
 	save_image(conf_dic['name'] + "/result.png", result)
 	save_image(conf_dic['name'] + "/error.png", conf_dic['image'])
 	show_image(result)
+	t2 = time()
+	logging.info("time " + str(t2 - t1))
+	with open(conf_dic['name'] + "/scheme.txt", 'a') as scheme:
+		scheme.write("\ntime " + str(t2 - t1) / 60 + " mins")
 	shutil.move("log.txt", conf_dic['name'] + "/log.txt")
 main()
