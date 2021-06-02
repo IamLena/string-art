@@ -84,6 +84,17 @@ class String_art:
 			"Общая ошибка: " + str(self.whole_error) + " " + str(100 - self.whole_error / 255 * 100) + " %"
 		)
 
+	def get_data(self):
+		return ("Результат\nРадиус холста: " + str(self.R) + "\n" +
+			"Толщина нити: " + str(self.t) + "\n" +
+			"Количество гвоздей" + str(self.m) + "\n" +
+			"Количество всех возможных соединений: " + str(self.N) + "\n" +
+			"Разрешение: " + str(self.Z) + "\n" +
+			"Длина нити: " + str(round(self.length / 100, 2)) + "m\n" +
+			"Количество проведенных соединений: " + str(self.conns) + "\n" +
+			"Количество гвоздей пропускаемое при минимальном соединении: " + str(self.skip) + "\n" +
+			"Общая ошибка: " + str(round(self.whole_error, 2)) + " " + str(round(100 - self.whole_error / 255 * 100, 2)) + " %")
+
 
 class App:
 	def __init__ (self):
@@ -101,6 +112,7 @@ class App:
 		self.t_entry = tk.Entry()
 		self.m_label = tk.Label(self.root, text = "Количество гвоздей - m: ")
 		self.m_entry = tk.Entry()
+		self.output_label = tk.Label(self.root, text = "")
 		CANVAS_SIZE = 300
 		self.canvas = tk.Canvas(self.root,width=CANVAS_SIZE,height=CANVAS_SIZE, bd=1, relief='ridge')
 		self.warninig = tk.Label(self.root, text = "")
@@ -119,6 +131,7 @@ class App:
 		self.m_entry.grid(row=3, column=1)
 		self.image_btn.grid(row=4, column=0, columnspan=3)
 		self.create_btn.grid(row=5, column=0, columnspan=3)
+		self.output_label.grid(row=6, column=0, columnspan=3)
 		self.canvas.grid(row = 1, rowspan = 10, column = 3)
 		self.timer.grid(row = 11, rowspan = 1, column = 3)
 		self.warninig.grid(row = 12, rowspan = 1, column =3)

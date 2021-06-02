@@ -19,7 +19,7 @@ def square_crop(pil_image):
 	return pil_image
 
 def change_resolution(pil_image, size):
-	logging.info("resized")
+	# logging.info("resized")
 	return pil_image.resize((size, size), Image.ANTIALIAS)
 
 def circle_crop(pil_image):

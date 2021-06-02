@@ -17,6 +17,7 @@ def update_clock(sec, root, timer):
 
 def create_command(data):
 	app = data[0]
+	app.output_label.configure(text = "")
 	logging.info("start generation")
 	# try:
 	R = float(app.R_entry.get())
@@ -38,8 +39,8 @@ def create_command(data):
 	# dir = filedialog.askdirectory(title="Chose directory to save results in")
 	# print(dir)
 	# move files there
-	# create_btn.configure(state="normal")
-	# image_btn.configure(state="normal")
+	app.create_btn.configure(state="normal")
+	app.image_btn.configure(state="normal")
 	data[0] = app
 
 	# except ValueError:
@@ -58,6 +59,8 @@ def prepare_for_generation(app):
 	return app
 
 def save_data_scheme_close(app):
+	str = app.stringart.get_data()
+	app.output_label.configure(text = str)
 	time = app.timer['text']
 	app.root.after_cancel(after_id)
 	save_image("result.png", app.stringart.res)
@@ -95,6 +98,7 @@ def generate_scheme(app):
 		save_data_scheme_close(app)
 		return app
 
+	app.output_label.configure(text="происходит поиск начального соединения")
 	logging.info("begin scheme generation")
 	pin1, pin2 = find_best_conn_from_all(app.stringart.np_image, pins, skip)
 	logging.info('first connection is found: ' + str(pin1) + " --- " + str(pin2))
@@ -117,6 +121,7 @@ def generate_scheme(app):
 	app.stringart.update_stat(x0, y0, x1, y1)
 	logging.info('first connection is drawn; whole error = ' + str(whole_error))
 
+	app.output_label.configure(text="Определение направления плетения")
 	pin3_v1, err_v1 = find_best_conn_from_pin(app.stringart.np_image, pins, pin1, skip)
 	pin3_v2, err_v2 = find_best_conn_from_pin(app.stringart.np_image, pins, pin2, skip)
 
@@ -144,6 +149,7 @@ def generate_scheme(app):
 	cur_pin = pin3
 	xk, yk = x2, y2
 
+	app.output_label.configure(text="Процесс поиска следующих соединений")
 	while (max_con_flag and app.stringart.conns < max_conns) or (not max_con_flag and new_error <= whole_error):
 		whole_error = new_error
 
