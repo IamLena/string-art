@@ -60,7 +60,7 @@ def show_pil_image(pil_image, root, canvas):
 def load_image(data):
 	app = data[0]
 	logging.info("loading image")
-	image_path = filedialog.askopenfilename(filetypes=[('.png', '.jpg')])
+	image_path = filedialog.askopenfilename(filetypes=[('.jpg','.png')])
 	if (image_path == ""):
 		logging.info("no file was chosen")
 		return

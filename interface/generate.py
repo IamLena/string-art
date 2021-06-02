@@ -198,7 +198,8 @@ def generate_scheme(app):
 
 		if (app.stringart.conns % 1 == 0):
 			logging.info('connection #' + str(app.stringart.conns) + " : " + str(prev_pin) + " --- " + str(cur_pin) + " " + str(app.stringart.conns) + "/" + str(max_conns) + " whole error = " + str(whole_error))
-			show_np_image(app.stringart.res, app.root, app.canvas)
+			if if_show:
+				show_np_image(app.stringart.res, app.root, app.canvas)
 
 		next_pin, err = find_best_conn_from_pin(app.stringart.np_image, pins, cur_pin, skip)
 
