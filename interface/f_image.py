@@ -44,6 +44,7 @@ def save_image(filename, np_img):
 	Image.fromarray(np_img).save(filename)
 
 image = None # global tk canvas image
+loaded_pil_image = None
 
 def show_np_image(np_arr, root, canvas):
 	show_pil_image(Image.fromarray(np_arr), root, canvas)
@@ -55,22 +56,23 @@ def show_pil_image(pil_image, root, canvas):
 	imagesprite = canvas.create_image(0, 0, image=image, anchor='nw')
 	root.update()
 
-def load_image(app):
+def load_image():
+	global app
 	logging.info("loading image")
 	image_path = filedialog.askopenfilename(filetypes=[('.png', '.jpg')])
-	logging.info("loaded path " + image_path)
 	if (image_path == ""):
+		logging.info("no file was chosen")
 		return
+	logging.info("loaded path " + image_path)
 	pil_image = Image.open(image_path)
 	pil_image = square_crop(pil_image)
 	show_pil_image(pil_image, app.root, app.canvas)
+	global loaded_pil_image
+	app.stringart.pil_image = pil_image
 
 def parse_pil_image(pil_image, resolution):
+	logging.info("greyscale, update resolution, circle crop")
 	pil_image = greyscale(pil_image)
 	pil_image = change_resolution(pil_image, resolution)
 	pil_image = circle_crop(pil_image)
 	return np.asarray(pil_image)
-
-
-def create_command(app):
-	return
