@@ -22,6 +22,7 @@ class String_art:
 		self.length = 0
 		self.conns = 0
 		self.skip = 1
+		self.whole_error = -1
 
 	def set_radius(self, R):
 		if (R <= 0):
@@ -39,20 +40,25 @@ class String_art:
 		self.m = m
 
 	def set_resolution(self):
+		logging.info("calculation resolution")
 		if (self.R != -1 and self.t != -1):
 			self.Z = int(2 * self.R / self.t)
 
 	def set_num_of_all_conns(self):
+		logging.info("calculation number of all possible connections")
 		if (self.m != -1):
-			N = int(self.m * (self.m - 2 * self.skip + 1) / 2)
+			self.N = int(self.m * (self.m - 2 * self.skip + 1) / 2)
 
 	def parse_image(self):
+		logging.info("parsing input image")
 		self.np_image = parse_pil_image(self.pil_image, self.Z)
 
 	def set_result(self):
-		self.res = np.full((Z, Z), 255, dtype=np.uint8)
+		logging.info("filling result matrix")
+		self.res = np.full((self.Z, self.Z), 255, dtype=np.uint8)
 
 	def set_pins(self):
+		logging.info("filling pins coordinates")
 		if (self.m != -1 and self.Z != -1):
 			angles = np.linspace(0, 2*np.pi, self.m)
 			center = self.Z / 2
@@ -61,23 +67,21 @@ class String_art:
 			self.pins = list(map(lambda x,y: (int(x),int(y)), xs,ys))
 
 	def update_stat(self, x0, y0, x1, y1):
+		logging.info("updates length and number of conns")
 		self.length += math.sqrt((x0 - x1) ** 2 + (y0 - y1) ** 2) * self.t
 		self.conns += 1
 
 	def log_data(self):
 		logging.info(
-			str(self.R) + " " +
-			str(self.t) + " " +
-			str(self.m) + " " +
-			str(self.pil_image) + " " +
-			str(self.np_image) + " " +
-			str(self.res) + " " +
-			str(self.pins) + " " +
-			str(self.N) + " " +
-			str(self.Z) + " " +
-			str(self.length) + " " +
-			str(self.conns) + " " +
-			str(self.skip)
+			"Радиус холста: " + str(self.R) + "\n" +
+			"Толщина нити: " + str(self.t) + "\n" +
+			"Количество гвоздей" + str(self.m) + "\n" +
+			"Количество всех возможных соединений: " + str(self.N) + "\n" +
+			"Разрешение: " + str(self.Z) + "\n" +
+			"Длина нити: " + str(self.length) + "\n" +
+			"Количество проведенных соединений: " + str(self.conns) + "\n" +
+			"Количество гвоздей пропускаемое при минимальной хорде" + str(self.skip) + "\n" +
+			"Общая ошибка: " + str(self.whole_error) + " " + str(100 - self.whole_error / 255 * 100) + " %"
 		)
 
 

@@ -77,4 +77,4 @@ def parse_pil_image(pil_image, resolution):
 	pil_image = greyscale(pil_image)
 	pil_image = change_resolution(pil_image, resolution)
 	pil_image = circle_crop(pil_image)
-	return np.asarray(pil_image)
+	return np.asarray(pil_image).copy()
