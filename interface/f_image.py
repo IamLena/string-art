@@ -25,12 +25,13 @@ def change_resolution(pil_image, size):
 def circle_crop(pil_image):
 	logging.info("circle crop")
 	# new white canvas
+	Z = pil_image.size[0]
 	circlecrop = Image.new('L', [Z, Z], 255)
 	circle = ImageDraw.Draw(circlecrop)
 	# set fields of 1 pixel, draw black circle
 	circle.pieslice([1, 1, Z - 1, Z - 1], 0, 360, fill=0)
 	np_circle = np.array(circlecrop)
-	np_image = np.asarray(pil_image)
+	np_image = np.asarray(pil_image).copy()
 	# set pixels of image where circle_image is white to 255
 	np_image[np_circle == 255] = 255
 	return Image.fromarray(np_image)
@@ -56,8 +57,8 @@ def show_pil_image(pil_image, root, canvas):
 	imagesprite = canvas.create_image(0, 0, image=image, anchor='nw')
 	root.update()
 
-def load_image():
-	global app
+def load_image(data):
+	app = data[0]
 	logging.info("loading image")
 	image_path = filedialog.askopenfilename(filetypes=[('.png', '.jpg')])
 	if (image_path == ""):
@@ -69,6 +70,7 @@ def load_image():
 	show_pil_image(pil_image, app.root, app.canvas)
 	global loaded_pil_image
 	app.stringart.pil_image = pil_image
+	data[0] = app
 
 def parse_pil_image(pil_image, resolution):
 	logging.info("greyscale, update resolution, circle crop")

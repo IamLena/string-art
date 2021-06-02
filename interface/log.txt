@@ -1,0 +1,11 @@
+2021-06-02 10:58:23,372 : INFO : loading image
+2021-06-02 10:58:25,884 : INFO : loaded path /mnt/c/diplom/myrepo/image.jpg
+2021-06-02 10:58:25,925 : INFO : square crop
+2021-06-02 10:58:26,683 : INFO : resized
+2021-06-02 10:58:27,577 : INFO : start generation
+2021-06-02 10:58:27,579 : INFO : 30.0 0.1 200 <PIL.Image.Image image mode=RGB size=3456x3456 at 0x7FDC299739D0> None None None -1 -1 0 0 1
+2021-06-02 10:58:27,580 : INFO : greyscale, update resolution, circle crop
+2021-06-02 10:58:27,580 : INFO : greyscale
+2021-06-02 10:58:27,658 : INFO : resized
+2021-06-02 10:58:27,767 : INFO : circle crop
+2021-06-02 10:58:27,769 : INFO : resized

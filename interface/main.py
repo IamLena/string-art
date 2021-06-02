@@ -4,6 +4,7 @@ from tkinter import filedialog
 import time
 import numpy as np
 import math
+import logging
 from f_image import *
 from generate import *
 
@@ -22,36 +23,36 @@ class String_art:
 		self.conns = 0
 		self.skip = 1
 
-	def set_radius(R):
+	def set_radius(self, R):
 		if (R <= 0):
 			raise ValueError
 		self.R = R
 
-	def set_thread(t):
+	def set_thread(self, t):
 		if (t <= 0):
 			raise ValueError
 		self.t = t
 
-	def set_num_of_pins(m):
+	def set_num_of_pins(self, m):
 		if (m < 2):
 			raise ValueError
 		self.m = m
 
-	def set_resolution():
+	def set_resolution(self):
 		if (self.R != -1 and self.t != -1):
-			self.Z = int(2 * R / t)
+			self.Z = int(2 * self.R / self.t)
 
-	def set_num_of_all_conns():
-		if (m != -1):
+	def set_num_of_all_conns(self):
+		if (self.m != -1):
 			N = int(self.m * (self.m - 2 * self.skip + 1) / 2)
 
-	def parse_image():
+	def parse_image(self):
 		self.np_image = parse_pil_image(self.pil_image, self.Z)
 
-	def set_result():
+	def set_result(self):
 		self.res = np.full((Z, Z), 255, dtype=np.uint8)
 
-	def set_pins():
+	def set_pins(self):
 		if (self.m != -1 and self.Z != -1):
 			angles = np.linspace(0, 2*np.pi, self.m)
 			center = self.Z / 2
@@ -59,9 +60,25 @@ class String_art:
 			ys = center + (self.Z - 2)/2 * np.sin(angles)
 			self.pins = list(map(lambda x,y: (int(x),int(y)), xs,ys))
 
-	def update_stat(x0, y0, x1, y1):
+	def update_stat(self, x0, y0, x1, y1):
 		self.length += math.sqrt((x0 - x1) ** 2 + (y0 - y1) ** 2) * self.t
 		self.conns += 1
+
+	def log_data(self):
+		logging.info(
+			str(self.R) + " " +
+			str(self.t) + " " +
+			str(self.m) + " " +
+			str(self.pil_image) + " " +
+			str(self.np_image) + " " +
+			str(self.res) + " " +
+			str(self.pins) + " " +
+			str(self.N) + " " +
+			str(self.Z) + " " +
+			str(self.length) + " " +
+			str(self.conns) + " " +
+			str(self.skip)
+		)
 
 
 class App:
@@ -85,8 +102,8 @@ class App:
 		self.warninig = tk.Label(self.root, text = "")
 		self.timer = tk.Label(self.root, text = "Время генерации: 0 cек")
 
-		self.image_btn = tk.Button(self.root, text="Загрузить изображение", command = load_image)
-		self.create_btn = tk.Button(self.root, text="Начать расчет", command= create_command)
+		self.image_btn = tk.Button(self.root, text="Загрузить изображение", command = lambda: load_image([app]))
+		self.create_btn = tk.Button(self.root, text="Начать расчет", command= lambda: create_command([app]))
 
 		# show widgets
 		self.label.grid(row=0, column=0, columnspan=3)
@@ -118,5 +135,6 @@ def init_log(log_file, level_code):
 
 init_log("log.txt", logging.DEBUG)
 app = App()
+
 app.set_test_fields()
 app.root.mainloop()
