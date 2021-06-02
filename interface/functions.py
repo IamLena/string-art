@@ -4,38 +4,67 @@ from tkinter import filedialog
 import time
 import numpy as np
 import math
-
-root = tk.Tk()
-root.title("string art")
-
-# init widgets
-label = tk.Label(root, text = "Генерация схемы стринг-арта", font='Helvetica 18 bold')
-space = tk.Label(root, text = "   ")
-R_label = tk.Label(root, text = "Радиус холста (см) - R: ")
-R_entry = tk.Entry()
-t_label = tk.Label(root, text = "Толщина нити (см) - t: ")
-t_entry = tk.Entry()
-m_label = tk.Label(root, text = "Количество гвоздей - m: ")
-m_entry = tk.Entry()
-canvas_size = 300
-canvas = tk.Canvas(root,width=canvas_size,height=canvas_size, bd=1, relief='ridge')
-warninig = tk.Label(root, text = "")
-timer = tk.Label(root, text = "Время генерации: 0 cек")
+import logging
 
 image = None #Tkimage type
 img = None #Image type
 
-#for test
-R_entry.insert(0, "30")
-t_entry.insert(0, "0.1")
-m_entry.insert(0, "200")
+def init_log(log_file, level_code):
+	logging.basicConfig(
+		level=level_code,
+		format='%(asctime)s : %(levelname)s : %(message)s',
+		handlers=[logging.FileHandler(log_file, "w"),
+		logging.StreamHandler()])
+
+def load_image(canvas):
+	logging.info("loading image")
+	global image
+	global img
+	image_path = filedialog.askopenfilename(filetypes=[('.png', '.jpg')])
+	logging.info("image path: " + image_path)
+	if (image_path == ""):
+		return
+	image = Image.open(image_path)
+
+	# square crop
+	if image.size[0] != image.size[1]:
+		if image.size[0] < image.size[1]:
+			side = image.size[0]
+		else:
+			side = image.size[1]
+		left = (image.size[0] - side) / 2
+		top = (image.size[1] - side) / 2
+		right = (image.size[0] + side) / 2
+		bottom = (image.size[1] + side) / 2
+		image = image.crop((left, top, right, bottom))
+
+	canvas_size = canvas.winfo_width()
+	img = image
+	resized_img = image.resize((canvas_size, canvas_size), Image.ANTIALIAS)
+	image = ImageTk.PhotoImage(resized_img)
+	imagesprite = canvas.create_image(0, 0, image=image, anchor='nw')
+	root.update()
+
+def show_tk_image(pil_image):
+	resized_img = pil_image.resize((canvas_size, canvas_size), Image.ANTIALIAS)
+	global image
+	image = ImageTk.PhotoImage(resized_img)
+	imagesprite = canvas.create_image(0, 0, image=image, anchor='nw')
+	root.update()
+
+# def show_tk_image(img_nparr):
+# 	resized_img = Image.fromarray(img_nparr).resize((canvas_size, canvas_size), Image.ANTIALIAS)
+# 	global image
+# 	image = ImageTk.PhotoImage(resized_img)
+# 	imagesprite = canvas.create_image(0, 0, image=image, anchor='nw')
+# 	root.update()
 
 def update_clock(sec):
 	sec += 1
 	timer.configure(text="Время генерации: " + str(sec) + " сек")
 	root.after(1000, lambda: update_clock(sec))
 
-def load_image():
+def load_image(canvas):
 	print("loading image")
 	global image
 	global img
@@ -63,12 +92,7 @@ def load_image():
 	imagesprite = canvas.create_image(0, 0, image=image, anchor='nw')
 	root.update()
 
-def show_tk_image(img_nparr):
-	resized_img = Image.fromarray(img_nparr).resize((canvas_size, canvas_size), Image.ANTIALIAS)
-	global image
-	image = ImageTk.PhotoImage(resized_img)
-	imagesprite = canvas.create_image(0, 0, image=image, anchor='nw')
-	root.update()
+
 
 def save_image(filename, img):
 	Image.fromarray(img).save(filename)
@@ -135,22 +159,3 @@ def create_comamnd(create_btn, image_btn):
 		warninig.configure(text = "Некорректный ввод (проверьте, что R > 0, t > 0, m > 1)")
 
 
-image_btn = tk.Button(root, text="Загрузить изображение", command = load_image)
-create_btn = tk.Button(root, text="Начать расчет", command=lambda : create_comamnd(create_btn, image_btn))
-
-# show widgets
-label.grid(row=0, column=0, columnspan=3)
-R_label.grid(row=1, column=0)
-R_entry.grid(row=1, column=1)
-t_label.grid(row=2, column=0)
-t_entry.grid(row=2, column=1)
-m_label.grid(row=3, column=0)
-m_entry.grid(row=3, column=1)
-image_btn.grid(row=4, column=0, columnspan=3)
-create_btn.grid(row=5, column=0, columnspan=3)
-canvas.grid(row = 1, rowspan = 10, column = 3)
-timer.grid(row = 11, rowspan = 1, column = 3)
-warninig.grid(row = 12, rowspan = 1, column =3)
-space.grid(row=1, column = 2, rowspan = 20)
-
-root.mainloop()

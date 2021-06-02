@@ -1,0 +1,4 @@
+2021-06-02 09:57:23,105 : INFO : loading image
+2021-06-02 09:57:26,866 : INFO : loaded path /mnt/c/diplom/myrepo/image.jpg
+2021-06-02 09:57:26,888 : INFO : square crop
+2021-06-02 09:57:27,664 : INFO : resized
