@@ -90,7 +90,7 @@ def prepare_for_generation(app):
 	save_image("greyscaled.png", app.stringart.np_image)
 	return app
 
-def save_data_scheme_close(app):
+def save_data_scheme_close(app, scheme):
 	str = app.stringart.get_data()
 	app.output_label.configure(text = str)
 	time = app.timer['text']
@@ -98,6 +98,9 @@ def save_data_scheme_close(app):
 	save_image("result.png", app.stringart.res)
 	app.stringart.log_data()
 	logging.info(time)
+
+	scheme.write(str)
+	scheme.close()
 	app.stringart.clean()
 	return app
 
@@ -111,7 +114,10 @@ def generate_scheme(app):
 	if_show = app.stringart.if_show
 	pins = app.stringart.pins
 	max_conns_flag = app.stringart.max_conns_flag
-	max_conns = app.stringart.N
+	if max_conns_flag:
+		max_conns = app.stringart.max_conns
+	else:
+		max_conns = app.stringart.N
 	error_check_skip = app.stringart.error_check_skip
 	error_check_step = app.stringart.error_check_step
 
@@ -119,7 +125,7 @@ def generate_scheme(app):
 
 	if (max_conns_flag and max_conns == 0):
 		logging.info('max number of connections are made')
-		app = save_data_scheme_close(app)
+		app = save_data_scheme_close(app, scheme)
 		return app
 
 	whole_error = get_whole_error(reserved_image, app.stringart.res)
@@ -127,7 +133,7 @@ def generate_scheme(app):
 
 	if (whole_error == 0 and not max_conns_flag):
 		logging.debug('white image, exiting')
-		app = save_data_scheme_close(app)
+		app = save_data_scheme_close(app, scheme)
 		return app
 	logging.info("starting whole_error " + str(whole_error))
 
@@ -148,7 +154,7 @@ def generate_scheme(app):
 		if (new_error > whole_error):
 			app.stringart.res = backup_res
 			logging.info('adding this first connection makes whole error bigger ' + str(new_error))
-			app = save_data_scheme_close(app)
+			app = save_data_scheme_close(app, scheme)
 			return app
 		whole_error = new_error
 
@@ -231,5 +237,5 @@ def generate_scheme(app):
 		app.stringart.res = backup_res
 	app.stringart.whole_error = whole_error
 	logging.debug('adding connection making worse error, exiting')
-	app = save_data_scheme_close(app)
+	app = save_data_scheme_close(app, scheme)
 	return app
