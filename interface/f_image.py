@@ -60,11 +60,11 @@ def show_pil_image(pil_image, root, canvas):
 def load_image(data):
 	app = data[0]
 	logging.info("loading image")
-	image_path = filedialog.askopenfilename(filetypes=[('.jpg','.png')])
+	image_path = filedialog.askopenfilename(filetypes=[('image files', '.png'), ('image files', '.jpg'),])
 	if (image_path == ""):
 		logging.info("no file was chosen")
 		return
-	logging.info("loaded path " + image_path)
+	logging.info("loaded path " + str(image_path))
 	pil_image = Image.open(image_path)
 	pil_image = square_crop(pil_image)
 	show_pil_image(pil_image, app.root, app.canvas)
