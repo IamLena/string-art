@@ -37,6 +37,34 @@ class String_art:
 		self.if_log = 1
 		self.if_show = 1
 
+	def clean(self):
+		self.R = -1
+		self.t = -1
+		self.m = -1
+
+		self.pil_image = None
+		self.np_image = None
+
+		self.res = None
+		self.pins = None
+		self.angle_step = -1
+		self.c = -1
+		self.n = -1
+		self.N = -1
+		self.Z = -1
+
+		self.length = 0
+		self.conns = 0
+		self.whole_error = -1
+
+		self.pin_skip = 1
+		self.error_check_skip = 0
+		self.error_check_step = 1
+		self.max_conns = -1
+		self.max_conns_flag = 0
+		self.if_log = 1
+		self.if_show = 1
+
 	def set_radius(self, R):
 		if (R <= 0):
 			raise ValueError
@@ -87,9 +115,9 @@ class String_art:
 		self.c = self.R * math.sqrt(2 - 2 * np.cos(self.angle_step))
 
 	def update_stat(self, x0, y0, x1, y1):
-		logging.info("updates length and number of conns")
 		self.length += math.sqrt((x0 - x1) ** 2 + (y0 - y1) ** 2) * self.t
 		self.conns += 1
+		logging.info("updates length:" + str(round(self.length / 100, 2)) + " and number of conns: " + str(self.conns))
 
 	def set_max_conns(self, max_conns):
 		if max_conns == -1:
@@ -123,7 +151,7 @@ class String_art:
 	def get_data(self):
 		data = ("РЕЗУЛЬТАТ\nРадиус холста: " + str(self.R) + "\n" +
 			"Толщина нити: " + str(self.t) + "\n" +
-			"Количество гвоздей" + str(self.m) + "\n\n" +
+			"Количество гвоздей: " + str(self.m) + "\n\n" +
 			"Количество всех возможных соединений: " + str(self.N) + "\n" +
 			"Количество рассмотренных соединений: " + str(self.n) + "\n" +
 			"Количество проведенных соединений: " + str(self.conns) + "\n\n" +

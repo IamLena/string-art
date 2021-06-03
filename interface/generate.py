@@ -98,7 +98,8 @@ def save_data_scheme_close(app):
 	save_image("result.png", app.stringart.res)
 	app.stringart.log_data()
 	logging.info(time)
-	return
+	app.stringart.clean()
+	return app
 
 def generate_scheme(app):
 	app.stringart.log_data()
@@ -118,7 +119,7 @@ def generate_scheme(app):
 
 	if (max_conns_flag and max_conns == 0):
 		logging.info('max number of connections are made')
-		save_data_scheme_close(app)
+		app = save_data_scheme_close(app)
 		return app
 
 	whole_error = get_whole_error(reserved_image, app.stringart.res)
@@ -126,7 +127,7 @@ def generate_scheme(app):
 
 	if (whole_error == 0 and not max_conns_flag):
 		logging.debug('white image, exiting')
-		save_data_scheme_close(app)
+		app = save_data_scheme_close(app)
 		return app
 	logging.info("starting whole_error " + str(whole_error))
 
@@ -140,12 +141,14 @@ def generate_scheme(app):
 	if (not max_conns_flag and error_check_skip == 0 and error_check_step == 1):
 		backup_res = app.stringart.res.copy()
 	Wu(app.stringart.res, x0, y0, x1, y1)
+	# save_image("one.png", app.stringart.res)
+
 	if (not max_conns_flag and error_check_skip == 0 and error_check_step == 1):
 		new_error = get_whole_error(reserved_image, app.stringart.res)
 		if (new_error > whole_error):
 			app.stringart.res = backup_res
-			logging.info('adding this first connection makes whole error bigger')
-			save_data_scheme_close(app)
+			logging.info('adding this first connection makes whole error bigger ' + str(new_error))
+			app = save_data_scheme_close(app)
 			return app
 		whole_error = new_error
 
@@ -173,6 +176,7 @@ def generate_scheme(app):
 	if not max_conns_flag:
 		backup_res = app.stringart.res.copy()
 	Wu(app.stringart.res, x1, y1, x2, y2)
+	# save_image("two.png", app.stringart.res)
 	new_error = get_whole_error(reserved_image, app.stringart.res)
 
 	prev_pin = pin2
@@ -192,7 +196,6 @@ def generate_scheme(app):
 		scheme.write(" " + str(cur_pin))
 		brezenhem(app.stringart.np_image, xn, yn, xk, yk, 1)
 		app.stringart.update_stat(xn, yn, xk, yk)
-		app.stringart.conns += 1
 		if (app.stringart.conns % 100 == 0):
 			scheme.write("\n-------------"+str(app.stringart.conns)+" connections--------------\n")
 
@@ -208,6 +211,12 @@ def generate_scheme(app):
 		if not max_conns_flag:
 			backup_res = app.stringart.res.copy()
 		Wu(app.stringart.res, xn, yn, xk, yk)
+		# if (app.stringart.conns == 2):
+		# 	save_image("three.png", app.stringart.res)
+		# if (app.stringart.conns == 4):
+		# 	save_image("five.png", app.stringart.res)
+		# if (app.stringart.conns == 29):
+		# 	save_image("lines30.png", app.stringart.res)
 		if (app.stringart.conns < error_check_skip):
 			error_okay = 1
 		elif (app.stringart.conns % error_check_step == 0):
@@ -222,5 +231,5 @@ def generate_scheme(app):
 		app.stringart.res = backup_res
 	app.stringart.whole_error = whole_error
 	logging.debug('adding connection making worse error, exiting')
-	save_data_scheme_close(app)
+	app = save_data_scheme_close(app)
 	return app

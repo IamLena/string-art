@@ -1,18 +1,16 @@
-2021-06-03 00:24:30,130 : INFO : loading image
-2021-06-03 00:24:35,543 : INFO : loading image
-2021-06-03 00:24:37,987 : INFO : loaded path /mnt/c/diplom/myrepo/interface/color1.png
-2021-06-03 00:24:38,013 : INFO : square crop
-2021-06-03 00:24:50,495 : INFO : loading image
-2021-06-03 00:24:52,303 : INFO : loaded path /mnt/c/diplom/myrepo/interface/color1.png
-2021-06-03 00:24:52,304 : INFO : square crop
-2021-06-03 00:24:53,229 : INFO : start generation
-2021-06-03 00:24:53,229 : INFO : calculation number of all possible connections
-2021-06-03 00:24:53,229 : INFO : РЕЗУЛЬТАТ
-Радиус холста: 20.0
+2021-06-03 07:52:18,273 : INFO : loading image
+2021-06-03 07:52:19,841 : INFO : loaded path /mnt/c/diplom/myrepo/interface/one.png
+2021-06-03 07:52:19,866 : DEBUG : STREAM b'IHDR' 16 13
+2021-06-03 07:52:19,867 : DEBUG : STREAM b'IDAT' 41 3576
+2021-06-03 07:52:19,867 : INFO : square crop
+2021-06-03 07:52:21,140 : INFO : start generation
+2021-06-03 07:52:21,141 : INFO : calculation number of all possible connections
+2021-06-03 07:52:21,141 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
 Толщина нити: 0.1
-Количество гвоздей100
+Количество гвоздей: 150
 
-Количество всех возможных соединений: 4950
+Количество всех возможных соединений: 11175
 Количество рассмотренных соединений: -1
 Количество проведенных соединений: 0
 
@@ -23,1158 +21,418 @@
 
 Общая ошибка: -1 (100.39) %
 Логгирование включено
-Отображение процесса генерации отключено
-Количество гвоздей, пропускаемое при кротчайшей хорде: 20
-Количество соединений, отрисованное без проверки: 100
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
 
-2021-06-03 00:24:53,229 : INFO : calculation resolution
-2021-06-03 00:24:53,230 : INFO : calculation number of all possible connections
-2021-06-03 00:24:53,230 : INFO : calculation number of all connections that will be checked (taking into concideration pin_skip parameter
-2021-06-03 00:24:53,230 : INFO : filling pins coordinates
-2021-06-03 00:24:53,231 : INFO : filling result matrix
-2021-06-03 00:24:53,231 : INFO : parsing input image
-2021-06-03 00:24:53,231 : INFO : greyscale, update resolution, circle crop
-2021-06-03 00:24:53,231 : INFO : greyscale
-2021-06-03 00:24:53,287 : INFO : circle crop
-2021-06-03 00:24:53,297 : INFO : saving image into greyscaled.png
-2021-06-03 00:24:53,353 : INFO : РЕЗУЛЬТАТ
-Радиус холста: 20.0
+2021-06-03 07:52:21,141 : INFO : calculation resolution
+2021-06-03 07:52:21,142 : INFO : calculation number of all possible connections
+2021-06-03 07:52:21,142 : INFO : calculation number of all connections that will be checked (taking into concideration pin_skip parameter
+2021-06-03 07:52:21,142 : INFO : filling pins coordinates
+2021-06-03 07:52:21,143 : INFO : filling result matrix
+2021-06-03 07:52:21,143 : INFO : parsing input image
+2021-06-03 07:52:21,143 : INFO : greyscale, update resolution, circle crop
+2021-06-03 07:52:21,143 : INFO : greyscale
+2021-06-03 07:52:21,145 : INFO : circle crop
+2021-06-03 07:52:21,168 : INFO : saving image into greyscaled.png
+2021-06-03 07:52:21,185 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
 Толщина нити: 0.1
-Количество гвоздей100
+Количество гвоздей: 150
 
-Количество всех возможных соединений: 4950
-Количество рассмотренных соединений: 3050
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: 10575
 Количество проведенных соединений: 0
 
-Разрешение изображения: 400 x 400пикселей
+Разрешение изображения: 600 x 600пикселей
 
 Требуемая длина нити: 0.0 m
-Расстрояние между гвоздями: 1.256; угловой шаг: 0.063
+Расстрояние между гвоздями: 1.257; угловой шаг: 0.042
 
 Общая ошибка: -1 (100.39) %
 Логгирование включено
-Отображение процесса генерации отключено
-Количество гвоздей, пропускаемое при кротчайшей хорде: 20
-Количество соединений, отрисованное без проверки: 100
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
 
-2021-06-03 00:24:53,355 : INFO : starting whole_error 151.5344375
-2021-06-03 00:24:53,356 : INFO : begin scheme generation
-2021-06-03 00:24:53,356 : INFO : 0 : 0 --- 20 min conn err 255
-2021-06-03 00:24:53,702 : INFO : 1000 : 16 --- 60 min conn err 7.777777777777778
-2021-06-03 00:24:54,031 : INFO : 2000 : 34 --- 85 min conn err 7.777777777777778
-2021-06-03 00:24:54,383 : INFO : 3000 : 70 --- 95 min conn err 7.777777777777778
-2021-06-03 00:24:54,395 : INFO : first connection is found: 15 --- 89
-2021-06-03 00:24:54,401 : INFO : updates length and number of conns
-2021-06-03 00:24:54,402 : INFO : first connection is drawn; whole error = 151.5344375
-2021-06-03 00:24:54,459 : INFO : next connection: 15 --- 94
-2021-06-03 00:24:54,462 : INFO : updates length and number of conns
-2021-06-03 00:24:54,463 : INFO : connection #3 : 15 --- 94 3/4950 whole error = 150.73316875
-2021-06-03 00:24:54,496 : INFO : updates length and number of conns
-2021-06-03 00:24:54,496 : INFO : connection #5 : 94 --- 19 5/4950 whole error = 150.73316875
-2021-06-03 00:24:54,519 : INFO : updates length and number of conns
-2021-06-03 00:24:54,520 : INFO : connection #7 : 19 --- 97 7/4950 whole error = 150.73316875
-2021-06-03 00:24:54,556 : INFO : updates length and number of conns
-2021-06-03 00:24:54,556 : INFO : connection #9 : 97 --- 17 9/4950 whole error = 150.73316875
-2021-06-03 00:24:54,591 : INFO : updates length and number of conns
-2021-06-03 00:24:54,591 : INFO : connection #11 : 17 --- 87 11/4950 whole error = 150.73316875
-2021-06-03 00:24:54,615 : INFO : updates length and number of conns
-2021-06-03 00:24:54,615 : INFO : connection #13 : 87 --- 7 13/4950 whole error = 150.73316875
-2021-06-03 00:24:54,656 : INFO : updates length and number of conns
-2021-06-03 00:24:54,656 : INFO : connection #15 : 7 --- 82 15/4950 whole error = 150.73316875
-2021-06-03 00:24:54,691 : INFO : updates length and number of conns
-2021-06-03 00:24:54,692 : INFO : connection #17 : 82 --- 10 17/4950 whole error = 150.73316875
-2021-06-03 00:24:54,717 : INFO : updates length and number of conns
-2021-06-03 00:24:54,718 : INFO : connection #19 : 10 --- 85 19/4950 whole error = 150.73316875
-2021-06-03 00:24:54,755 : INFO : updates length and number of conns
-2021-06-03 00:24:54,755 : INFO : connection #21 : 85 --- 5 21/4950 whole error = 150.73316875
-2021-06-03 00:24:54,790 : INFO : updates length and number of conns
-2021-06-03 00:24:54,790 : INFO : connection #23 : 5 --- 25 23/4950 whole error = 150.73316875
-2021-06-03 00:24:54,824 : INFO : updates length and number of conns
-2021-06-03 00:24:54,824 : INFO : connection #25 : 25 --- 4 25/4950 whole error = 150.73316875
-2021-06-03 00:24:54,862 : INFO : updates length and number of conns
-2021-06-03 00:24:54,863 : INFO : connection #27 : 4 --- 79 27/4950 whole error = 150.73316875
-2021-06-03 00:24:54,887 : INFO : updates length and number of conns
-2021-06-03 00:24:54,888 : INFO : connection #29 : 79 --- 1 29/4950 whole error = 150.73316875
-2021-06-03 00:24:54,925 : INFO : updates length and number of conns
-2021-06-03 00:24:54,925 : INFO : connection #31 : 1 --- 22 31/4950 whole error = 150.73316875
-2021-06-03 00:24:54,950 : INFO : updates length and number of conns
-2021-06-03 00:24:54,951 : INFO : connection #33 : 22 --- 92 33/4950 whole error = 150.73316875
-2021-06-03 00:24:54,990 : INFO : updates length and number of conns
-2021-06-03 00:24:54,990 : INFO : connection #35 : 92 --- 17 35/4950 whole error = 150.73316875
-2021-06-03 00:24:55,020 : INFO : updates length and number of conns
-2021-06-03 00:24:55,021 : INFO : connection #37 : 17 --- 89 37/4950 whole error = 150.73316875
-2021-06-03 00:24:55,055 : INFO : updates length and number of conns
-2021-06-03 00:24:55,055 : INFO : connection #39 : 89 --- 20 39/4950 whole error = 150.73316875
-2021-06-03 00:24:55,090 : INFO : updates length and number of conns
-2021-06-03 00:24:55,091 : INFO : connection #41 : 20 --- 93 41/4950 whole error = 150.73316875
-2021-06-03 00:24:55,124 : INFO : updates length and number of conns
-2021-06-03 00:24:55,125 : INFO : connection #43 : 93 --- 16 43/4950 whole error = 150.73316875
-2021-06-03 00:24:55,162 : INFO : updates length and number of conns
-2021-06-03 00:24:55,162 : INFO : connection #45 : 16 --- 82 45/4950 whole error = 150.73316875
-2021-06-03 00:24:55,202 : INFO : updates length and number of conns
-2021-06-03 00:24:55,203 : INFO : connection #47 : 82 --- 12 47/4950 whole error = 150.73316875
-2021-06-03 00:24:55,266 : INFO : updates length and number of conns
-2021-06-03 00:24:55,266 : INFO : connection #49 : 12 --- 84 49/4950 whole error = 150.73316875
-2021-06-03 00:24:55,320 : INFO : updates length and number of conns
-2021-06-03 00:24:55,321 : INFO : connection #51 : 84 --- 6 51/4950 whole error = 150.73316875
-2021-06-03 00:24:55,356 : INFO : updates length and number of conns
-2021-06-03 00:24:55,356 : INFO : connection #53 : 6 --- 28 53/4950 whole error = 150.73316875
-2021-06-03 00:24:55,390 : INFO : updates length and number of conns
-2021-06-03 00:24:55,390 : INFO : connection #55 : 28 --- 48 55/4950 whole error = 150.73316875
-2021-06-03 00:24:55,424 : INFO : updates length and number of conns
-2021-06-03 00:24:55,424 : INFO : connection #57 : 48 --- 70 57/4950 whole error = 150.73316875
-2021-06-03 00:24:55,454 : INFO : updates length and number of conns
-2021-06-03 00:24:55,454 : INFO : connection #59 : 70 --- 45 59/4950 whole error = 150.73316875
-2021-06-03 00:24:55,490 : INFO : updates length and number of conns
-2021-06-03 00:24:55,491 : INFO : connection #61 : 45 --- 68 61/4950 whole error = 150.73316875
-2021-06-03 00:24:55,522 : INFO : updates length and number of conns
-2021-06-03 00:24:55,523 : INFO : connection #63 : 68 --- 42 63/4950 whole error = 150.73316875
-2021-06-03 00:24:55,556 : INFO : updates length and number of conns
-2021-06-03 00:24:55,556 : INFO : connection #65 : 42 --- 65 65/4950 whole error = 150.73316875
-2021-06-03 00:24:55,594 : INFO : updates length and number of conns
-2021-06-03 00:24:55,594 : INFO : connection #67 : 65 --- 37 67/4950 whole error = 150.73316875
-2021-06-03 00:24:55,615 : INFO : updates length and number of conns
-2021-06-03 00:24:55,615 : INFO : connection #69 : 37 --- 62 69/4950 whole error = 150.73316875
-2021-06-03 00:24:55,660 : INFO : updates length and number of conns
-2021-06-03 00:24:55,660 : INFO : connection #71 : 62 --- 35 71/4950 whole error = 150.73316875
-2021-06-03 00:24:55,697 : INFO : updates length and number of conns
-2021-06-03 00:24:55,697 : INFO : connection #73 : 35 --- 55 73/4950 whole error = 150.73316875
-2021-06-03 00:24:55,723 : INFO : updates length and number of conns
-2021-06-03 00:24:55,724 : INFO : connection #75 : 55 --- 33 75/4950 whole error = 150.73316875
-2021-06-03 00:24:55,756 : INFO : updates length and number of conns
-2021-06-03 00:24:55,756 : INFO : connection #77 : 33 --- 57 77/4950 whole error = 150.73316875
-2021-06-03 00:24:55,794 : INFO : updates length and number of conns
-2021-06-03 00:24:55,795 : INFO : connection #79 : 57 --- 35 79/4950 whole error = 150.73316875
-2021-06-03 00:24:55,828 : INFO : updates length and number of conns
-2021-06-03 00:24:55,829 : INFO : connection #81 : 35 --- 64 81/4950 whole error = 150.73316875
-2021-06-03 00:24:55,860 : INFO : updates length and number of conns
-2021-06-03 00:24:55,861 : INFO : connection #83 : 64 --- 43 83/4950 whole error = 150.73316875
-2021-06-03 00:24:55,892 : INFO : updates length and number of conns
-2021-06-03 00:24:55,892 : INFO : connection #85 : 43 --- 69 85/4950 whole error = 150.73316875
-2021-06-03 00:24:55,926 : INFO : updates length and number of conns
-2021-06-03 00:24:55,926 : INFO : connection #87 : 69 --- 48 87/4950 whole error = 150.73316875
-2021-06-03 00:24:55,959 : INFO : updates length and number of conns
-2021-06-03 00:24:55,959 : INFO : connection #89 : 48 --- 68 89/4950 whole error = 150.73316875
-2021-06-03 00:24:56,008 : INFO : updates length and number of conns
-2021-06-03 00:24:56,013 : INFO : connection #91 : 68 --- 90 91/4950 whole error = 150.73316875
-2021-06-03 00:24:56,039 : INFO : updates length and number of conns
-2021-06-03 00:24:56,039 : INFO : connection #93 : 90 --- 10 93/4950 whole error = 150.73316875
-2021-06-03 00:24:56,076 : INFO : updates length and number of conns
-2021-06-03 00:24:56,076 : INFO : connection #95 : 10 --- 31 95/4950 whole error = 150.73316875
-2021-06-03 00:24:56,102 : INFO : updates length and number of conns
-2021-06-03 00:24:56,102 : INFO : connection #97 : 31 --- 52 97/4950 whole error = 150.73316875
-2021-06-03 00:24:56,132 : INFO : updates length and number of conns
-2021-06-03 00:24:56,132 : INFO : connection #99 : 52 --- 72 99/4950 whole error = 150.73316875
-2021-06-03 00:24:56,171 : INFO : updates length and number of conns
-2021-06-03 00:24:56,171 : INFO : connection #101 : 72 --- 48 101/4950 whole error = 150.73316875
-2021-06-03 00:24:56,206 : INFO : updates length and number of conns
-2021-06-03 00:24:56,206 : INFO : connection #103 : 48 --- 5 103/4950 whole error = 133.03341875
-2021-06-03 00:24:56,238 : INFO : updates length and number of conns
-2021-06-03 00:24:56,238 : INFO : connection #105 : 5 --- 78 105/4950 whole error = 132.6950625
-2021-06-03 00:24:56,272 : INFO : updates length and number of conns
-2021-06-03 00:24:56,272 : INFO : connection #107 : 78 --- 2 107/4950 whole error = 132.40940625
-2021-06-03 00:24:56,309 : INFO : updates length and number of conns
-2021-06-03 00:24:56,309 : INFO : connection #109 : 2 --- 23 109/4950 whole error = 132.1875625
-2021-06-03 00:24:56,337 : INFO : updates length and number of conns
-2021-06-03 00:24:56,337 : INFO : connection #111 : 23 --- 88 111/4950 whole error = 131.75151250000002
-2021-06-03 00:24:56,374 : INFO : updates length and number of conns
-2021-06-03 00:24:56,375 : INFO : connection #113 : 88 --- 21 113/4950 whole error = 131.3293875
-2021-06-03 00:24:56,408 : INFO : updates length and number of conns
-2021-06-03 00:24:56,409 : INFO : connection #115 : 21 --- 85 115/4950 whole error = 130.87811875
-2021-06-03 00:24:56,443 : INFO : updates length and number of conns
-2021-06-03 00:24:56,444 : INFO : connection #117 : 85 --- 17 117/4950 whole error = 130.47696875
-2021-06-03 00:24:56,469 : INFO : updates length and number of conns
-2021-06-03 00:24:56,470 : INFO : connection #119 : 17 --- 81 119/4950 whole error = 130.0160125
-2021-06-03 00:24:56,508 : INFO : updates length and number of conns
-2021-06-03 00:24:56,509 : INFO : connection #121 : 81 --- 3 121/4950 whole error = 129.74370625
-2021-06-03 00:24:56,540 : INFO : updates length and number of conns
-2021-06-03 00:24:56,540 : INFO : connection #123 : 3 --- 26 123/4950 whole error = 129.48348125
-2021-06-03 00:24:56,571 : INFO : updates length and number of conns
-2021-06-03 00:24:56,571 : INFO : connection #125 : 26 --- 99 125/4950 whole error = 129.22723125000002
-2021-06-03 00:24:56,607 : INFO : updates length and number of conns
-2021-06-03 00:24:56,607 : INFO : connection #127 : 99 --- 59 127/4950 whole error = 128.78704374999998
-2021-06-03 00:24:56,639 : INFO : updates length and number of conns
-2021-06-03 00:24:56,640 : INFO : connection #129 : 59 --- 37 129/4950 whole error = 128.46704375
-2021-06-03 00:24:56,672 : INFO : updates length and number of conns
-2021-06-03 00:24:56,672 : INFO : connection #131 : 37 --- 61 131/4950 whole error = 128.1268375
-2021-06-03 00:24:56,702 : INFO : updates length and number of conns
-2021-06-03 00:24:56,703 : INFO : connection #133 : 61 --- 35 133/4950 whole error = 127.77511875
-2021-06-03 00:24:56,734 : INFO : updates length and number of conns
-2021-06-03 00:24:56,734 : INFO : connection #135 : 35 --- 63 135/4950 whole error = 127.39015625
-2021-06-03 00:24:56,769 : INFO : updates length and number of conns
-2021-06-03 00:24:56,772 : INFO : connection #137 : 63 --- 34 137/4950 whole error = 127.01235000000001
-2021-06-03 00:24:56,808 : INFO : updates length and number of conns
-2021-06-03 00:24:56,808 : INFO : connection #139 : 34 --- 13 139/4950 whole error = 126.72246875
-2021-06-03 00:24:56,842 : INFO : updates length and number of conns
-2021-06-03 00:24:56,842 : INFO : connection #141 : 13 --- 81 141/4950 whole error = 126.318775
-2021-06-03 00:24:56,876 : INFO : updates length and number of conns
-2021-06-03 00:24:56,876 : INFO : connection #143 : 81 --- 29 143/4950 whole error = 125.85428125
-2021-06-03 00:24:56,909 : INFO : updates length and number of conns
-2021-06-03 00:24:56,909 : INFO : connection #145 : 29 --- 8 145/4950 whole error = 125.58601875000001
-2021-06-03 00:24:56,942 : INFO : updates length and number of conns
-2021-06-03 00:24:56,942 : INFO : connection #147 : 8 --- 78 147/4950 whole error = 125.23919375
-2021-06-03 00:24:56,979 : INFO : updates length and number of conns
-2021-06-03 00:24:56,979 : INFO : connection #149 : 78 --- 17 149/4950 whole error = 124.7742375
-2021-06-03 00:24:57,005 : INFO : updates length and number of conns
-2021-06-03 00:24:57,005 : INFO : connection #151 : 17 --- 95 151/4950 whole error = 124.51376875
-2021-06-03 00:24:57,043 : INFO : updates length and number of conns
-2021-06-03 00:24:57,043 : INFO : connection #153 : 95 --- 25 153/4950 whole error = 124.2315875
-2021-06-03 00:24:57,076 : INFO : updates length and number of conns
-2021-06-03 00:24:57,076 : INFO : connection #155 : 25 --- 78 155/4950 whole error = 123.74349375
-2021-06-03 00:24:57,106 : INFO : updates length and number of conns
-2021-06-03 00:24:57,106 : INFO : connection #157 : 78 --- 98 157/4950 whole error = 123.52786875
-2021-06-03 00:24:57,141 : INFO : updates length and number of conns
-2021-06-03 00:24:57,141 : INFO : connection #159 : 98 --- 29 159/4950 whole error = 123.2399375
-2021-06-03 00:24:57,167 : INFO : updates length and number of conns
-2021-06-03 00:24:57,167 : INFO : connection #161 : 29 --- 50 161/4950 whole error = 123.02385625000001
-2021-06-03 00:24:57,206 : INFO : updates length and number of conns
-2021-06-03 00:24:57,206 : INFO : connection #163 : 50 --- 72 163/4950 whole error = 122.79599375
-2021-06-03 00:24:57,239 : INFO : updates length and number of conns
-2021-06-03 00:24:57,240 : INFO : connection #165 : 72 --- 96 165/4950 whole error = 122.5371125
-2021-06-03 00:24:57,277 : INFO : updates length and number of conns
-2021-06-03 00:24:57,277 : INFO : connection #167 : 96 --- 20 167/4950 whole error = 122.26718125
-2021-06-03 00:24:57,310 : INFO : updates length and number of conns
-2021-06-03 00:24:57,310 : INFO : connection #169 : 20 --- 91 169/4950 whole error = 121.93965625000001
-2021-06-03 00:24:57,350 : INFO : updates length and number of conns
-2021-06-03 00:24:57,350 : INFO : connection #171 : 91 --- 23 171/4950 whole error = 121.6203375
-2021-06-03 00:24:57,376 : INFO : updates length and number of conns
-2021-06-03 00:24:57,379 : INFO : connection #173 : 23 --- 84 173/4950 whole error = 121.19535625
-2021-06-03 00:24:57,408 : INFO : updates length and number of conns
-2021-06-03 00:24:57,408 : INFO : connection #175 : 84 --- 11 175/4950 whole error = 120.86700624999999
-2021-06-03 00:24:57,444 : INFO : updates length and number of conns
-2021-06-03 00:24:57,444 : INFO : connection #177 : 11 --- 89 177/4950 whole error = 120.59055625
-2021-06-03 00:24:57,479 : INFO : updates length and number of conns
-2021-06-03 00:24:57,480 : INFO : connection #179 : 89 --- 55 179/4950 whole error = 120.19585
-2021-06-03 00:24:57,525 : INFO : updates length and number of conns
-2021-06-03 00:24:57,525 : INFO : connection #181 : 55 --- 75 181/4950 whole error = 119.9584375
-2021-06-03 00:24:57,561 : INFO : updates length and number of conns
-2021-06-03 00:24:57,561 : INFO : connection #183 : 75 --- 22 183/4950 whole error = 119.51088750000001
-2021-06-03 00:24:57,587 : INFO : updates length and number of conns
-2021-06-03 00:24:57,588 : INFO : connection #185 : 22 --- 87 185/4950 whole error = 119.15756875
-2021-06-03 00:24:57,620 : INFO : updates length and number of conns
-2021-06-03 00:24:57,622 : INFO : connection #187 : 87 --- 40 187/4950 whole error = 118.81845625
-2021-06-03 00:24:57,656 : INFO : updates length and number of conns
-2021-06-03 00:24:57,657 : INFO : connection #189 : 40 --- 67 189/4950 whole error = 118.47533750000001
-2021-06-03 00:24:57,691 : INFO : updates length and number of conns
-2021-06-03 00:24:57,691 : INFO : connection #191 : 67 --- 46 191/4950 whole error = 118.21724375
-2021-06-03 00:24:57,724 : INFO : updates length and number of conns
-2021-06-03 00:24:57,724 : INFO : connection #193 : 46 --- 1 193/4950 whole error = 117.77900625000001
-2021-06-03 00:24:57,756 : INFO : updates length and number of conns
-2021-06-03 00:24:57,757 : INFO : connection #195 : 1 --- 43 195/4950 whole error = 117.3428625
-2021-06-03 00:24:57,789 : INFO : updates length and number of conns
-2021-06-03 00:24:57,789 : INFO : connection #197 : 43 --- 67 197/4950 whole error = 117.06751249999999
-2021-06-03 00:24:57,823 : INFO : updates length and number of conns
-2021-06-03 00:24:57,823 : INFO : connection #199 : 67 --- 87 199/4950 whole error = 116.82125
-2021-06-03 00:24:57,860 : INFO : updates length and number of conns
-2021-06-03 00:24:57,860 : INFO : connection #201 : 87 --- 26 201/4950 whole error = 116.45524999999999
-2021-06-03 00:24:57,893 : INFO : updates length and number of conns
-2021-06-03 00:24:57,893 : INFO : connection #203 : 26 --- 77 203/4950 whole error = 116.00905625
-2021-06-03 00:24:57,927 : INFO : updates length and number of conns
-2021-06-03 00:24:57,927 : INFO : connection #205 : 77 --- 18 205/4950 whole error = 115.59178125
-2021-06-03 00:24:57,962 : INFO : updates length and number of conns
-2021-06-03 00:24:57,962 : INFO : connection #207 : 18 --- 91 207/4950 whole error = 115.2948125
-2021-06-03 00:24:57,986 : INFO : updates length and number of conns
-2021-06-03 00:24:57,986 : INFO : connection #209 : 91 --- 15 209/4950 whole error = 115.0338875
-2021-06-03 00:24:58,025 : INFO : updates length and number of conns
-2021-06-03 00:24:58,026 : INFO : connection #211 : 15 --- 77 211/4950 whole error = 114.6705625
-2021-06-03 00:24:58,060 : INFO : updates length and number of conns
-2021-06-03 00:24:58,061 : INFO : connection #213 : 77 --- 21 213/4950 whole error = 114.257
-2021-06-03 00:24:58,094 : INFO : updates length and number of conns
-2021-06-03 00:24:58,094 : INFO : connection #215 : 21 --- 82 215/4950 whole error = 113.89234375
-2021-06-03 00:24:58,131 : INFO : updates length and number of conns
-2021-06-03 00:24:58,132 : INFO : connection #217 : 82 --- 2 217/4950 whole error = 113.67304374999999
-2021-06-03 00:24:58,157 : INFO : updates length and number of conns
-2021-06-03 00:24:58,157 : INFO : connection #219 : 2 --- 67 219/4950 whole error = 113.3769
-2021-06-03 00:24:58,194 : INFO : updates length and number of conns
-2021-06-03 00:24:58,195 : INFO : connection #221 : 67 --- 39 221/4950 whole error = 113.0699375
-2021-06-03 00:24:58,217 : INFO : updates length and number of conns
-2021-06-03 00:24:58,217 : INFO : connection #223 : 39 --- 60 223/4950 whole error = 112.84774375
-2021-06-03 00:24:58,259 : INFO : updates length and number of conns
-2021-06-03 00:24:58,259 : INFO : connection #225 : 60 --- 34 225/4950 whole error = 112.54971875
-2021-06-03 00:24:58,296 : INFO : updates length and number of conns
-2021-06-03 00:24:58,296 : INFO : connection #227 : 34 --- 55 227/4950 whole error = 112.33171875
-2021-06-03 00:24:58,326 : INFO : updates length and number of conns
-2021-06-03 00:24:58,326 : INFO : connection #229 : 55 --- 93 229/4950 whole error = 111.94745
-2021-06-03 00:24:58,366 : INFO : updates length and number of conns
-2021-06-03 00:24:58,366 : INFO : connection #231 : 93 --- 13 231/4950 whole error = 111.71383750000001
-2021-06-03 00:24:58,392 : INFO : updates length and number of conns
-2021-06-03 00:24:58,392 : INFO : connection #233 : 13 --- 83 233/4950 whole error = 111.387125
-2021-06-03 00:24:58,427 : INFO : updates length and number of conns
-2021-06-03 00:24:58,427 : INFO : connection #235 : 83 --- 31 235/4950 whole error = 111.02235
-2021-06-03 00:24:58,459 : INFO : updates length and number of conns
-2021-06-03 00:24:58,460 : INFO : connection #237 : 31 --- 81 237/4950 whole error = 110.66024999999999
-2021-06-03 00:24:58,493 : INFO : updates length and number of conns
-2021-06-03 00:24:58,493 : INFO : connection #239 : 81 --- 24 239/4950 whole error = 110.26459375
-2021-06-03 00:24:58,532 : INFO : updates length and number of conns
-2021-06-03 00:24:58,532 : INFO : connection #241 : 24 --- 77 241/4950 whole error = 109.87445
-2021-06-03 00:24:58,560 : INFO : updates length and number of conns
-2021-06-03 00:24:58,561 : INFO : connection #243 : 77 --- 27 243/4950 whole error = 109.49393749999999
-2021-06-03 00:24:58,595 : INFO : updates length and number of conns
-2021-06-03 00:24:58,595 : INFO : connection #245 : 27 --- 67 245/4950 whole error = 109.10815625
-2021-06-03 00:24:58,627 : INFO : updates length and number of conns
-2021-06-03 00:24:58,627 : INFO : connection #247 : 67 --- 41 247/4950 whole error = 108.8260625
-2021-06-03 00:24:58,667 : INFO : updates length and number of conns
-2021-06-03 00:24:58,667 : INFO : connection #249 : 41 --- 61 249/4950 whole error = 108.58780625
-2021-06-03 00:24:58,693 : INFO : updates length and number of conns
-2021-06-03 00:24:58,694 : INFO : connection #251 : 61 --- 14 251/4950 whole error = 108.31854375
-2021-06-03 00:24:58,724 : INFO : updates length and number of conns
-2021-06-03 00:24:58,724 : INFO : connection #253 : 14 --- 92 253/4950 whole error = 108.06754375
-2021-06-03 00:24:58,762 : INFO : updates length and number of conns
-2021-06-03 00:24:58,763 : INFO : connection #255 : 92 --- 28 255/4950 whole error = 107.80226875
-2021-06-03 00:24:58,794 : INFO : updates length and number of conns
-2021-06-03 00:24:58,794 : INFO : connection #257 : 28 --- 82 257/4950 whole error = 107.46480625
-2021-06-03 00:24:58,834 : INFO : updates length and number of conns
-2021-06-03 00:24:58,834 : INFO : connection #259 : 82 --- 5 259/4950 whole error = 107.23465
-2021-06-03 00:24:58,857 : INFO : updates length and number of conns
-2021-06-03 00:24:58,857 : INFO : connection #261 : 5 --- 30 261/4950 whole error = 107.003225
-2021-06-03 00:24:58,894 : INFO : updates length and number of conns
-2021-06-03 00:24:58,894 : INFO : connection #263 : 30 --- 69 263/4950 whole error = 106.86248125
-2021-06-03 00:24:58,926 : INFO : updates length and number of conns
-2021-06-03 00:24:58,926 : INFO : connection #265 : 69 --- 89 265/4950 whole error = 106.63996875000001
-2021-06-03 00:24:58,958 : INFO : updates length and number of conns
-2021-06-03 00:24:58,958 : INFO : connection #267 : 89 --- 19 267/4950 whole error = 106.352075
-2021-06-03 00:24:58,992 : INFO : updates length and number of conns
-2021-06-03 00:24:58,992 : INFO : connection #269 : 19 --- 39 269/4950 whole error = 106.15135625
-2021-06-03 00:24:59,024 : INFO : updates length and number of conns
-2021-06-03 00:24:59,024 : INFO : connection #271 : 39 --- 64 271/4950 whole error = 105.86461875
-2021-06-03 00:24:59,057 : INFO : updates length and number of conns
-2021-06-03 00:24:59,057 : INFO : connection #273 : 64 --- 85 273/4950 whole error = 105.631875
-2021-06-03 00:24:59,091 : INFO : updates length and number of conns
-2021-06-03 00:24:59,091 : INFO : connection #275 : 85 --- 20 275/4950 whole error = 105.32074375
-2021-06-03 00:24:59,125 : INFO : updates length and number of conns
-2021-06-03 00:24:59,125 : INFO : connection #277 : 20 --- 78 277/4950 whole error = 104.95568750000001
-2021-06-03 00:24:59,160 : INFO : updates length and number of conns
-2021-06-03 00:24:59,160 : INFO : connection #279 : 78 --- 13 279/4950 whole error = 104.63904375
-2021-06-03 00:24:59,197 : INFO : updates length and number of conns
-2021-06-03 00:24:59,198 : INFO : connection #281 : 13 --- 60 281/4950 whole error = 104.39013125
-2021-06-03 00:24:59,226 : INFO : updates length and number of conns
-2021-06-03 00:24:59,226 : INFO : connection #283 : 60 --- 36 283/4950 whole error = 104.13355
-2021-06-03 00:24:59,262 : INFO : updates length and number of conns
-2021-06-03 00:24:59,263 : INFO : connection #285 : 36 --- 65 285/4950 whole error = 103.82056875
-2021-06-03 00:24:59,309 : INFO : updates length and number of conns
-2021-06-03 00:24:59,309 : INFO : connection #287 : 65 --- 24 287/4950 whole error = 103.501525
-2021-06-03 00:24:59,344 : INFO : updates length and number of conns
-2021-06-03 00:24:59,344 : INFO : connection #289 : 24 --- 89 289/4950 whole error = 103.20643125000001
-2021-06-03 00:24:59,376 : INFO : updates length and number of conns
-2021-06-03 00:24:59,376 : INFO : connection #291 : 89 --- 12 291/4950 whole error = 102.96955625000001
-2021-06-03 00:24:59,408 : INFO : updates length and number of conns
-2021-06-03 00:24:59,408 : INFO : connection #293 : 12 --- 79 293/4950 whole error = 102.67550625
-2021-06-03 00:24:59,445 : INFO : updates length and number of conns
-2021-06-03 00:24:59,446 : INFO : connection #295 : 79 --- 26 295/4950 whole error = 102.32798125
-2021-06-03 00:24:59,470 : INFO : updates length and number of conns
-2021-06-03 00:24:59,470 : INFO : connection #297 : 26 --- 81 297/4950 whole error = 102.01465
-2021-06-03 00:24:59,502 : INFO : updates length and number of conns
-2021-06-03 00:24:59,502 : INFO : connection #299 : 81 --- 48 299/4950 whole error = 101.7634875
-2021-06-03 00:24:59,543 : INFO : updates length and number of conns
-2021-06-03 00:24:59,544 : INFO : connection #301 : 48 --- 71 301/4950 whole error = 101.565075
-2021-06-03 00:24:59,577 : INFO : updates length and number of conns
-2021-06-03 00:24:59,577 : INFO : connection #303 : 71 --- 17 303/4950 whole error = 101.25580625
-2021-06-03 00:24:59,619 : INFO : updates length and number of conns
-2021-06-03 00:24:59,620 : INFO : connection #305 : 17 --- 54 305/4950 whole error = 101.01181249999999
-2021-06-03 00:24:59,660 : INFO : updates length and number of conns
-2021-06-03 00:24:59,660 : INFO : connection #307 : 54 --- 75 307/4950 whole error = 100.83480625
-2021-06-03 00:24:59,696 : INFO : updates length and number of conns
-2021-06-03 00:24:59,696 : INFO : connection #309 : 75 --- 39 309/4950 whole error = 100.56953125
-2021-06-03 00:24:59,729 : INFO : updates length and number of conns
-2021-06-03 00:24:59,729 : INFO : connection #311 : 39 --- 59 311/4950 whole error = 100.3488
-2021-06-03 00:24:59,761 : INFO : updates length and number of conns
-2021-06-03 00:24:59,761 : INFO : connection #313 : 59 --- 35 313/4950 whole error = 100.111425
-2021-06-03 00:24:59,797 : INFO : updates length and number of conns
-2021-06-03 00:24:59,797 : INFO : connection #315 : 35 --- 81 315/4950 whole error = 99.8303125
-2021-06-03 00:24:59,821 : INFO : updates length and number of conns
-2021-06-03 00:24:59,821 : INFO : connection #317 : 81 --- 30 317/4950 whole error = 99.5318
-2021-06-03 00:24:59,863 : INFO : updates length and number of conns
-2021-06-03 00:24:59,863 : INFO : connection #319 : 30 --- 55 319/4950 whole error = 99.31370625
-2021-06-03 00:24:59,887 : INFO : updates length and number of conns
-2021-06-03 00:24:59,887 : INFO : connection #321 : 55 --- 20 321/4950 whole error = 99.11205625000001
-2021-06-03 00:24:59,931 : INFO : updates length and number of conns
-2021-06-03 00:24:59,931 : INFO : connection #323 : 20 --- 76 323/4950 whole error = 98.81535625000001
-2021-06-03 00:24:59,957 : INFO : updates length and number of conns
-2021-06-03 00:24:59,957 : INFO : connection #325 : 76 --- 96 325/4950 whole error = 98.66169375
-2021-06-03 00:24:59,997 : INFO : updates length and number of conns
-2021-06-03 00:24:59,997 : INFO : connection #327 : 96 --- 16 327/4950 whole error = 98.46446875
-2021-06-03 00:25:00,040 : INFO : updates length and number of conns
-2021-06-03 00:25:00,041 : INFO : connection #329 : 16 --- 86 329/4950 whole error = 98.1870125
-2021-06-03 00:25:00,095 : INFO : updates length and number of conns
-2021-06-03 00:25:00,095 : INFO : connection #331 : 86 --- 9 331/4950 whole error = 97.9441625
-2021-06-03 00:25:00,136 : INFO : updates length and number of conns
-2021-06-03 00:25:00,136 : INFO : connection #333 : 9 --- 50 333/4950 whole error = 97.62555625
-2021-06-03 00:25:00,165 : INFO : updates length and number of conns
-2021-06-03 00:25:00,165 : INFO : connection #335 : 50 --- 71 335/4950 whole error = 97.4664875
-2021-06-03 00:25:00,206 : INFO : updates length and number of conns
-2021-06-03 00:25:00,208 : INFO : connection #337 : 71 --- 32 337/4950 whole error = 97.1757125
-2021-06-03 00:25:00,243 : INFO : updates length and number of conns
-2021-06-03 00:25:00,244 : INFO : connection #339 : 32 --- 53 339/4950 whole error = 96.9799
-2021-06-03 00:25:00,302 : INFO : updates length and number of conns
-2021-06-03 00:25:00,302 : INFO : connection #341 : 53 --- 86 341/4950 whole error = 96.71040624999999
-2021-06-03 00:25:00,385 : INFO : updates length and number of conns
-2021-06-03 00:25:00,386 : INFO : connection #343 : 86 --- 39 343/4950 whole error = 96.48840625000001
-2021-06-03 00:25:00,443 : INFO : updates length and number of conns
-2021-06-03 00:25:00,443 : INFO : connection #345 : 39 --- 89 345/4950 whole error = 96.22828750000001
-2021-06-03 00:25:00,487 : INFO : updates length and number of conns
-2021-06-03 00:25:00,488 : INFO : connection #347 : 89 --- 9 347/4950 whole error = 96.02221250000001
-2021-06-03 00:25:00,535 : INFO : updates length and number of conns
-2021-06-03 00:25:00,535 : INFO : connection #349 : 9 --- 82 349/4950 whole error = 95.771075
-2021-06-03 00:25:00,587 : INFO : updates length and number of conns
-2021-06-03 00:25:00,588 : INFO : connection #351 : 82 --- 18 351/4950 whole error = 95.48635625000001
-2021-06-03 00:25:00,636 : INFO : updates length and number of conns
-2021-06-03 00:25:00,637 : INFO : connection #353 : 18 --- 69 353/4950 whole error = 95.20776875
-2021-06-03 00:25:00,687 : INFO : updates length and number of conns
-2021-06-03 00:25:00,687 : INFO : connection #355 : 69 --- 6 355/4950 whole error = 94.99833124999999
-2021-06-03 00:25:00,728 : INFO : updates length and number of conns
-2021-06-03 00:25:00,729 : INFO : connection #357 : 6 --- 45 357/4950 whole error = 94.68204374999999
-2021-06-03 00:25:00,768 : INFO : updates length and number of conns
-2021-06-03 00:25:00,769 : INFO : connection #359 : 45 --- 65 359/4950 whole error = 94.4831375
-2021-06-03 00:25:00,891 : INFO : updates length and number of conns
-2021-06-03 00:25:00,897 : INFO : connection #361 : 65 --- 12 361/4950 whole error = 94.25031875
-2021-06-03 00:25:01,008 : INFO : updates length and number of conns
-2021-06-03 00:25:01,008 : INFO : connection #363 : 12 --- 32 363/4950 whole error = 94.05063125000001
-2021-06-03 00:25:01,077 : INFO : updates length and number of conns
-2021-06-03 00:25:01,077 : INFO : connection #365 : 32 --- 61 365/4950 whole error = 93.80281875
-2021-06-03 00:25:01,137 : INFO : updates length and number of conns
-2021-06-03 00:25:01,137 : INFO : connection #367 : 61 --- 82 367/4950 whole error = 93.63510625
-2021-06-03 00:25:01,199 : INFO : updates length and number of conns
-2021-06-03 00:25:01,200 : INFO : connection #369 : 82 --- 23 369/4950 whole error = 93.342225
-2021-06-03 00:25:01,273 : INFO : updates length and number of conns
-2021-06-03 00:25:01,273 : INFO : connection #371 : 23 --- 74 371/4950 whole error = 93.05765
-2021-06-03 00:25:01,347 : INFO : updates length and number of conns
-2021-06-03 00:25:01,348 : INFO : connection #373 : 74 --- 10 373/4950 whole error = 92.81516875
-2021-06-03 00:25:01,396 : INFO : updates length and number of conns
-2021-06-03 00:25:01,397 : INFO : connection #375 : 10 --- 64 375/4950 whole error = 92.6142
-2021-06-03 00:25:01,442 : INFO : updates length and number of conns
-2021-06-03 00:25:01,444 : INFO : connection #377 : 64 --- 12 377/4950 whole error = 92.38890625
-2021-06-03 00:25:01,479 : INFO : updates length and number of conns
-2021-06-03 00:25:01,479 : INFO : connection #379 : 12 --- 87 379/4950 whole error = 92.18987499999999
-2021-06-03 00:25:01,520 : INFO : updates length and number of conns
-2021-06-03 00:25:01,520 : INFO : connection #381 : 87 --- 29 381/4950 whole error = 91.96394375
-2021-06-03 00:25:01,558 : INFO : updates length and number of conns
-2021-06-03 00:25:01,559 : INFO : connection #383 : 29 --- 68 383/4950 whole error = 91.67628124999999
-2021-06-03 00:25:01,602 : INFO : updates length and number of conns
-2021-06-03 00:25:01,603 : INFO : connection #385 : 68 --- 11 385/4950 whole error = 91.45878124999999
-2021-06-03 00:25:01,634 : INFO : updates length and number of conns
-2021-06-03 00:25:01,635 : INFO : connection #387 : 11 --- 81 387/4950 whole error = 91.2190625
-2021-06-03 00:25:01,681 : INFO : updates length and number of conns
-2021-06-03 00:25:01,681 : INFO : connection #389 : 81 --- 43 389/4950 whole error = 91.04433125
-2021-06-03 00:25:01,728 : INFO : updates length and number of conns
-2021-06-03 00:25:01,728 : INFO : connection #391 : 43 --- 85 391/4950 whole error = 90.83041875
-2021-06-03 00:25:01,773 : INFO : updates length and number of conns
-2021-06-03 00:25:01,773 : INFO : connection #393 : 85 --- 37 393/4950 whole error = 90.62049375000001
-2021-06-03 00:25:01,817 : INFO : updates length and number of conns
-2021-06-03 00:25:01,818 : INFO : connection #395 : 37 --- 57 395/4950 whole error = 90.42440624999999
-2021-06-03 00:25:01,850 : INFO : updates length and number of conns
-2021-06-03 00:25:01,850 : INFO : connection #397 : 57 --- 96 397/4950 whole error = 90.1442125
-2021-06-03 00:25:01,881 : INFO : updates length and number of conns
-2021-06-03 00:25:01,882 : INFO : connection #399 : 96 --- 24 399/4950 whole error = 89.96196875
-2021-06-03 00:25:01,914 : INFO : updates length and number of conns
-2021-06-03 00:25:01,914 : INFO : connection #401 : 24 --- 44 401/4950 whole error = 89.83125
-2021-06-03 00:25:01,978 : INFO : updates length and number of conns
-2021-06-03 00:25:01,979 : INFO : connection #403 : 44 --- 3 403/4950 whole error = 89.56407499999999
-2021-06-03 00:25:02,036 : INFO : updates length and number of conns
-2021-06-03 00:25:02,036 : INFO : connection #405 : 3 --- 75 405/4950 whole error = 89.3907875
-2021-06-03 00:25:02,088 : INFO : updates length and number of conns
-2021-06-03 00:25:02,089 : INFO : connection #407 : 75 --- 26 407/4950 whole error = 89.13627500000001
-2021-06-03 00:25:02,139 : INFO : updates length and number of conns
-2021-06-03 00:25:02,139 : INFO : connection #409 : 26 --- 93 409/4950 whole error = 88.94040625
-2021-06-03 00:25:02,240 : INFO : updates length and number of conns
-2021-06-03 00:25:02,245 : INFO : connection #411 : 93 --- 31 411/4950 whole error = 88.7515
-2021-06-03 00:25:02,352 : INFO : updates length and number of conns
-2021-06-03 00:25:02,352 : INFO : connection #413 : 31 --- 67 413/4950 whole error = 88.53106874999999
-2021-06-03 00:25:02,405 : INFO : updates length and number of conns
-2021-06-03 00:25:02,405 : INFO : connection #415 : 67 --- 24 415/4950 whole error = 88.28339375
-2021-06-03 00:25:02,461 : INFO : updates length and number of conns
-2021-06-03 00:25:02,462 : INFO : connection #417 : 24 --- 80 417/4950 whole error = 88.02210625
-2021-06-03 00:25:02,517 : INFO : updates length and number of conns
-2021-06-03 00:25:02,517 : INFO : connection #419 : 80 --- 47 419/4950 whole error = 87.83531875
-2021-06-03 00:25:02,568 : INFO : updates length and number of conns
-2021-06-03 00:25:02,568 : INFO : connection #421 : 47 --- 67 421/4950 whole error = 87.6740625
-2021-06-03 00:25:02,633 : INFO : updates length and number of conns
-2021-06-03 00:25:02,633 : INFO : connection #423 : 67 --- 15 423/4950 whole error = 87.457775
-2021-06-03 00:25:02,703 : INFO : updates length and number of conns
-2021-06-03 00:25:02,703 : INFO : connection #425 : 15 --- 82 425/4950 whole error = 87.216525
-2021-06-03 00:25:02,792 : INFO : updates length and number of conns
-2021-06-03 00:25:02,796 : INFO : connection #427 : 82 --- 19 427/4950 whole error = 86.97481875
-2021-06-03 00:25:02,878 : INFO : updates length and number of conns
-2021-06-03 00:25:02,879 : INFO : connection #429 : 19 --- 72 429/4950 whole error = 86.75795
-2021-06-03 00:25:02,939 : INFO : updates length and number of conns
-2021-06-03 00:25:02,939 : INFO : connection #431 : 72 --- 21 431/4950 whole error = 86.536175
-2021-06-03 00:25:02,991 : INFO : updates length and number of conns
-2021-06-03 00:25:02,992 : INFO : connection #433 : 21 --- 86 433/4950 whole error = 86.2998625
-2021-06-03 00:25:03,054 : INFO : updates length and number of conns
-2021-06-03 00:25:03,054 : INFO : connection #435 : 86 --- 42 435/4950 whole error = 86.08286875
-2021-06-03 00:25:03,118 : INFO : updates length and number of conns
-2021-06-03 00:25:03,118 : INFO : connection #437 : 42 --- 91 437/4950 whole error = 85.86363125
-2021-06-03 00:25:03,158 : INFO : updates length and number of conns
-2021-06-03 00:25:03,158 : INFO : connection #439 : 91 --- 11 439/4950 whole error = 85.686425
-2021-06-03 00:25:03,221 : INFO : updates length and number of conns
-2021-06-03 00:25:03,221 : INFO : connection #441 : 11 --- 31 441/4950 whole error = 85.53075000000001
-2021-06-03 00:25:03,286 : INFO : updates length and number of conns
-2021-06-03 00:25:03,287 : INFO : connection #443 : 31 --- 60 443/4950 whole error = 85.3370875
-2021-06-03 00:25:03,351 : INFO : updates length and number of conns
-2021-06-03 00:25:03,352 : INFO : connection #445 : 60 --- 33 445/4950 whole error = 85.13231250000001
-2021-06-03 00:25:03,400 : INFO : updates length and number of conns
-2021-06-03 00:25:03,401 : INFO : connection #447 : 33 --- 62 447/4950 whole error = 84.913475
-2021-06-03 00:25:03,450 : INFO : updates length and number of conns
-2021-06-03 00:25:03,451 : INFO : connection #449 : 62 --- 40 449/4950 whole error = 84.70478125
-2021-06-03 00:25:03,478 : INFO : updates length and number of conns
-2021-06-03 00:25:03,479 : INFO : connection #451 : 40 --- 82 451/4950 whole error = 84.53209999999999
-2021-06-03 00:25:03,516 : INFO : updates length and number of conns
-2021-06-03 00:25:03,516 : INFO : connection #453 : 82 --- 17 453/4950 whole error = 84.36888125
-2021-06-03 00:25:03,542 : INFO : updates length and number of conns
-2021-06-03 00:25:03,543 : INFO : connection #455 : 17 --- 83 455/4950 whole error = 84.13881874999998
-2021-06-03 00:25:03,580 : INFO : updates length and number of conns
-2021-06-03 00:25:03,581 : INFO : connection #457 : 83 --- 7 457/4950 whole error = 83.95120000000001
-2021-06-03 00:25:03,619 : INFO : updates length and number of conns
-2021-06-03 00:25:03,619 : INFO : connection #459 : 7 --- 85 459/4950 whole error = 83.77189375
-2021-06-03 00:25:03,646 : INFO : updates length and number of conns
-2021-06-03 00:25:03,646 : INFO : connection #461 : 85 --- 33 461/4950 whole error = 83.58571250000001
-2021-06-03 00:25:03,684 : INFO : updates length and number of conns
-2021-06-03 00:25:03,684 : INFO : connection #463 : 33 --- 54 463/4950 whole error = 83.42855
-2021-06-03 00:25:03,710 : INFO : updates length and number of conns
-2021-06-03 00:25:03,710 : INFO : connection #465 : 54 --- 99 465/4950 whole error = 83.18114374999999
-2021-06-03 00:25:03,748 : INFO : updates length and number of conns
-2021-06-03 00:25:03,748 : INFO : connection #467 : 99 --- 23 467/4950 whole error = 83.03921249999999
-2021-06-03 00:25:03,776 : INFO : updates length and number of conns
-2021-06-03 00:25:03,777 : INFO : connection #469 : 23 --- 94 469/4950 whole error = 82.862525
-2021-06-03 00:25:03,808 : INFO : updates length and number of conns
-2021-06-03 00:25:03,808 : INFO : connection #471 : 94 --- 67 471/4950 whole error = 82.6987
-2021-06-03 00:25:03,841 : INFO : updates length and number of conns
-2021-06-03 00:25:03,842 : INFO : connection #473 : 67 --- 28 473/4950 whole error = 82.4661125
-2021-06-03 00:25:03,881 : INFO : updates length and number of conns
-2021-06-03 00:25:03,881 : INFO : connection #475 : 28 --- 70 475/4950 whole error = 82.25838750000001
-2021-06-03 00:25:03,914 : INFO : updates length and number of conns
-2021-06-03 00:25:03,914 : INFO : connection #477 : 70 --- 20 477/4950 whole error = 82.0600125
-2021-06-03 00:25:03,949 : INFO : updates length and number of conns
-2021-06-03 00:25:03,950 : INFO : connection #479 : 20 --- 58 479/4950 whole error = 81.8957875
-2021-06-03 00:25:03,981 : INFO : updates length and number of conns
-2021-06-03 00:25:03,981 : INFO : connection #481 : 58 --- 34 481/4950 whole error = 81.69605625
-2021-06-03 00:25:04,013 : INFO : updates length and number of conns
-2021-06-03 00:25:04,014 : INFO : connection #483 : 34 --- 70 483/4950 whole error = 81.5146625
-2021-06-03 00:25:04,042 : INFO : updates length and number of conns
-2021-06-03 00:25:04,042 : INFO : connection #485 : 70 --- 5 485/4950 whole error = 81.35608125
-2021-06-03 00:25:04,074 : INFO : updates length and number of conns
-2021-06-03 00:25:04,075 : INFO : connection #487 : 5 --- 73 487/4950 whole error = 81.21493749999999
-2021-06-03 00:25:04,107 : INFO : updates length and number of conns
-2021-06-03 00:25:04,107 : INFO : connection #489 : 73 --- 51 489/4950 whole error = 81.07866250000001
-2021-06-03 00:25:04,137 : INFO : updates length and number of conns
-2021-06-03 00:25:04,139 : INFO : connection #491 : 51 --- 28 491/4950 whole error = 80.9521625
-2021-06-03 00:25:04,167 : INFO : updates length and number of conns
-2021-06-03 00:25:04,167 : INFO : connection #493 : 28 --- 89 493/4950 whole error = 80.75369375
-2021-06-03 00:25:04,206 : INFO : updates length and number of conns
-2021-06-03 00:25:04,206 : INFO : connection #495 : 89 --- 48 495/4950 whole error = 80.55544375000001
-2021-06-03 00:25:04,245 : INFO : updates length and number of conns
-2021-06-03 00:25:04,246 : INFO : connection #497 : 48 --- 22 497/4950 whole error = 80.427075
-2021-06-03 00:25:04,281 : INFO : updates length and number of conns
-2021-06-03 00:25:04,281 : INFO : connection #499 : 22 --- 62 499/4950 whole error = 80.25779375
-2021-06-03 00:25:04,321 : INFO : updates length and number of conns
-2021-06-03 00:25:04,321 : INFO : connection #501 : 62 --- 15 501/4950 whole error = 80.09919375
-2021-06-03 00:25:04,347 : INFO : updates length and number of conns
-2021-06-03 00:25:04,347 : INFO : connection #503 : 15 --- 78 503/4950 whole error = 79.89023125
-2021-06-03 00:25:04,386 : INFO : updates length and number of conns
-2021-06-03 00:25:04,386 : INFO : connection #505 : 78 --- 28 505/4950 whole error = 79.695725
-2021-06-03 00:25:04,411 : INFO : updates length and number of conns
-2021-06-03 00:25:04,411 : INFO : connection #507 : 28 --- 61 507/4950 whole error = 79.5457125
-2021-06-03 00:25:04,451 : INFO : updates length and number of conns
-2021-06-03 00:25:04,451 : INFO : connection #509 : 61 --- 24 509/4950 whole error = 79.37082500000001
-2021-06-03 00:25:04,486 : INFO : updates length and number of conns
-2021-06-03 00:25:04,486 : INFO : connection #511 : 24 --- 49 511/4950 whole error = 79.27356875000001
-2021-06-03 00:25:04,510 : INFO : updates length and number of conns
-2021-06-03 00:25:04,510 : INFO : connection #513 : 49 --- 72 513/4950 whole error = 79.1431125
-2021-06-03 00:25:04,548 : INFO : updates length and number of conns
-2021-06-03 00:25:04,549 : INFO : connection #515 : 72 --- 13 515/4950 whole error = 78.95170625
-2021-06-03 00:25:04,576 : INFO : updates length and number of conns
-2021-06-03 00:25:04,577 : INFO : connection #517 : 13 --- 86 517/4950 whole error = 78.78344375
-2021-06-03 00:25:04,608 : INFO : updates length and number of conns
-2021-06-03 00:25:04,608 : INFO : connection #519 : 86 --- 45 519/4950 whole error = 78.620575
-2021-06-03 00:25:04,648 : INFO : updates length and number of conns
-2021-06-03 00:25:04,648 : INFO : connection #521 : 45 --- 66 521/4950 whole error = 78.47635
-2021-06-03 00:25:04,682 : INFO : updates length and number of conns
-2021-06-03 00:25:04,682 : INFO : connection #523 : 66 --- 3 523/4950 whole error = 78.31631875
-2021-06-03 00:25:04,716 : INFO : updates length and number of conns
-2021-06-03 00:25:04,716 : INFO : connection #525 : 3 --- 32 525/4950 whole error = 78.19020625
-2021-06-03 00:25:04,758 : INFO : updates length and number of conns
-2021-06-03 00:25:04,758 : INFO : connection #527 : 32 --- 80 527/4950 whole error = 78.0153
-2021-06-03 00:25:04,792 : INFO : updates length and number of conns
-2021-06-03 00:25:04,792 : INFO : connection #529 : 80 --- 0 529/4950 whole error = 77.88668125
-2021-06-03 00:25:04,818 : INFO : updates length and number of conns
-2021-06-03 00:25:04,819 : INFO : connection #531 : 0 --- 75 531/4950 whole error = 77.77544375000001
-2021-06-03 00:25:04,853 : INFO : updates length and number of conns
-2021-06-03 00:25:04,854 : INFO : connection #533 : 75 --- 17 533/4950 whole error = 77.5791
-2021-06-03 00:25:04,886 : INFO : updates length and number of conns
-2021-06-03 00:25:04,886 : INFO : connection #535 : 17 --- 64 535/4950 whole error = 77.41504375000001
-2021-06-03 00:25:04,923 : INFO : updates length and number of conns
-2021-06-03 00:25:04,925 : INFO : connection #537 : 64 --- 26 537/4950 whole error = 77.2512875
-2021-06-03 00:25:04,960 : INFO : updates length and number of conns
-2021-06-03 00:25:04,960 : INFO : connection #539 : 26 --- 89 539/4950 whole error = 77.06759375
-2021-06-03 00:25:04,987 : INFO : updates length and number of conns
-2021-06-03 00:25:04,988 : INFO : connection #541 : 89 --- 10 541/4950 whole error = 76.95207500000001
-2021-06-03 00:25:05,017 : INFO : updates length and number of conns
-2021-06-03 00:25:05,017 : INFO : connection #543 : 10 --- 78 543/4950 whole error = 76.77731875
-2021-06-03 00:25:05,054 : INFO : updates length and number of conns
-2021-06-03 00:25:05,054 : INFO : connection #545 : 78 --- 45 545/4950 whole error = 76.65481875
-2021-06-03 00:25:05,082 : INFO : updates length and number of conns
-2021-06-03 00:25:05,082 : INFO : connection #547 : 45 --- 95 547/4950 whole error = 76.46005
-2021-06-03 00:25:05,119 : INFO : updates length and number of conns
-2021-06-03 00:25:05,119 : INFO : connection #549 : 95 --- 33 549/4950 whole error = 76.317925
-2021-06-03 00:25:05,156 : INFO : updates length and number of conns
-2021-06-03 00:25:05,157 : INFO : connection #551 : 33 --- 59 551/4950 whole error = 76.13875
-2021-06-03 00:25:05,182 : INFO : updates length and number of conns
-2021-06-03 00:25:05,182 : INFO : connection #553 : 59 --- 17 553/4950 whole error = 76.02115625
-2021-06-03 00:25:05,221 : INFO : updates length and number of conns
-2021-06-03 00:25:05,222 : INFO : connection #555 : 17 --- 76 555/4950 whole error = 75.8532
-2021-06-03 00:25:05,245 : INFO : updates length and number of conns
-2021-06-03 00:25:05,246 : INFO : connection #557 : 76 --- 36 557/4950 whole error = 75.733475
-2021-06-03 00:25:05,295 : INFO : updates length and number of conns
-2021-06-03 00:25:05,295 : INFO : connection #559 : 36 --- 56 559/4950 whole error = 75.578
-2021-06-03 00:25:05,333 : INFO : updates length and number of conns
-2021-06-03 00:25:05,334 : INFO : connection #561 : 56 --- 7 561/4950 whole error = 75.412825
-2021-06-03 00:25:05,372 : INFO : updates length and number of conns
-2021-06-03 00:25:05,372 : INFO : connection #563 : 7 --- 52 563/4950 whole error = 75.2187625
-2021-06-03 00:25:05,400 : INFO : updates length and number of conns
-2021-06-03 00:25:05,400 : INFO : connection #565 : 52 --- 85 565/4950 whole error = 75.0497625
-2021-06-03 00:25:05,441 : INFO : updates length and number of conns
-2021-06-03 00:25:05,441 : INFO : connection #567 : 85 --- 24 567/4950 whole error = 74.88899375
-2021-06-03 00:25:05,464 : INFO : updates length and number of conns
-2021-06-03 00:25:05,464 : INFO : connection #569 : 24 --- 76 569/4950 whole error = 74.72956875
-2021-06-03 00:25:05,502 : INFO : updates length and number of conns
-2021-06-03 00:25:05,503 : INFO : connection #571 : 76 --- 41 571/4950 whole error = 74.605925
-2021-06-03 00:25:05,535 : INFO : updates length and number of conns
-2021-06-03 00:25:05,535 : INFO : connection #573 : 41 --- 93 573/4950 whole error = 74.4473
-2021-06-03 00:25:05,569 : INFO : updates length and number of conns
-2021-06-03 00:25:05,569 : INFO : connection #575 : 93 --- 17 575/4950 whole error = 74.29251875
-2021-06-03 00:25:05,601 : INFO : updates length and number of conns
-2021-06-03 00:25:05,601 : INFO : connection #577 : 17 --- 42 577/4950 whole error = 74.184025
-2021-06-03 00:25:05,633 : INFO : updates length and number of conns
-2021-06-03 00:25:05,633 : INFO : connection #579 : 42 --- 75 579/4950 whole error = 74.06796875
-2021-06-03 00:25:05,670 : INFO : updates length and number of conns
-2021-06-03 00:25:05,670 : INFO : connection #581 : 75 --- 32 581/4950 whole error = 73.92301875
-2021-06-03 00:25:05,697 : INFO : updates length and number of conns
-2021-06-03 00:25:05,697 : INFO : connection #583 : 32 --- 82 583/4950 whole error = 73.78610625
-2021-06-03 00:25:05,738 : INFO : updates length and number of conns
-2021-06-03 00:25:05,738 : INFO : connection #585 : 82 --- 24 585/4950 whole error = 73.64808124999999
-2021-06-03 00:25:05,769 : INFO : updates length and number of conns
-2021-06-03 00:25:05,769 : INFO : connection #587 : 24 --- 68 587/4950 whole error = 73.50793125
-2021-06-03 00:25:05,800 : INFO : updates length and number of conns
-2021-06-03 00:25:05,801 : INFO : connection #589 : 68 --- 98 589/4950 whole error = 73.38979375
-2021-06-03 00:25:05,850 : INFO : updates length and number of conns
-2021-06-03 00:25:05,851 : INFO : connection #591 : 98 --- 47 591/4950 whole error = 73.19955625
-2021-06-03 00:25:05,881 : INFO : updates length and number of conns
-2021-06-03 00:25:05,882 : INFO : connection #593 : 47 --- 26 593/4950 whole error = 73.12211875
-2021-06-03 00:25:05,912 : INFO : updates length and number of conns
-2021-06-03 00:25:05,913 : INFO : connection #595 : 26 --- 67 595/4950 whole error = 72.94868124999999
-2021-06-03 00:25:05,948 : INFO : updates length and number of conns
-2021-06-03 00:25:05,949 : INFO : connection #597 : 67 --- 44 597/4950 whole error = 72.79823125
-2021-06-03 00:25:05,977 : INFO : updates length and number of conns
-2021-06-03 00:25:05,978 : INFO : connection #599 : 44 --- 79 599/4950 whole error = 72.69239999999999
-2021-06-03 00:25:06,009 : INFO : updates length and number of conns
-2021-06-03 00:25:06,010 : INFO : connection #601 : 79 --- 16 601/4950 whole error = 72.53823125
-2021-06-03 00:25:06,034 : INFO : updates length and number of conns
-2021-06-03 00:25:06,035 : INFO : connection #603 : 16 --- 90 603/4950 whole error = 72.3631
-2021-06-03 00:25:06,073 : INFO : updates length and number of conns
-2021-06-03 00:25:06,073 : INFO : connection #605 : 90 --- 29 605/4950 whole error = 72.2222125
-2021-06-03 00:25:06,097 : INFO : updates length and number of conns
-2021-06-03 00:25:06,097 : INFO : connection #607 : 29 --- 96 607/4950 whole error = 72.10928125000001
-2021-06-03 00:25:06,136 : INFO : updates length and number of conns
-2021-06-03 00:25:06,136 : INFO : connection #609 : 96 --- 39 609/4950 whole error = 71.95443125
-2021-06-03 00:25:06,171 : INFO : updates length and number of conns
-2021-06-03 00:25:06,172 : INFO : connection #611 : 39 --- 81 611/4950 whole error = 71.83559375
-2021-06-03 00:25:06,194 : INFO : updates length and number of conns
-2021-06-03 00:25:06,195 : INFO : connection #613 : 81 --- 46 613/4950 whole error = 71.74526875
-2021-06-03 00:25:06,230 : INFO : updates length and number of conns
-2021-06-03 00:25:06,230 : INFO : connection #615 : 46 --- 66 615/4950 whole error = 71.631675
-2021-06-03 00:25:06,257 : INFO : updates length and number of conns
-2021-06-03 00:25:06,258 : INFO : connection #617 : 66 --- 8 617/4950 whole error = 71.52759375
-2021-06-03 00:25:06,287 : INFO : updates length and number of conns
-2021-06-03 00:25:06,287 : INFO : connection #619 : 8 --- 87 619/4950 whole error = 71.37684374999999
-2021-06-03 00:25:06,317 : INFO : updates length and number of conns
-2021-06-03 00:25:06,318 : INFO : connection #621 : 87 --- 14 621/4950 whole error = 71.19889375
-2021-06-03 00:25:06,360 : INFO : updates length and number of conns
-2021-06-03 00:25:06,361 : INFO : connection #623 : 14 --- 84 623/4950 whole error = 71.02419375000001
-2021-06-03 00:25:06,393 : INFO : updates length and number of conns
-2021-06-03 00:25:06,394 : INFO : connection #625 : 84 --- 22 625/4950 whole error = 70.862025
-2021-06-03 00:25:06,427 : INFO : updates length and number of conns
-2021-06-03 00:25:06,427 : INFO : connection #627 : 22 --- 55 627/4950 whole error = 70.7866625
-2021-06-03 00:25:06,452 : INFO : updates length and number of conns
-2021-06-03 00:25:06,452 : INFO : connection #629 : 55 --- 78 629/4950 whole error = 70.71089375
-2021-06-03 00:25:06,491 : INFO : updates length and number of conns
-2021-06-03 00:25:06,491 : INFO : connection #631 : 78 --- 24 631/4950 whole error = 70.54933125
-2021-06-03 00:25:06,514 : INFO : updates length and number of conns
-2021-06-03 00:25:06,514 : INFO : connection #633 : 24 --- 3 633/4950 whole error = 70.43406875
-2021-06-03 00:25:06,556 : INFO : updates length and number of conns
-2021-06-03 00:25:06,556 : INFO : connection #635 : 3 --- 69 635/4950 whole error = 70.32719374999999
-2021-06-03 00:25:06,582 : INFO : updates length and number of conns
-2021-06-03 00:25:06,582 : INFO : connection #637 : 69 --- 7 637/4950 whole error = 70.21961875
-2021-06-03 00:25:06,621 : INFO : updates length and number of conns
-2021-06-03 00:25:06,621 : INFO : connection #639 : 7 --- 34 639/4950 whole error = 70.11879375000001
-2021-06-03 00:25:06,657 : INFO : updates length and number of conns
-2021-06-03 00:25:06,657 : INFO : connection #641 : 34 --- 78 641/4950 whole error = 70.018425
-2021-06-03 00:25:06,682 : INFO : updates length and number of conns
-2021-06-03 00:25:06,682 : INFO : connection #643 : 78 --- 7 643/4950 whole error = 69.883975
-2021-06-03 00:25:06,725 : INFO : updates length and number of conns
-2021-06-03 00:25:06,726 : INFO : connection #645 : 7 --- 42 645/4950 whole error = 69.74505
-2021-06-03 00:25:06,753 : INFO : updates length and number of conns
-2021-06-03 00:25:06,754 : INFO : connection #647 : 42 --- 98 647/4950 whole error = 69.58912500000001
-2021-06-03 00:25:06,785 : INFO : updates length and number of conns
-2021-06-03 00:25:06,785 : INFO : connection #649 : 98 --- 21 649/4950 whole error = 69.47404999999999
-2021-06-03 00:25:06,826 : INFO : updates length and number of conns
-2021-06-03 00:25:06,826 : INFO : connection #651 : 21 --- 68 651/4950 whole error = 69.36597499999999
-2021-06-03 00:25:06,856 : INFO : updates length and number of conns
-2021-06-03 00:25:06,857 : INFO : connection #653 : 68 --- 32 653/4950 whole error = 69.27393124999999
-2021-06-03 00:25:06,890 : INFO : updates length and number of conns
-2021-06-03 00:25:06,890 : INFO : connection #655 : 32 --- 63 655/4950 whole error = 69.1625375
-2021-06-03 00:25:06,925 : INFO : updates length and number of conns
-2021-06-03 00:25:06,925 : INFO : connection #657 : 63 --- 12 657/4950 whole error = 69.040325
-2021-06-03 00:25:06,955 : INFO : updates length and number of conns
-2021-06-03 00:25:06,956 : INFO : connection #659 : 12 --- 73 659/4950 whole error = 68.91104375
-2021-06-03 00:25:06,985 : INFO : updates length and number of conns
-2021-06-03 00:25:06,985 : INFO : connection #661 : 73 --- 1 661/4950 whole error = 68.830325
-2021-06-03 00:25:07,022 : INFO : updates length and number of conns
-2021-06-03 00:25:07,022 : INFO : connection #663 : 1 --- 33 663/4950 whole error = 68.71618125
-2021-06-03 00:25:07,046 : INFO : updates length and number of conns
-2021-06-03 00:25:07,047 : INFO : connection #665 : 33 --- 63 665/4950 whole error = 68.618075
-2021-06-03 00:25:07,086 : INFO : updates length and number of conns
-2021-06-03 00:25:07,086 : INFO : connection #667 : 63 --- 39 667/4950 whole error = 68.465275
-2021-06-03 00:25:07,117 : INFO : updates length and number of conns
-2021-06-03 00:25:07,117 : INFO : connection #669 : 39 --- 73 669/4950 whole error = 68.3768125
-2021-06-03 00:25:07,152 : INFO : updates length and number of conns
-2021-06-03 00:25:07,152 : INFO : connection #671 : 73 --- 24 671/4950 whole error = 68.264375
-2021-06-03 00:25:07,186 : INFO : updates length and number of conns
-2021-06-03 00:25:07,186 : INFO : connection #673 : 24 --- 54 673/4950 whole error = 68.18303125
-2021-06-03 00:25:07,222 : INFO : updates length and number of conns
-2021-06-03 00:25:07,222 : INFO : connection #675 : 54 --- 28 675/4950 whole error = 68.10153125
-2021-06-03 00:25:07,244 : INFO : updates length and number of conns
-2021-06-03 00:25:07,245 : INFO : connection #677 : 28 --- 3 677/4950 whole error = 67.9855375
-2021-06-03 00:25:07,290 : INFO : updates length and number of conns
-2021-06-03 00:25:07,290 : INFO : connection #679 : 3 --- 46 679/4950 whole error = 67.81511875
-2021-06-03 00:25:07,317 : INFO : updates length and number of conns
-2021-06-03 00:25:07,317 : INFO : connection #681 : 46 --- 88 681/4950 whole error = 67.6859125
-2021-06-03 00:25:07,358 : INFO : updates length and number of conns
-2021-06-03 00:25:07,358 : INFO : connection #683 : 88 --- 38 683/4950 whole error = 67.5830375
-2021-06-03 00:25:07,383 : INFO : updates length and number of conns
-2021-06-03 00:25:07,383 : INFO : connection #685 : 38 --- 58 685/4950 whole error = 67.4407375
-2021-06-03 00:25:07,423 : INFO : updates length and number of conns
-2021-06-03 00:25:07,424 : INFO : connection #687 : 58 --- 17 687/4950 whole error = 67.358475
-2021-06-03 00:25:07,448 : INFO : updates length and number of conns
-2021-06-03 00:25:07,448 : INFO : connection #689 : 17 --- 53 689/4950 whole error = 67.2746
-2021-06-03 00:25:07,486 : INFO : updates length and number of conns
-2021-06-03 00:25:07,486 : INFO : connection #691 : 53 --- 97 691/4950 whole error = 67.13689375
-2021-06-03 00:25:07,521 : INFO : updates length and number of conns
-2021-06-03 00:25:07,521 : INFO : connection #693 : 97 --- 38 693/4950 whole error = 67.019525
-2021-06-03 00:25:07,557 : INFO : updates length and number of conns
-2021-06-03 00:25:07,557 : INFO : connection #695 : 38 --- 65 695/4950 whole error = 66.8721375
-2021-06-03 00:25:07,582 : INFO : updates length and number of conns
-2021-06-03 00:25:07,582 : INFO : connection #697 : 65 --- 85 697/4950 whole error = 66.7860125
-2021-06-03 00:25:07,620 : INFO : updates length and number of conns
-2021-06-03 00:25:07,620 : INFO : connection #699 : 85 --- 15 699/4950 whole error = 66.609025
-2021-06-03 00:25:07,652 : INFO : updates length and number of conns
-2021-06-03 00:25:07,652 : INFO : connection #701 : 15 --- 36 701/4950 whole error = 66.52624375
-2021-06-03 00:25:07,687 : INFO : updates length and number of conns
-2021-06-03 00:25:07,687 : INFO : connection #703 : 36 --- 2 703/4950 whole error = 66.42645
-2021-06-03 00:25:07,722 : INFO : updates length and number of conns
-2021-06-03 00:25:07,723 : INFO : connection #705 : 2 --- 47 705/4950 whole error = 66.28201250000001
-2021-06-03 00:25:07,748 : INFO : updates length and number of conns
-2021-06-03 00:25:07,748 : INFO : connection #707 : 47 --- 75 707/4950 whole error = 66.2272625
-2021-06-03 00:25:07,786 : INFO : updates length and number of conns
-2021-06-03 00:25:07,787 : INFO : connection #709 : 75 --- 25 709/4950 whole error = 66.12860625
-2021-06-03 00:25:07,818 : INFO : updates length and number of conns
-2021-06-03 00:25:07,818 : INFO : connection #711 : 25 --- 67 711/4950 whole error = 66.0268875
-2021-06-03 00:25:07,855 : INFO : updates length and number of conns
-2021-06-03 00:25:07,855 : INFO : connection #713 : 67 --- 92 713/4950 whole error = 65.93870625
-2021-06-03 00:25:07,891 : INFO : updates length and number of conns
-2021-06-03 00:25:07,891 : INFO : connection #715 : 92 --- 12 715/4950 whole error = 65.80821875
-2021-06-03 00:25:07,916 : INFO : updates length and number of conns
-2021-06-03 00:25:07,916 : INFO : connection #717 : 12 --- 70 717/4950 whole error = 65.71379375000001
-2021-06-03 00:25:07,957 : INFO : updates length and number of conns
-2021-06-03 00:25:07,958 : INFO : connection #719 : 70 --- 91 719/4950 whole error = 65.6252625
-2021-06-03 00:25:07,981 : INFO : updates length and number of conns
-2021-06-03 00:25:07,982 : INFO : connection #721 : 91 --- 21 721/4950 whole error = 65.4958
-2021-06-03 00:25:08,020 : INFO : updates length and number of conns
-2021-06-03 00:25:08,020 : INFO : connection #723 : 21 --- 89 723/4950 whole error = 65.34793125
-2021-06-03 00:25:08,053 : INFO : updates length and number of conns
-2021-06-03 00:25:08,053 : INFO : connection #725 : 89 --- 31 725/4950 whole error = 65.26251875
-2021-06-03 00:25:08,086 : INFO : updates length and number of conns
-2021-06-03 00:25:08,087 : INFO : connection #727 : 31 --- 76 727/4950 whole error = 65.20143125
-2021-06-03 00:25:08,120 : INFO : updates length and number of conns
-2021-06-03 00:25:08,120 : INFO : connection #729 : 76 --- 45 729/4950 whole error = 65.1409375
-2021-06-03 00:25:08,156 : INFO : updates length and number of conns
-2021-06-03 00:25:08,156 : INFO : connection #731 : 45 --- 82 731/4950 whole error = 65.0763
-2021-06-03 00:25:08,181 : INFO : updates length and number of conns
-2021-06-03 00:25:08,181 : INFO : connection #733 : 82 --- 14 733/4950 whole error = 64.92950625
-2021-06-03 00:25:08,222 : INFO : updates length and number of conns
-2021-06-03 00:25:08,222 : INFO : connection #735 : 14 --- 71 735/4950 whole error = 64.81936875000001
-2021-06-03 00:25:08,250 : INFO : updates length and number of conns
-2021-06-03 00:25:08,251 : INFO : connection #737 : 71 --- 23 737/4950 whole error = 64.74665625
-2021-06-03 00:25:08,279 : INFO : updates length and number of conns
-2021-06-03 00:25:08,281 : INFO : connection #739 : 23 --- 79 739/4950 whole error = 64.642275
-2021-06-03 00:25:08,308 : INFO : updates length and number of conns
-2021-06-03 00:25:08,309 : INFO : connection #741 : 79 --- 51 741/4950 whole error = 64.5875625
-2021-06-03 00:25:08,342 : INFO : updates length and number of conns
-2021-06-03 00:25:08,343 : INFO : connection #743 : 51 --- 71 743/4950 whole error = 64.50083125
-2021-06-03 00:25:08,372 : INFO : updates length and number of conns
-2021-06-03 00:25:08,372 : INFO : connection #745 : 71 --- 26 745/4950 whole error = 64.43675
-2021-06-03 00:25:08,395 : INFO : updates length and number of conns
-2021-06-03 00:25:08,396 : INFO : connection #747 : 26 --- 62 747/4950 whole error = 64.3652625
-2021-06-03 00:25:08,425 : INFO : updates length and number of conns
-2021-06-03 00:25:08,425 : INFO : connection #749 : 62 --- 97 749/4950 whole error = 64.254825
-2021-06-03 00:25:08,450 : INFO : updates length and number of conns
-2021-06-03 00:25:08,450 : INFO : connection #751 : 97 --- 26 751/4950 whole error = 64.17591250000001
-2021-06-03 00:25:08,475 : INFO : updates length and number of conns
-2021-06-03 00:25:08,475 : INFO : connection #753 : 26 --- 65 753/4950 whole error = 64.08325625
-2021-06-03 00:25:08,503 : INFO : updates length and number of conns
-2021-06-03 00:25:08,503 : INFO : connection #755 : 65 --- 93 755/4950 whole error = 63.9947625
-2021-06-03 00:25:08,529 : INFO : updates length and number of conns
-2021-06-03 00:25:08,529 : INFO : connection #757 : 93 --- 36 757/4950 whole error = 63.904612500000006
-2021-06-03 00:25:08,555 : INFO : updates length and number of conns
-2021-06-03 00:25:08,555 : INFO : connection #759 : 36 --- 62 759/4950 whole error = 63.76894375
-2021-06-03 00:25:08,583 : INFO : updates length and number of conns
-2021-06-03 00:25:08,583 : INFO : connection #761 : 62 --- 88 761/4950 whole error = 63.674956249999994
-2021-06-03 00:25:08,609 : INFO : updates length and number of conns
-2021-06-03 00:25:08,609 : INFO : connection #763 : 88 --- 9 763/4950 whole error = 63.57293125
-2021-06-03 00:25:08,637 : INFO : updates length and number of conns
-2021-06-03 00:25:08,638 : INFO : connection #765 : 9 --- 32 765/4950 whole error = 63.47848125
-2021-06-03 00:25:08,668 : INFO : updates length and number of conns
-2021-06-03 00:25:08,668 : INFO : connection #767 : 32 --- 56 767/4950 whole error = 63.36866875
-2021-06-03 00:25:08,693 : INFO : updates length and number of conns
-2021-06-03 00:25:08,693 : INFO : connection #769 : 56 --- 78 769/4950 whole error = 63.3228625
-2021-06-03 00:25:08,722 : INFO : updates length and number of conns
-2021-06-03 00:25:08,722 : INFO : connection #771 : 78 --- 22 771/4950 whole error = 63.186668749999995
-2021-06-03 00:25:08,746 : INFO : updates length and number of conns
-2021-06-03 00:25:08,747 : INFO : connection #773 : 22 --- 72 773/4950 whole error = 63.10787500000001
-2021-06-03 00:25:08,775 : INFO : updates length and number of conns
-2021-06-03 00:25:08,775 : INFO : connection #775 : 72 --- 2 775/4950 whole error = 63.03585
-2021-06-03 00:25:08,801 : INFO : updates length and number of conns
-2021-06-03 00:25:08,801 : INFO : connection #777 : 2 --- 31 777/4950 whole error = 62.9511375
-2021-06-03 00:25:08,830 : INFO : updates length and number of conns
-2021-06-03 00:25:08,831 : INFO : connection #779 : 31 --- 70 779/4950 whole error = 62.863875
-2021-06-03 00:25:08,859 : INFO : updates length and number of conns
-2021-06-03 00:25:08,860 : INFO : connection #781 : 70 --- 39 781/4950 whole error = 62.79650625
-2021-06-03 00:25:08,884 : INFO : updates length and number of conns
-2021-06-03 00:25:08,884 : INFO : connection #783 : 39 --- 91 783/4950 whole error = 62.720150000000004
-2021-06-03 00:25:08,912 : INFO : updates length and number of conns
-2021-06-03 00:25:08,913 : INFO : connection #785 : 91 --- 47 785/4950 whole error = 62.63388125
-2021-06-03 00:25:08,940 : INFO : updates length and number of conns
-2021-06-03 00:25:08,940 : INFO : connection #787 : 47 --- 85 787/4950 whole error = 62.574293749999995
-2021-06-03 00:25:08,970 : INFO : updates length and number of conns
-2021-06-03 00:25:08,970 : INFO : connection #789 : 85 --- 44 789/4950 whole error = 62.512181250000005
-2021-06-03 00:25:09,000 : INFO : updates length and number of conns
-2021-06-03 00:25:09,001 : INFO : connection #791 : 44 --- 93 791/4950 whole error = 62.419525
-2021-06-03 00:25:09,025 : INFO : updates length and number of conns
-2021-06-03 00:25:09,026 : INFO : connection #793 : 93 --- 24 793/4950 whole error = 62.322700000000005
-2021-06-03 00:25:09,051 : INFO : updates length and number of conns
-2021-06-03 00:25:09,051 : INFO : connection #795 : 24 --- 50 795/4950 whole error = 62.27568125
-2021-06-03 00:25:09,077 : INFO : updates length and number of conns
-2021-06-03 00:25:09,077 : INFO : connection #797 : 50 --- 81 797/4950 whole error = 62.208968750000004
-2021-06-03 00:25:09,108 : INFO : updates length and number of conns
-2021-06-03 00:25:09,108 : INFO : connection #799 : 81 --- 20 799/4950 whole error = 62.09060625
-2021-06-03 00:25:09,133 : INFO : updates length and number of conns
-2021-06-03 00:25:09,133 : INFO : connection #801 : 20 --- 79 801/4950 whole error = 62.03018125
-2021-06-03 00:25:09,193 : INFO : updates length and number of conns
-2021-06-03 00:25:09,193 : INFO : connection #803 : 79 --- 6 803/4950 whole error = 61.923831250000006
-2021-06-03 00:25:09,222 : INFO : updates length and number of conns
-2021-06-03 00:25:09,222 : INFO : connection #805 : 6 --- 61 805/4950 whole error = 61.829274999999996
-2021-06-03 00:25:09,251 : INFO : updates length and number of conns
-2021-06-03 00:25:09,251 : INFO : connection #807 : 61 --- 39 807/4950 whole error = 61.723443749999994
-2021-06-03 00:25:09,277 : INFO : updates length and number of conns
-2021-06-03 00:25:09,278 : INFO : connection #809 : 39 --- 8 809/4950 whole error = 61.642262499999994
-2021-06-03 00:25:09,307 : INFO : updates length and number of conns
-2021-06-03 00:25:09,307 : INFO : connection #811 : 8 --- 59 811/4950 whole error = 61.554875
-2021-06-03 00:25:09,345 : INFO : updates length and number of conns
-2021-06-03 00:25:09,345 : INFO : connection #813 : 59 --- 29 813/4950 whole error = 61.49645
-2021-06-03 00:25:09,375 : INFO : updates length and number of conns
-2021-06-03 00:25:09,375 : INFO : connection #815 : 29 --- 82 815/4950 whole error = 61.418350000000004
-2021-06-03 00:25:09,403 : INFO : updates length and number of conns
-2021-06-03 00:25:09,403 : INFO : connection #817 : 82 --- 37 817/4950 whole error = 61.34676875
-2021-06-03 00:25:09,432 : INFO : updates length and number of conns
-2021-06-03 00:25:09,432 : INFO : connection #819 : 37 --- 99 819/4950 whole error = 61.264675
-2021-06-03 00:25:09,461 : INFO : updates length and number of conns
-2021-06-03 00:25:09,462 : INFO : connection #821 : 99 --- 20 821/4950 whole error = 61.170218750000004
-2021-06-03 00:25:09,494 : INFO : updates length and number of conns
-2021-06-03 00:25:09,494 : INFO : connection #823 : 20 --- 74 823/4950 whole error = 61.104675
-2021-06-03 00:25:09,521 : INFO : updates length and number of conns
-2021-06-03 00:25:09,521 : INFO : connection #825 : 74 --- 33 825/4950 whole error = 61.069725
-2021-06-03 00:25:09,546 : INFO : updates length and number of conns
-2021-06-03 00:25:09,546 : INFO : connection #827 : 33 --- 72 827/4950 whole error = 61.02026874999999
-2021-06-03 00:25:09,577 : INFO : updates length and number of conns
-2021-06-03 00:25:09,578 : INFO : connection #829 : 72 --- 41 829/4950 whole error = 60.98351875
-2021-06-03 00:25:09,601 : INFO : updates length and number of conns
-2021-06-03 00:25:09,601 : INFO : connection #831 : 41 --- 66 831/4950 whole error = 60.866362499999994
-2021-06-03 00:25:09,633 : INFO : updates length and number of conns
-2021-06-03 00:25:09,634 : INFO : connection #833 : 66 --- 24 833/4950 whole error = 60.8140625
-2021-06-03 00:25:09,659 : INFO : updates length and number of conns
-2021-06-03 00:25:09,660 : INFO : connection #835 : 24 --- 46 835/4950 whole error = 60.77219375
-2021-06-03 00:25:09,686 : INFO : updates length and number of conns
-2021-06-03 00:25:09,686 : INFO : connection #837 : 46 --- 13 837/4950 whole error = 60.71434375
-2021-06-03 00:25:09,718 : INFO : updates length and number of conns
-2021-06-03 00:25:09,718 : INFO : connection #839 : 13 --- 76 839/4950 whole error = 60.6292625
-2021-06-03 00:25:09,744 : INFO : updates length and number of conns
-2021-06-03 00:25:09,744 : INFO : connection #841 : 76 --- 18 841/4950 whole error = 60.5429375
-2021-06-03 00:25:09,774 : INFO : updates length and number of conns
-2021-06-03 00:25:09,775 : INFO : connection #843 : 18 --- 79 843/4950 whole error = 60.440031250000004
-2021-06-03 00:25:09,804 : INFO : updates length and number of conns
-2021-06-03 00:25:09,805 : INFO : connection #845 : 79 --- 99 845/4950 whole error = 60.3724125
-2021-06-03 00:25:09,829 : INFO : updates length and number of conns
-2021-06-03 00:25:09,830 : INFO : connection #847 : 99 --- 49 847/4950 whole error = 60.269143750000005
-2021-06-03 00:25:09,863 : INFO : updates length and number of conns
-2021-06-03 00:25:09,863 : INFO : connection #849 : 49 --- 69 849/4950 whole error = 60.183306249999994
-2021-06-03 00:25:09,890 : INFO : updates length and number of conns
-2021-06-03 00:25:09,890 : INFO : connection #851 : 69 --- 41 851/4950 whole error = 60.10979999999999
-2021-06-03 00:25:09,918 : INFO : updates length and number of conns
-2021-06-03 00:25:09,918 : INFO : connection #853 : 41 --- 83 853/4950 whole error = 60.05715
-2021-06-03 00:25:09,941 : INFO : updates length and number of conns
-2021-06-03 00:25:09,941 : INFO : connection #855 : 83 --- 3 855/4950 whole error = 59.9648375
-2021-06-03 00:25:09,968 : INFO : updates length and number of conns
-2021-06-03 00:25:09,968 : INFO : connection #857 : 3 --- 64 857/4950 whole error = 59.88824375
-2021-06-03 00:25:09,994 : INFO : updates length and number of conns
-2021-06-03 00:25:09,995 : INFO : connection #859 : 64 --- 9 859/4950 whole error = 59.83431875
-2021-06-03 00:25:10,022 : INFO : updates length and number of conns
-2021-06-03 00:25:10,024 : INFO : connection #861 : 9 --- 75 861/4950 whole error = 59.7581625
-2021-06-03 00:25:10,048 : INFO : updates length and number of conns
-2021-06-03 00:25:10,049 : INFO : connection #863 : 75 --- 97 863/4950 whole error = 59.69994375
-2021-06-03 00:25:10,077 : INFO : updates length and number of conns
-2021-06-03 00:25:10,077 : INFO : connection #865 : 97 --- 23 865/4950 whole error = 59.6109875
-2021-06-03 00:25:10,101 : INFO : updates length and number of conns
-2021-06-03 00:25:10,102 : INFO : connection #867 : 23 --- 76 867/4950 whole error = 59.58633125
-2021-06-03 00:25:10,135 : INFO : updates length and number of conns
-2021-06-03 00:25:10,135 : INFO : connection #869 : 76 --- 27 869/4950 whole error = 59.537406250000004
-2021-06-03 00:25:10,161 : INFO : updates length and number of conns
-2021-06-03 00:25:10,161 : INFO : connection #871 : 27 --- 70 871/4950 whole error = 59.48916875
-2021-06-03 00:25:10,187 : INFO : updates length and number of conns
-2021-06-03 00:25:10,187 : INFO : connection #873 : 70 --- 46 873/4950 whole error = 59.40888125000001
-2021-06-03 00:25:10,213 : INFO : updates length and number of conns
-2021-06-03 00:25:10,214 : INFO : connection #875 : 46 --- 92 875/4950 whole error = 59.326800000000006
-2021-06-03 00:25:10,240 : INFO : updates length and number of conns
-2021-06-03 00:25:10,240 : INFO : connection #877 : 92 --- 32 877/4950 whole error = 59.258737499999995
-2021-06-03 00:25:10,266 : INFO : updates length and number of conns
-2021-06-03 00:25:10,266 : INFO : connection #879 : 32 --- 66 879/4950 whole error = 59.22154375
-2021-06-03 00:25:10,292 : INFO : updates length and number of conns
-2021-06-03 00:25:10,292 : INFO : connection #881 : 66 --- 88 881/4950 whole error = 59.162212499999995
-2021-06-03 00:25:10,323 : INFO : updates length and number of conns
-2021-06-03 00:25:10,323 : INFO : connection #883 : 88 --- 41 883/4950 whole error = 59.09613125
-2021-06-03 00:25:10,355 : INFO : updates length and number of conns
-2021-06-03 00:25:10,356 : INFO : connection #885 : 41 --- 2 885/4950 whole error = 59.01084375000001
-2021-06-03 00:25:10,384 : INFO : updates length and number of conns
-2021-06-03 00:25:10,385 : INFO : connection #887 : 2 --- 55 887/4950 whole error = 58.91645625
-2021-06-03 00:25:10,411 : INFO : updates length and number of conns
-2021-06-03 00:25:10,411 : INFO : connection #889 : 55 --- 11 889/4950 whole error = 58.84434375
-2021-06-03 00:25:10,437 : INFO : updates length and number of conns
-2021-06-03 00:25:10,437 : INFO : connection #891 : 11 --- 77 891/4950 whole error = 58.77395625
-2021-06-03 00:25:10,470 : INFO : updates length and number of conns
-2021-06-03 00:25:10,470 : INFO : connection #893 : 77 --- 39 893/4950 whole error = 58.73625625
-2021-06-03 00:25:10,498 : INFO : updates length and number of conns
-2021-06-03 00:25:10,498 : INFO : connection #895 : 39 --- 99 895/4950 whole error = 58.64138125
-2021-06-03 00:25:10,525 : INFO : updates length and number of conns
-2021-06-03 00:25:10,526 : INFO : connection #897 : 99 --- 66 897/4950 whole error = 58.573118750000006
-2021-06-03 00:25:10,549 : INFO : updates length and number of conns
-2021-06-03 00:25:10,549 : INFO : connection #899 : 66 --- 16 899/4950 whole error = 58.5046
-2021-06-03 00:25:10,580 : INFO : updates length and number of conns
-2021-06-03 00:25:10,580 : INFO : connection #901 : 16 --- 38 901/4950 whole error = 58.45990625
-2021-06-03 00:25:10,609 : INFO : updates length and number of conns
-2021-06-03 00:25:10,610 : INFO : connection #903 : 38 --- 72 903/4950 whole error = 58.44383125
-2021-06-03 00:25:10,632 : INFO : updates length and number of conns
-2021-06-03 00:25:10,633 : INFO : connection #905 : 72 --- 45 905/4950 whole error = 58.4075
-2021-06-03 00:25:10,665 : INFO : updates length and number of conns
-2021-06-03 00:25:10,665 : INFO : connection #907 : 45 --- 14 907/4950 whole error = 58.3425375
-2021-06-03 00:25:10,691 : INFO : updates length and number of conns
-2021-06-03 00:25:10,691 : INFO : connection #909 : 14 --- 51 909/4950 whole error = 58.283381250000005
-2021-06-03 00:25:10,719 : INFO : updates length and number of conns
-2021-06-03 00:25:10,719 : INFO : connection #911 : 51 --- 90 911/4950 whole error = 58.212574999999994
-2021-06-03 00:25:10,747 : INFO : updates length and number of conns
-2021-06-03 00:25:10,748 : INFO : connection #913 : 90 --- 60 913/4950 whole error = 58.1453375
-2021-06-03 00:25:10,775 : INFO : updates length and number of conns
-2021-06-03 00:25:10,775 : INFO : connection #915 : 60 --- 1 915/4950 whole error = 58.08779375
-2021-06-03 00:25:10,803 : INFO : updates length and number of conns
-2021-06-03 00:25:10,803 : INFO : connection #917 : 1 --- 45 917/4950 whole error = 58.003843749999994
-2021-06-03 00:25:10,828 : INFO : updates length and number of conns
-2021-06-03 00:25:10,828 : INFO : connection #919 : 45 --- 20 919/4950 whole error = 57.971256249999996
-2021-06-03 00:25:10,858 : INFO : updates length and number of conns
-2021-06-03 00:25:10,859 : INFO : connection #921 : 20 --- 72 921/4950 whole error = 57.925706250000005
-2021-06-03 00:25:10,886 : INFO : updates length and number of conns
-2021-06-03 00:25:10,886 : INFO : connection #923 : 72 --- 92 923/4950 whole error = 57.88134375
-2021-06-03 00:25:10,910 : INFO : updates length and number of conns
-2021-06-03 00:25:10,910 : INFO : connection #925 : 92 --- 35 925/4950 whole error = 57.83910625000001
-2021-06-03 00:25:10,935 : INFO : updates length and number of conns
-2021-06-03 00:25:10,935 : INFO : connection #927 : 35 --- 75 927/4950 whole error = 57.82849375
-2021-06-03 00:25:10,966 : INFO : updates length and number of conns
-2021-06-03 00:25:10,966 : INFO : connection #929 : 75 --- 19 929/4950 whole error = 57.74936875
-2021-06-03 00:25:10,993 : INFO : updates length and number of conns
-2021-06-03 00:25:10,994 : INFO : connection #931 : 19 --- 57 931/4950 whole error = 57.7118875
-2021-06-03 00:25:11,016 : INFO : updates length and number of conns
-2021-06-03 00:25:11,016 : INFO : connection #933 : 57 --- 30 933/4950 whole error = 57.65684375
-2021-06-03 00:25:11,044 : INFO : updates length and number of conns
-2021-06-03 00:25:11,044 : INFO : connection #935 : 30 --- 94 935/4950 whole error = 57.595743750000004
-2021-06-03 00:25:11,070 : INFO : updates length and number of conns
-2021-06-03 00:25:11,070 : INFO : connection #937 : 94 --- 14 937/4950 whole error = 57.50701875
-2021-06-03 00:25:11,094 : INFO : updates length and number of conns
-2021-06-03 00:25:11,094 : INFO : connection #939 : 14 --- 62 939/4950 whole error = 57.466475
-2021-06-03 00:25:11,123 : INFO : updates length and number of conns
-2021-06-03 00:25:11,123 : INFO : connection #941 : 62 --- 92 941/4950 whole error = 57.404256249999996
-2021-06-03 00:25:11,149 : INFO : updates length and number of conns
-2021-06-03 00:25:11,149 : INFO : connection #943 : 92 --- 50 943/4950 whole error = 57.340081250000004
-2021-06-03 00:25:11,177 : INFO : updates length and number of conns
-2021-06-03 00:25:11,178 : INFO : connection #945 : 50 --- 87 945/4950 whole error = 57.29
-2021-06-03 00:25:11,200 : INFO : updates length and number of conns
-2021-06-03 00:25:11,201 : INFO : connection #947 : 87 --- 32 947/4950 whole error = 57.2456875
-2021-06-03 00:25:11,229 : INFO : updates length and number of conns
-2021-06-03 00:25:11,229 : INFO : connection #949 : 32 --- 97 949/4950 whole error = 57.183618749999994
-2021-06-03 00:25:11,255 : INFO : updates length and number of conns
-2021-06-03 00:25:11,255 : INFO : connection #951 : 97 --- 70 951/4950 whole error = 57.13730625
-2021-06-03 00:25:11,280 : INFO : updates length and number of conns
-2021-06-03 00:25:11,281 : INFO : connection #953 : 70 --- 47 953/4950 whole error = 57.06946875
-2021-06-03 00:25:11,309 : INFO : updates length and number of conns
-2021-06-03 00:25:11,309 : INFO : connection #955 : 47 --- 4 955/4950 whole error = 56.990593749999995
-2021-06-03 00:25:11,333 : INFO : updates length and number of conns
-2021-06-03 00:25:11,333 : INFO : connection #957 : 4 --- 27 957/4950 whole error = 56.9162125
-2021-06-03 00:25:11,363 : INFO : updates length and number of conns
-2021-06-03 00:25:11,364 : INFO : connection #959 : 27 --- 58 959/4950 whole error = 56.87775
-2021-06-03 00:25:11,395 : INFO : updates length and number of conns
-2021-06-03 00:25:11,395 : INFO : connection #961 : 58 --- 11 961/4950 whole error = 56.840225000000004
-2021-06-03 00:25:11,421 : INFO : updates length and number of conns
-2021-06-03 00:25:11,421 : INFO : connection #963 : 11 --- 63 963/4950 whole error = 56.79843125
-2021-06-03 00:25:11,446 : INFO : updates length and number of conns
-2021-06-03 00:25:11,447 : INFO : connection #965 : 63 --- 21 965/4950 whole error = 56.76738125
-2021-06-03 00:25:11,475 : INFO : updates length and number of conns
-2021-06-03 00:25:11,475 : INFO : connection #967 : 21 --- 53 967/4950 whole error = 56.734981250000004
-2021-06-03 00:25:11,499 : INFO : updates length and number of conns
-2021-06-03 00:25:11,499 : INFO : connection #969 : 53 --- 73 969/4950 whole error = 56.68049375
-2021-06-03 00:25:11,525 : INFO : updates length and number of conns
-2021-06-03 00:25:11,525 : INFO : connection #971 : 73 --- 7 971/4950 whole error = 56.629293749999995
-2021-06-03 00:25:11,552 : INFO : updates length and number of conns
-2021-06-03 00:25:11,552 : INFO : connection #973 : 7 --- 67 973/4950 whole error = 56.581106250000005
-2021-06-03 00:25:11,578 : INFO : updates length and number of conns
-2021-06-03 00:25:11,578 : INFO : connection #975 : 67 --- 20 975/4950 whole error = 56.564637499999996
-2021-06-03 00:25:11,606 : INFO : updates length and number of conns
-2021-06-03 00:25:11,606 : INFO : connection #977 : 20 --- 64 977/4950 whole error = 56.52665
-2021-06-03 00:25:11,636 : INFO : updates length and number of conns
-2021-06-03 00:25:11,636 : INFO : connection #979 : 64 --- 96 979/4950 whole error = 56.45168125
-2021-06-03 00:25:11,661 : INFO : updates length and number of conns
-2021-06-03 00:25:11,661 : INFO : connection #981 : 96 --- 46 981/4950 whole error = 56.396306249999995
-2021-06-03 00:25:11,685 : INFO : updates length and number of conns
-2021-06-03 00:25:11,685 : INFO : connection #983 : 46 --- 19 983/4950 whole error = 56.366043749999996
-2021-06-03 00:25:11,714 : INFO : updates length and number of conns
-2021-06-03 00:25:11,715 : INFO : connection #985 : 19 --- 68 985/4950 whole error = 56.321206249999996
-2021-06-03 00:25:11,743 : INFO : updates length and number of conns
-2021-06-03 00:25:11,743 : INFO : connection #987 : 68 --- 4 987/4950 whole error = 56.267399999999995
-2021-06-03 00:25:11,771 : INFO : updates length and number of conns
-2021-06-03 00:25:11,771 : INFO : connection #989 : 4 --- 31 989/4950 whole error = 56.21733125
-2021-06-03 00:25:11,795 : INFO : updates length and number of conns
-2021-06-03 00:25:11,796 : INFO : connection #991 : 31 --- 99 991/4950 whole error = 56.16924374999999
-2021-06-03 00:25:11,823 : INFO : updates length and number of conns
-2021-06-03 00:25:11,824 : INFO : connection #993 : 99 --- 46 993/4950 whole error = 56.1125875
-2021-06-03 00:25:11,854 : INFO : updates length and number of conns
-2021-06-03 00:25:11,854 : INFO : connection #995 : 46 --- 7 995/4950 whole error = 56.0397875
-2021-06-03 00:25:11,880 : INFO : updates length and number of conns
-2021-06-03 00:25:11,880 : INFO : connection #997 : 7 --- 38 997/4950 whole error = 55.99015625
-2021-06-03 00:25:11,904 : INFO : updates length and number of conns
-2021-06-03 00:25:11,904 : INFO : connection #999 : 38 --- 82 999/4950 whole error = 55.964475
-2021-06-03 00:25:11,940 : INFO : updates length and number of conns
-2021-06-03 00:25:11,940 : INFO : connection #1001 : 82 --- 26 1001/4950 whole error = 55.91448749999999
-2021-06-03 00:25:11,968 : INFO : updates length and number of conns
-2021-06-03 00:25:11,968 : INFO : connection #1003 : 26 --- 52 1003/4950 whole error = 55.886475
-2021-06-03 00:25:11,996 : INFO : updates length and number of conns
-2021-06-03 00:25:11,997 : INFO : connection #1005 : 52 --- 74 1005/4950 whole error = 55.834387500000005
-2021-06-03 00:25:12,023 : INFO : updates length and number of conns
-2021-06-03 00:25:12,023 : INFO : connection #1007 : 74 --- 18 1007/4950 whole error = 55.7917
-2021-06-03 00:25:12,049 : INFO : updates length and number of conns
-2021-06-03 00:25:12,049 : INFO : connection #1009 : 18 --- 88 1009/4950 whole error = 55.687275
-2021-06-03 00:25:12,075 : INFO : updates length and number of conns
-2021-06-03 00:25:12,076 : INFO : connection #1011 : 88 --- 27 1011/4950 whole error = 55.64005625
-2021-06-03 00:25:12,103 : INFO : updates length and number of conns
-2021-06-03 00:25:12,103 : INFO : connection #1013 : 27 --- 63 1013/4950 whole error = 55.62471875
-2021-06-03 00:25:12,129 : INFO : updates length and number of conns
-2021-06-03 00:25:12,129 : INFO : connection #1015 : 63 --- 9 1015/4950 whole error = 55.573656250000006
-2021-06-03 00:25:12,153 : INFO : updates length and number of conns
-2021-06-03 00:25:12,154 : INFO : connection #1017 : 9 --- 36 1017/4950 whole error = 55.53569375
-2021-06-03 00:25:12,187 : INFO : updates length and number of conns
-2021-06-03 00:25:12,187 : INFO : connection #1019 : 36 --- 58 1019/4950 whole error = 55.460412500000004
-2021-06-03 00:25:12,213 : INFO : updates length and number of conns
-2021-06-03 00:25:12,214 : INFO : connection #1021 : 58 --- 32 1021/4950 whole error = 55.39911875
-2021-06-03 00:25:12,240 : INFO : updates length and number of conns
-2021-06-03 00:25:12,240 : INFO : connection #1023 : 32 --- 84 1023/4950 whole error = 55.36631250000001
-2021-06-03 00:25:12,268 : INFO : updates length and number of conns
-2021-06-03 00:25:12,268 : INFO : connection #1025 : 84 --- 4 1025/4950 whole error = 55.29421875
-2021-06-03 00:25:12,295 : INFO : updates length and number of conns
-2021-06-03 00:25:12,295 : INFO : connection #1027 : 4 --- 52 1027/4950 whole error = 55.242768749999996
-2021-06-03 00:25:12,316 : INFO : updates length and number of conns
-2021-06-03 00:25:12,316 : INFO : connection #1029 : 52 --- 25 1029/4950 whole error = 55.230850000000004
-2021-06-03 00:25:12,349 : INFO : updates length and number of conns
-2021-06-03 00:25:12,349 : INFO : connection #1031 : 25 --- 59 1031/4950 whole error = 55.200843750000004
-2021-06-03 00:25:12,380 : INFO : updates length and number of conns
-2021-06-03 00:25:12,381 : INFO : connection #1033 : 59 --- 10 1033/4950 whole error = 55.1408875
-2021-06-03 00:25:12,411 : INFO : updates length and number of conns
-2021-06-03 00:25:12,412 : INFO : connection #1035 : 10 --- 68 1035/4950 whole error = 55.095656250000005
-2021-06-03 00:25:12,441 : INFO : updates length and number of conns
-2021-06-03 00:25:12,441 : INFO : connection #1037 : 68 --- 95 1037/4950 whole error = 55.05075
-2021-06-03 00:25:12,467 : INFO : updates length and number of conns
-2021-06-03 00:25:12,467 : INFO : connection #1039 : 95 --- 61 1039/4950 whole error = 54.98135625
-2021-06-03 00:25:12,495 : INFO : updates length and number of conns
-2021-06-03 00:25:12,496 : INFO : connection #1041 : 61 --- 18 1041/4950 whole error = 54.954775
-2021-06-03 00:25:12,519 : INFO : updates length and number of conns
-2021-06-03 00:25:12,520 : INFO : connection #1043 : 18 --- 78 1043/4950 whole error = 54.89790625
-2021-06-03 00:25:12,546 : INFO : updates length and number of conns
-2021-06-03 00:25:12,546 : INFO : connection #1045 : 78 --- 46 1045/4950 whole error = 54.8900875
-2021-06-03 00:25:12,572 : INFO : updates length and number of conns
-2021-06-03 00:25:12,572 : INFO : connection #1047 : 46 --- 72 1047/4950 whole error = 54.8611625
-2021-06-03 00:25:12,598 : INFO : updates length and number of conns
-2021-06-03 00:25:12,599 : INFO : connection #1049 : 72 --- 94 1049/4950 whole error = 54.8222875
-2021-06-03 00:25:12,625 : INFO : updates length and number of conns
-2021-06-03 00:25:12,625 : INFO : connection #1051 : 94 --- 40 1051/4950 whole error = 54.7784375
-2021-06-03 00:25:12,656 : INFO : updates length and number of conns
-2021-06-03 00:25:12,656 : INFO : connection #1053 : 40 --- 10 1053/4950 whole error = 54.744274999999995
-2021-06-03 00:25:12,681 : INFO : updates length and number of conns
-2021-06-03 00:25:12,682 : INFO : connection #1055 : 10 --- 80 1055/4950 whole error = 54.670625
-2021-06-03 00:25:12,708 : INFO : updates length and number of conns
-2021-06-03 00:25:12,708 : INFO : connection #1057 : 80 --- 18 1057/4950 whole error = 54.61710625
-2021-06-03 00:25:12,735 : INFO : updates length and number of conns
-2021-06-03 00:25:12,735 : INFO : connection #1059 : 18 --- 70 1059/4950 whole error = 54.592856250000004
-2021-06-03 00:25:12,760 : INFO : updates length and number of conns
-2021-06-03 00:25:12,761 : INFO : connection #1061 : 70 --- 8 1061/4950 whole error = 54.55495
-2021-06-03 00:25:12,788 : INFO : updates length and number of conns
-2021-06-03 00:25:12,788 : INFO : connection #1063 : 8 --- 49 1063/4950 whole error = 54.4757625
-2021-06-03 00:25:12,813 : INFO : updates length and number of conns
-2021-06-03 00:25:12,813 : INFO : connection #1065 : 49 --- 82 1065/4950 whole error = 54.43823749999999
-2021-06-03 00:25:12,841 : INFO : updates length and number of conns
-2021-06-03 00:25:12,841 : INFO : connection #1067 : 82 --- 47 1067/4950 whole error = 54.417643749999996
-2021-06-03 00:25:12,872 : INFO : updates length and number of conns
-2021-06-03 00:25:12,872 : INFO : connection #1069 : 47 --- 12 1069/4950 whole error = 54.37398125
-2021-06-03 00:25:12,899 : INFO : updates length and number of conns
-2021-06-03 00:25:12,899 : INFO : connection #1071 : 12 --- 61 1071/4950 whole error = 54.344125000000005
-2021-06-03 00:25:12,924 : INFO : updates length and number of conns
-2021-06-03 00:25:12,924 : INFO : connection #1073 : 61 --- 86 1073/4950 whole error = 54.32856875
-2021-06-03 00:25:12,948 : INFO : updates length and number of conns
-2021-06-03 00:25:12,948 : INFO : connection #1075 : 86 --- 6 1075/4950 whole error = 54.2476375
-2021-06-03 00:25:12,973 : INFO : updates length and number of conns
-2021-06-03 00:25:12,974 : INFO : connection #1077 : 6 --- 81 1077/4950 whole error = 54.176706249999995
-2021-06-03 00:25:12,997 : INFO : updates length and number of conns
-2021-06-03 00:25:12,998 : INFO : connection #1079 : 81 --- 41 1079/4950 whole error = 54.163168750000004
-2021-06-03 00:25:13,023 : INFO : updates length and number of conns
-2021-06-03 00:25:13,024 : INFO : connection #1081 : 41 --- 62 1081/4950 whole error = 54.1053
-2021-06-03 00:25:13,051 : INFO : updates length and number of conns
-2021-06-03 00:25:13,051 : INFO : connection #1083 : 62 --- 23 1083/4950 whole error = 54.078956250000005
-2021-06-03 00:25:13,078 : INFO : updates length and number of conns
-2021-06-03 00:25:13,079 : INFO : connection #1085 : 23 --- 53 1085/4950 whole error = 54.052437499999996
-2021-06-03 00:25:13,101 : INFO : updates length and number of conns
-2021-06-03 00:25:13,101 : INFO : connection #1087 : 53 --- 29 1087/4950 whole error = 54.01145
-2021-06-03 00:25:13,130 : INFO : updates length and number of conns
-2021-06-03 00:25:13,130 : INFO : connection #1089 : 29 --- 49 1089/4950 whole error = 53.9703375
-2021-06-03 00:25:13,156 : DEBUG : adding connection making worse error, exiting
-2021-06-03 00:25:13,157 : INFO : saving image into result.png
-2021-06-03 00:25:13,193 : INFO : РЕЗУЛЬТАТ
-Радиус холста: 20.0
+2021-06-03 07:52:21,197 : INFO : starting whole_error 0.1827527777777778
+2021-06-03 07:52:21,197 : INFO : begin scheme generation
+2021-06-03 07:52:21,198 : INFO : 0 : 0 --- 5 min conn err 255
+2021-06-03 07:52:21,650 : INFO : 1000 : 7 --- 28 min conn err 64.4453125
+2021-06-03 07:52:22,092 : INFO : 2000 : 14 --- 90 min conn err 64.4453125
+2021-06-03 07:52:22,623 : INFO : 3000 : 22 --- 78 min conn err 64.4453125
+2021-06-03 07:52:23,083 : INFO : 4000 : 30 --- 130 min conn err 64.4453125
+2021-06-03 07:52:23,556 : INFO : 5000 : 39 --- 140 min conn err 64.4453125
+2021-06-03 07:52:24,005 : INFO : 6000 : 49 --- 135 min conn err 64.4453125
+2021-06-03 07:52:24,434 : INFO : 7000 : 60 --- 145 min conn err 64.4453125
+2021-06-03 07:52:24,830 : INFO : 8000 : 73 --- 131 min conn err 64.4453125
+2021-06-03 07:52:25,212 : INFO : 9000 : 89 --- 115 min conn err 64.4453125
+2021-06-03 07:52:25,544 : INFO : 10000 : 111 --- 136 min conn err 64.4453125
+2021-06-03 07:52:25,662 : INFO : first connection is found: 3 --- 33
+2021-06-03 07:52:25,670 : INFO : updates length:0.35 and number of conns: 1
+2021-06-03 07:52:25,670 : INFO : first connection is drawn; whole error = 0.0007083333333333333
+2021-06-03 07:52:25,794 : INFO : next connection: 3 --- 32
+2021-06-03 07:52:25,801 : DEBUG : adding connection making worse error, exiting
+2021-06-03 07:52:25,802 : INFO : saving image into result.png
+2021-06-03 07:52:25,815 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
 Толщина нити: 0.1
-Количество гвоздей100
+Количество гвоздей: 150
 
-Количество всех возможных соединений: 4950
-Количество рассмотренных соединений: 3050
-Количество проведенных соединений: 1089
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: 10575
+Количество проведенных соединений: 1
 
-Разрешение изображения: 400 x 400пикселей
+Разрешение изображения: 600 x 600пикселей
 
-Требуемая длина нити: 179.24 m
-Расстрояние между гвоздями: 1.256; угловой шаг: 0.063
+Требуемая длина нити: 0.35 m
+Расстрояние между гвоздями: 1.257; угловой шаг: 0.042
 
-Общая ошибка: 53.97 (78.84) %
+Общая ошибка: 0.0 (100.0) %
 Логгирование включено
-Отображение процесса генерации отключено
-Количество гвоздей, пропускаемое при кротчайшей хорде: 20
-Количество соединений, отрисованное без проверки: 100
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
 
-2021-06-03 00:25:13,194 : INFO : Время генерации: 0 сек
+2021-06-03 07:52:25,815 : INFO : Время генерации: 0 сек
+2021-06-03 07:52:28,116 : INFO : loading image
+2021-06-03 07:52:29,916 : INFO : loaded path /mnt/c/diplom/myrepo/interface/two.png
+2021-06-03 07:52:29,918 : DEBUG : STREAM b'IHDR' 16 13
+2021-06-03 07:52:29,921 : DEBUG : STREAM b'IDAT' 41 5265
+2021-06-03 07:52:29,922 : INFO : square crop
+2021-06-03 07:52:31,562 : INFO : start generation
+2021-06-03 07:52:31,562 : INFO : calculation number of all possible connections
+2021-06-03 07:52:31,562 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: -1
+Количество проведенных соединений: 0
+
+Разрешение изображения: -1 x -1пикселей
+
+Требуемая длина нити: 0.0 m
+Расстрояние между гвоздями: -1; угловой шаг: -1
+
+Общая ошибка: -1 (100.39) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:52:31,563 : INFO : calculation resolution
+2021-06-03 07:52:31,563 : INFO : calculation number of all possible connections
+2021-06-03 07:52:31,564 : INFO : calculation number of all connections that will be checked (taking into concideration pin_skip parameter
+2021-06-03 07:52:31,564 : INFO : filling pins coordinates
+2021-06-03 07:52:31,565 : INFO : filling result matrix
+2021-06-03 07:52:31,565 : INFO : parsing input image
+2021-06-03 07:52:31,566 : INFO : greyscale, update resolution, circle crop
+2021-06-03 07:52:31,566 : INFO : greyscale
+2021-06-03 07:52:31,569 : INFO : circle crop
+2021-06-03 07:52:31,637 : INFO : saving image into greyscaled.png
+2021-06-03 07:52:31,649 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: 10575
+Количество проведенных соединений: 0
+
+Разрешение изображения: 600 x 600пикселей
+
+Требуемая длина нити: 0.0 m
+Расстрояние между гвоздями: 1.257; угловой шаг: 0.042
+
+Общая ошибка: -1 (100.39) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:52:31,656 : INFO : starting whole_error 0.4171472222222222
+2021-06-03 07:52:31,656 : INFO : begin scheme generation
+2021-06-03 07:52:31,656 : INFO : 0 : 0 --- 5 min conn err 255
+2021-06-03 07:52:32,182 : INFO : 1000 : 7 --- 28 min conn err 62.948484848484846
+2021-06-03 07:52:32,698 : INFO : 2000 : 14 --- 90 min conn err 62.948484848484846
+2021-06-03 07:52:33,184 : INFO : 3000 : 22 --- 78 min conn err 62.948484848484846
+2021-06-03 07:52:33,866 : INFO : 4000 : 30 --- 130 min conn err 62.948484848484846
+2021-06-03 07:52:34,441 : INFO : 5000 : 39 --- 140 min conn err 62.948484848484846
+2021-06-03 07:52:35,012 : INFO : 6000 : 49 --- 135 min conn err 62.948484848484846
+2021-06-03 07:52:35,568 : INFO : 7000 : 60 --- 145 min conn err 62.948484848484846
+2021-06-03 07:52:36,099 : INFO : 8000 : 73 --- 131 min conn err 62.948484848484846
+2021-06-03 07:52:36,567 : INFO : 9000 : 89 --- 115 min conn err 62.948484848484846
+2021-06-03 07:52:36,997 : INFO : 10000 : 111 --- 136 min conn err 62.948484848484846
+2021-06-03 07:52:37,120 : INFO : first connection is found: 3 --- 40
+2021-06-03 07:52:37,132 : INFO : updates length:0.42 and number of conns: 1
+2021-06-03 07:52:37,132 : INFO : first connection is drawn; whole error = 0.18106388888888889
+2021-06-03 07:52:37,293 : INFO : next connection: 3 --- 33
+2021-06-03 07:52:37,299 : INFO : updates length:0.77 and number of conns: 2
+2021-06-03 07:52:37,300 : INFO : connection #2 : 3 --- 33 2/11175 whole error = 0.0007083333333333333
+2021-06-03 07:52:37,393 : DEBUG : adding connection making worse error, exiting
+2021-06-03 07:52:37,394 : INFO : saving image into result.png
+2021-06-03 07:52:37,403 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: 10575
+Количество проведенных соединений: 2
+
+Разрешение изображения: 600 x 600пикселей
+
+Требуемая длина нити: 0.77 m
+Расстрояние между гвоздями: 1.257; угловой шаг: 0.042
+
+Общая ошибка: 0.0 (100.0) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:52:37,403 : INFO : Время генерации: 1 сек
+2021-06-03 07:52:53,545 : INFO : loading image
+2021-06-03 07:52:56,034 : INFO : loaded path /mnt/c/diplom/myrepo/interface/three.png
+2021-06-03 07:52:56,037 : DEBUG : STREAM b'IHDR' 16 13
+2021-06-03 07:52:56,037 : DEBUG : STREAM b'IDAT' 41 6143
+2021-06-03 07:52:56,038 : INFO : square crop
+2021-06-03 07:52:57,412 : INFO : start generation
+2021-06-03 07:52:57,413 : INFO : calculation number of all possible connections
+2021-06-03 07:52:57,413 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: -1
+Количество проведенных соединений: 0
+
+Разрешение изображения: -1 x -1пикселей
+
+Требуемая длина нити: 0.0 m
+Расстрояние между гвоздями: -1; угловой шаг: -1
+
+Общая ошибка: -1 (100.39) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:52:57,414 : INFO : calculation resolution
+2021-06-03 07:52:57,414 : INFO : calculation number of all possible connections
+2021-06-03 07:52:57,414 : INFO : calculation number of all connections that will be checked (taking into concideration pin_skip parameter
+2021-06-03 07:52:57,415 : INFO : filling pins coordinates
+2021-06-03 07:52:57,416 : INFO : filling result matrix
+2021-06-03 07:52:57,416 : INFO : parsing input image
+2021-06-03 07:52:57,416 : INFO : greyscale, update resolution, circle crop
+2021-06-03 07:52:57,416 : INFO : greyscale
+2021-06-03 07:52:57,420 : INFO : circle crop
+2021-06-03 07:52:57,483 : INFO : saving image into greyscaled.png
+2021-06-03 07:52:57,511 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: 10575
+Количество проведенных соединений: 0
+
+Разрешение изображения: 600 x 600пикселей
+
+Требуемая длина нити: 0.0 m
+Расстрояние между гвоздями: 1.257; угловой шаг: 0.042
+
+Общая ошибка: -1 (100.39) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:52:57,523 : INFO : starting whole_error 0.6370777777777777
+2021-06-03 07:52:57,524 : INFO : begin scheme generation
+2021-06-03 07:52:57,525 : INFO : 0 : 0 --- 5 min conn err 255
+2021-06-03 07:52:58,024 : INFO : 1000 : 7 --- 28 min conn err 62.127272727272725
+2021-06-03 07:52:58,579 : INFO : 2000 : 14 --- 90 min conn err 61.18006430868167
+2021-06-03 07:52:59,122 : INFO : 3000 : 22 --- 78 min conn err 61.18006430868167
+2021-06-03 07:52:59,698 : INFO : 4000 : 30 --- 130 min conn err 61.18006430868167
+2021-06-03 07:53:00,273 : INFO : 5000 : 39 --- 140 min conn err 61.18006430868167
+2021-06-03 07:53:00,811 : INFO : 6000 : 49 --- 135 min conn err 61.18006430868167
+2021-06-03 07:53:01,353 : INFO : 7000 : 60 --- 145 min conn err 61.18006430868167
+2021-06-03 07:53:01,813 : INFO : 8000 : 73 --- 131 min conn err 61.18006430868167
+2021-06-03 07:53:02,314 : INFO : 9000 : 89 --- 115 min conn err 61.18006430868167
+2021-06-03 07:53:02,723 : INFO : 10000 : 111 --- 136 min conn err 61.18006430868167
+2021-06-03 07:53:02,854 : INFO : first connection is found: 9 --- 40
+2021-06-03 07:53:02,867 : INFO : updates length:0.36 and number of conns: 1
+2021-06-03 07:53:02,867 : INFO : first connection is drawn; whole error = 0.41450555555555557
+2021-06-03 07:53:02,996 : INFO : next connection: 40 --- 3
+2021-06-03 07:53:03,007 : INFO : updates length:0.78 and number of conns: 2
+2021-06-03 07:53:03,007 : INFO : connection #2 : 40 --- 3 2/11175 whole error = 0.18012777777777778
+2021-06-03 07:53:03,096 : INFO : updates length:1.14 and number of conns: 3
+2021-06-03 07:53:03,096 : INFO : connection #3 : 3 --- 33 3/11175 whole error = 0.0007083333333333333
+2021-06-03 07:53:03,180 : DEBUG : adding connection making worse error, exiting
+2021-06-03 07:53:03,180 : INFO : saving image into result.png
+2021-06-03 07:53:03,191 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: 10575
+Количество проведенных соединений: 3
+
+Разрешение изображения: 600 x 600пикселей
+
+Требуемая длина нити: 1.14 m
+Расстрояние между гвоздями: 1.257; угловой шаг: 0.042
+
+Общая ошибка: 0.0 (100.0) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:53:03,192 : INFO : Время генерации: 1 сек
+2021-06-03 07:53:13,690 : INFO : loading image
+2021-06-03 07:53:17,751 : INFO : loaded path /mnt/c/diplom/myrepo/interface/lines30.png
+2021-06-03 07:53:17,753 : DEBUG : STREAM b'IHDR' 16 13
+2021-06-03 07:53:17,754 : DEBUG : STREAM b'IDAT' 41 32385
+2021-06-03 07:53:17,755 : INFO : square crop
+2021-06-03 07:53:19,222 : INFO : start generation
+2021-06-03 07:53:19,222 : INFO : calculation number of all possible connections
+2021-06-03 07:53:19,223 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: -1
+Количество проведенных соединений: 0
+
+Разрешение изображения: -1 x -1пикселей
+
+Требуемая длина нити: 0.0 m
+Расстрояние между гвоздями: -1; угловой шаг: -1
+
+Общая ошибка: -1 (100.39) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:53:19,223 : INFO : calculation resolution
+2021-06-03 07:53:19,223 : INFO : calculation number of all possible connections
+2021-06-03 07:53:19,224 : INFO : calculation number of all connections that will be checked (taking into concideration pin_skip parameter
+2021-06-03 07:53:19,224 : INFO : filling pins coordinates
+2021-06-03 07:53:19,224 : INFO : filling result matrix
+2021-06-03 07:53:19,224 : INFO : parsing input image
+2021-06-03 07:53:19,225 : INFO : greyscale, update resolution, circle crop
+2021-06-03 07:53:19,225 : INFO : greyscale
+2021-06-03 07:53:19,226 : INFO : circle crop
+2021-06-03 07:53:19,273 : INFO : saving image into greyscaled.png
+2021-06-03 07:53:19,304 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: 10575
+Количество проведенных соединений: 0
+
+Разрешение изображения: 600 x 600пикселей
+
+Требуемая длина нити: 0.0 m
+Расстрояние между гвоздями: 1.257; угловой шаг: 0.042
+
+Общая ошибка: -1 (100.39) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:53:19,312 : INFO : starting whole_error 7.295177777777778
+2021-06-03 07:53:19,313 : INFO : begin scheme generation
+2021-06-03 07:53:19,313 : INFO : 0 : 0 --- 5 min conn err 255
+2021-06-03 07:53:19,710 : INFO : 1000 : 7 --- 28 min conn err 47.725
+2021-06-03 07:53:20,138 : INFO : 2000 : 14 --- 90 min conn err 47.725
+2021-06-03 07:53:20,591 : INFO : 3000 : 22 --- 78 min conn err 47.725
+2021-06-03 07:53:21,015 : INFO : 4000 : 30 --- 130 min conn err 47.725
+2021-06-03 07:53:21,449 : INFO : 5000 : 39 --- 140 min conn err 47.725
+2021-06-03 07:53:21,900 : INFO : 6000 : 49 --- 135 min conn err 47.725
+2021-06-03 07:53:22,360 : INFO : 7000 : 60 --- 145 min conn err 47.725
+2021-06-03 07:53:22,757 : INFO : 8000 : 73 --- 131 min conn err 47.725
+2021-06-03 07:53:23,117 : INFO : 9000 : 89 --- 115 min conn err 47.725
+2021-06-03 07:53:23,445 : INFO : 10000 : 111 --- 136 min conn err 47.725
+2021-06-03 07:53:23,555 : INFO : first connection is found: 3 --- 36
+2021-06-03 07:53:23,564 : INFO : updates length:0.38 and number of conns: 1
+2021-06-03 07:53:23,564 : INFO : first connection is drawn; whole error = 7.09465
+2021-06-03 07:53:23,693 : INFO : next connection: 36 --- 6
+2021-06-03 07:53:23,702 : INFO : updates length:0.74 and number of conns: 2
+2021-06-03 07:53:23,702 : INFO : connection #2 : 36 --- 6 2/11175 whole error = 6.901547222222222
+2021-06-03 07:53:23,789 : INFO : updates length:1.18 and number of conns: 3
+2021-06-03 07:53:23,790 : INFO : connection #3 : 6 --- 45 3/11175 whole error = 6.631225000000001
+2021-06-03 07:53:23,873 : INFO : updates length:1.53 and number of conns: 4
+2021-06-03 07:53:23,873 : INFO : connection #4 : 45 --- 15 4/11175 whole error = 6.394258333333333
+2021-06-03 07:53:23,958 : INFO : updates length:1.94 and number of conns: 5
+2021-06-03 07:53:23,958 : INFO : connection #5 : 15 --- 128 5/11175 whole error = 6.105883333333334
+2021-06-03 07:53:24,046 : INFO : updates length:2.32 and number of conns: 6
+2021-06-03 07:53:24,046 : INFO : connection #6 : 128 --- 12 6/11175 whole error = 5.843022222222222
+2021-06-03 07:53:24,125 : INFO : updates length:2.74 and number of conns: 7
+2021-06-03 07:53:24,125 : INFO : connection #7 : 12 --- 124 7/11175 whole error = 5.562086111111111
+2021-06-03 07:53:24,220 : INFO : updates length:3.14 and number of conns: 8
+2021-06-03 07:53:24,220 : INFO : connection #8 : 124 --- 9 8/11175 whole error = 5.307994444444445
+2021-06-03 07:53:24,297 : INFO : updates length:3.5 and number of conns: 9
+2021-06-03 07:53:24,297 : INFO : connection #9 : 9 --- 40 9/11175 whole error = 5.093091666666667
+2021-06-03 07:53:24,394 : INFO : updates length:3.92 and number of conns: 10
+2021-06-03 07:53:24,395 : INFO : connection #10 : 40 --- 3 10/11175 whole error = 4.865344444444444
+2021-06-03 07:53:24,475 : INFO : updates length:4.39 and number of conns: 11
+2021-06-03 07:53:24,475 : INFO : connection #11 : 3 --- 46 11/11175 whole error = 4.581458333333333
+2021-06-03 07:53:24,555 : INFO : updates length:4.84 and number of conns: 12
+2021-06-03 07:53:24,555 : INFO : connection #12 : 46 --- 5 12/11175 whole error = 4.305822222222222
+2021-06-03 07:53:24,632 : INFO : updates length:5.23 and number of conns: 13
+2021-06-03 07:53:24,633 : INFO : connection #13 : 5 --- 38 13/11175 whole error = 4.1025527777777775
+2021-06-03 07:53:24,719 : INFO : updates length:5.71 and number of conns: 14
+2021-06-03 07:53:24,719 : INFO : connection #14 : 38 --- 143 14/11175 whole error = 3.844177777777778
+2021-06-03 07:53:24,798 : INFO : updates length:6.15 and number of conns: 15
+2021-06-03 07:53:24,798 : INFO : connection #15 : 143 --- 34 15/11175 whole error = 3.591663888888889
+2021-06-03 07:53:24,880 : INFO : updates length:6.54 and number of conns: 16
+2021-06-03 07:53:24,880 : INFO : connection #16 : 34 --- 1 16/11175 whole error = 3.4018055555555553
+2021-06-03 07:53:24,965 : INFO : updates length:7.03 and number of conns: 17
+2021-06-03 07:53:24,966 : INFO : connection #17 : 1 --- 47 17/11175 whole error = 3.1104444444444446
+2021-06-03 07:53:25,049 : INFO : updates length:7.41 and number of conns: 18
+2021-06-03 07:53:25,049 : INFO : connection #18 : 47 --- 14 18/11175 whole error = 2.862625
+2021-06-03 07:53:25,136 : INFO : updates length:7.85 and number of conns: 19
+2021-06-03 07:53:25,136 : INFO : connection #19 : 14 --- 53 19/11175 whole error = 2.5681055555555554
+2021-06-03 07:53:25,224 : INFO : updates length:8.26 and number of conns: 20
+2021-06-03 07:53:25,224 : INFO : connection #20 : 53 --- 17 20/11175 whole error = 2.294261111111111
+2021-06-03 07:53:25,307 : INFO : updates length:8.65 and number of conns: 21
+2021-06-03 07:53:25,308 : INFO : connection #21 : 17 --- 133 21/11175 whole error = 2.0364555555555555
+2021-06-03 07:53:25,386 : INFO : updates length:9.01 and number of conns: 22
+2021-06-03 07:53:25,386 : INFO : connection #22 : 133 --- 102 22/11175 whole error = 1.7872805555555555
+2021-06-03 07:53:25,469 : INFO : updates length:9.36 and number of conns: 23
+2021-06-03 07:53:25,469 : INFO : connection #23 : 102 --- 132 23/11175 whole error = 1.553686111111111
+2021-06-03 07:53:25,553 : INFO : updates length:9.78 and number of conns: 24
+2021-06-03 07:53:25,553 : INFO : connection #24 : 132 --- 20 24/11175 whole error = 1.2686416666666667
+2021-06-03 07:53:25,637 : INFO : updates length:10.14 and number of conns: 25
+2021-06-03 07:53:25,637 : INFO : connection #25 : 20 --- 50 25/11175 whole error = 1.0342194444444444
+2021-06-03 07:53:25,722 : INFO : updates length:10.49 and number of conns: 26
+2021-06-03 07:53:25,722 : INFO : connection #26 : 50 --- 80 26/11175 whole error = 0.8041416666666666
+2021-06-03 07:53:25,801 : INFO : updates length:10.88 and number of conns: 27
+2021-06-03 07:53:25,801 : INFO : connection #27 : 80 --- 114 27/11175 whole error = 0.5781694444444444
+2021-06-03 07:53:25,877 : INFO : updates length:11.24 and number of conns: 28
+2021-06-03 07:53:25,878 : INFO : connection #28 : 114 --- 144 28/11175 whole error = 0.39600555555555556
+2021-06-03 07:53:25,962 : INFO : updates length:11.62 and number of conns: 29
+2021-06-03 07:53:25,963 : INFO : connection #29 : 144 --- 28 29/11175 whole error = 0.17042222222222222
+2021-06-03 07:53:26,041 : DEBUG : adding connection making worse error, exiting
+2021-06-03 07:53:26,042 : INFO : saving image into result.png
+2021-06-03 07:53:26,061 : INFO : РЕЗУЛЬТАТ
+Радиус холста: 30.0
+Толщина нити: 0.1
+Количество гвоздей: 150
+
+Количество всех возможных соединений: 11175
+Количество рассмотренных соединений: 10575
+Количество проведенных соединений: 29
+
+Разрешение изображения: 600 x 600пикселей
+
+Требуемая длина нити: 11.62 m
+Расстрояние между гвоздями: 1.257; угловой шаг: 0.042
+
+Общая ошибка: 0.17 (99.93) %
+Логгирование включено
+Отображение процесса генерации включено
+Количество гвоздей, пропускаемое при кротчайшей хорде: 5
+
+2021-06-03 07:53:26,061 : INFO : Время генерации: 3 сек
