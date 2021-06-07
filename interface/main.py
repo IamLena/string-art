@@ -213,7 +213,7 @@ class App:
 
 		self.pin_skip_label = tk.Label(self.root, justify="left", anchor="w", text = "Количество гвоздей, пропускаемое при кротчайшей хорде: ")
 		self.pin_skip_entry = tk.Entry()
-		self.pin_skip_entry.insert(0, "1")
+		self.pin_skip_entry.insert(0, "10")
 
 		self.error_check_skip_label = tk.Label(self.root, justify="left", anchor="w", text = "Количество соединений, отрисованное без проверки: ")
 		self.error_check_skip_entry = tk.Entry()
@@ -281,6 +281,7 @@ class App:
 		self.R_entry.insert(0, "30")
 		self.t_entry.insert(0, "0.1")
 		self.m_entry.insert(0, "200")
+		# self.pin_skip_entry.insert(0, "20")
 
 
 def init_log(log_file, level_code):

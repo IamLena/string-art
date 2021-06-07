@@ -1,0 +1,11 @@
+canvas radius = 30
+thread weight = 0.05
+number of pins = 300
+image = image.jpg
+
+
+logging = 1
+show process = 1
+
+number of pins to skip in minimum chord = 20
+
